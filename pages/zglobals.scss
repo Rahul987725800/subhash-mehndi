@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  font-family: 'Montserrat', sans-serif;
+  --color-silver: #c7c6bf;
+  --color-silverdark: #a1a1a1;
+  --color-maroon: rgb(71, 17, 14);
+  --color-lightslategray: rgb(117, 125, 136);
+  --color-slategray: hsl(0, 0%, 23%);
+  --color-darkslategray: hsl(240, 7%, 18%);
+  --color-steelblue: rgb(60, 143, 208);
+  --color-bluegray: #66788c;
+}
+a {
+  text-decoration: none;
+}
+img {
+  border-radius: 3px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 1rem;
+  font-weight: normal;
+}
+.swipe-story-left-enter {
+  transform: translateX(100%);
+}
+.swipe-story-left-enter-active {
+  transform: translateX(0);
+  transition: all 300ms ease;
+}
+.swipe-story-right-enter {
+  transform: translateX(-100%);
+}
+.swipe-story-right-enter-active {
+  transform: translateX(0);
+  transition: all 300ms ease;
+}

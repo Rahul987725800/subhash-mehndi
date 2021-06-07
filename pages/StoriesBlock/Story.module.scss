@@ -1,0 +1,49 @@
+.container {
+  height: calc(90vh - 95px);
+  background-color: rgb(7, 3, 32);
+  // background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  .video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .wrapper {
+    background-color: rgba($color: #000000, $alpha: 0.4);
+    width: 100%;
+    height: 100%;
+    @keyframes show {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    .content {
+      width: 90%;
+      position: absolute;
+      top: 10%;
+      left: 10%;
+      animation: show 1000ms ease backwards;
+      animation-delay: 300ms;
+
+      .title {
+        width: 90%;
+        color: white;
+        font-size: 3.7rem;
+        margin: 1.5rem 0;
+      }
+      .description {
+        color: white;
+        width: 30%;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}

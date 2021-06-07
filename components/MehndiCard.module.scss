@@ -1,0 +1,28 @@
+.mehndiCard {
+  // border: 1px solid red;
+  cursor: pointer;
+  flex: 1;
+  text-align: center;
+  padding: 2rem;
+  &:hover {
+    .type {
+      text-decoration: underline;
+    }
+  }
+  .image {
+    display: inline-block;
+    border-radius: 50%;
+    overflow: hidden;
+    // border: 1px solid red;
+    width: 150px;
+    height: 150px;
+  }
+  .type {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    color: var(--color-bluegray);
+  }
+  .description {
+    font-size: 0.9rem;
+  }
+}

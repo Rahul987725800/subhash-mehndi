@@ -1,0 +1,41 @@
+.home {
+  margin-top: 95px;
+
+  .services {
+    padding: 2rem 0;
+    .cards {
+      width: 80%;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+  }
+  .textfeed {
+    width: 80%;
+    margin: auto;
+    padding: 2rem 0;
+    display: flex;
+    .textSection {
+      flex-basis: 70%;
+      .header {
+        font-size: 2.5rem;
+        color: var(--color-slategray);
+        font-weight: bold;
+      }
+      .para {
+        margin-top: 2rem;
+      }
+    }
+    .feedSection {
+      margin-left: 2rem;
+      flex: 1;
+      // border: 1px solid red;
+      .header {
+        font-size: 2rem;
+        text-align: center;
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+.folder {
+  &:hover {
+    cursor: pointer;
+    .linkText {
+      text-decoration: underline;
+    }
+  }
+  .image {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: all 300ms ease;
+    }
+  }
+
+  .linkText {
+    text-align: center;
+    margin-top: 1rem;
+  }
+}

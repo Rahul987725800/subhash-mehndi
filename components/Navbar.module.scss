@@ -1,0 +1,49 @@
+.navbar {
+  background-position: center;
+  background-size: cover;
+  height: 95px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  .content {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    .logo {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      img {
+        height: 70px;
+      }
+      .text {
+        margin-left: 0.5rem;
+        font-size: 3rem;
+        color: var(--color-maroon);
+        font-family: 'Tangerine', cursive;
+        font-weight: bold;
+      }
+    }
+    .links {
+      margin-left: auto;
+      a {
+        color: gray;
+        font-size: 1.1rem;
+        border: 1px solid transparent;
+        padding: 0.5rem 1.5rem;
+        border-radius: 3px;
+      }
+      a:hover {
+        color: var(--color-maroon);
+      }
+      a.active {
+        color: var(--color-maroon);
+        border-color: var(--color-maroon);
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+.footer {
+  background-color: var(--color-slategray);
+  .topPart {
+    width: 80%;
+    margin: auto;
+    padding: 2rem 0;
+    .head {
+      font-size: 2rem;
+      text-transform: uppercase;
+      color: var(--color-bluegray);
+      margin-bottom: 2rem;
+    }
+    display: flex;
+    .followUs {
+      .text {
+        color: var(--color-silver);
+        margin-bottom: 2rem;
+      }
+      .logos {
+        display: flex;
+        align-items: center;
+        svg {
+          margin-right: 1rem;
+          height: 30px;
+          width: 30px;
+          fill: var(--color-silver);
+          &:hover {
+            fill: var(--color-bluegray);
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    .contactUs {
+      margin-left: auto;
+      .info {
+        color: var(--color-silver);
+      }
+    }
+  }
+  .bottomPart {
+  }
+}
