@@ -1,10 +1,11 @@
 .home {
-  margin-top: 95px;
+  margin-top: var(--measure-navbar-height);
+  min-height: calc(100vh - var(--measure-navbar-height));
 
   .services {
-    padding: 2rem 0;
+    padding: var(--measure-padding-vertical-block) 0;
     .cards {
-      width: 80%;
+      width: var(--measure-window-width);
       margin: auto;
       display: flex;
       justify-content: space-between;
@@ -12,9 +13,9 @@
     }
   }
   .textfeed {
-    width: 80%;
+    width: var(--measure-window-width);
     margin: auto;
-    padding: 2rem 0;
+    padding: var(--measure-padding-vertical-block) 0;
     display: flex;
     .textSection {
       flex-basis: 70%;
@@ -24,15 +25,15 @@
         font-weight: bold;
       }
       .para {
-        margin-top: 2rem;
+        margin-top: var(--measure-padding-vertical-block);
       }
     }
     .feedSection {
-      margin-left: 2rem;
+      margin-left: var(--measure-padding-vertical-block);
       flex: 1;
       // border: 1px solid red;
       .header {
-        font-size: 2rem;
+        font-size: var(--measure-padding-vertical-block);
         text-align: center;
         width: 100%;
       }

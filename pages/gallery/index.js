@@ -65,7 +65,7 @@ function gallery() {
         </div>
       </div>
       {showImageView &&
-        (isMobile || true ? (
+        (isMobile ? (
           <MobileImageView
             images={images}
             selectedImageIndex={selectedImageIndex}

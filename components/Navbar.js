@@ -18,6 +18,7 @@ function Navbar() {
           />
           <p className={styles.text}>Subhash Mehndi Artist</p>
         </div>
+
         <div className={styles.links}>
           <Link href="/">
             <a className={router.pathname == '/' ? styles.active : ''}>Home</a>

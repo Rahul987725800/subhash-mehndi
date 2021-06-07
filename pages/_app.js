@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
+import PageContainer from '../components/PageContainer';
 import { GlobalStateProvider } from '../state/GlobalStateProvider';
 import './zglobals.scss';
 
@@ -25,10 +26,11 @@ function MyApp({ Component, pageProps }) {
         <title>Subhash Mehndi Artist</title>
         <link rel="icon" href="/ganesha/ganesha-colored.svg" />
       </Head>
-
-      <Navbar />
-      <Component {...pageProps} />
-      <Footer />
+      <PageContainer>
+        <Navbar />
+        <Component {...pageProps} />
+        <Footer />
+      </PageContainer>
     </GlobalStateProvider>
   );
 }

@@ -1,6 +1,6 @@
 import styles from './contact.module.scss';
 function contact() {
-  return <div>Contacct</div>;
+  return <div className={styles.contact}>Contacct</div>;
 }
 
 export default contact;

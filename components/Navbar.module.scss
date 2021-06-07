@@ -1,7 +1,8 @@
 .navbar {
   background-position: center;
   background-size: cover;
-  height: 95px;
+  height: var(--measure-navbar-height);
+
   display: flex;
   align-items: center;
   position: fixed;
@@ -9,18 +10,26 @@
   width: 100%;
   z-index: 10;
   .content {
-    width: 80%;
+    width: var(--measure-window-width);
     margin: auto;
+
     display: flex;
     align-items: center;
+    justify-content: center;
     .logo {
       display: flex;
       align-items: center;
       cursor: pointer;
       img {
         height: 70px;
+        @media (max-width: 600px) {
+          display: none;
+        }
       }
       .text {
+        @media (max-width: 1000px) {
+          display: none;
+        }
         margin-left: 0.5rem;
         font-size: 3rem;
         color: var(--color-maroon);
@@ -29,7 +38,11 @@
       }
     }
     .links {
-      margin-left: auto;
+      @media (min-width: 600px) {
+        margin-left: auto;
+      }
+      // border: 1px solid red;
+      display: flex;
       a {
         color: gray;
         font-size: 1.1rem;
