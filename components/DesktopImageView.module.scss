@@ -7,23 +7,53 @@
   height: 100vh;
   user-select: none;
   background-color: rgba(0, 0, 0, 0.5);
+
+  .closeButton {
+    height: 95px;
+    padding: 0 4rem;
+    position: absolute;
+    width: 100%;
+    // border: 1px solid red;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: var(--color-silver);
+    font-size: 1.5rem;
+
+    &:hover {
+      cursor: pointer;
+      color: white;
+    }
+  }
   .imageGrid {
     display: flex;
-
+    margin-top: 95px;
     .images {
       display: flex;
       overflow-x: auto;
-      flex-basis: 70%;
-      border: 1px solid blue;
-      gap: 50vw;
-      img {
-        height: 70vh;
+      flex-basis: 70vw;
+
+      // border: 1px solid blue;
+
+      .image {
+        // border: 1px solid pink;
+        min-width: 70vw;
+        text-align: center;
+        img {
+          height: 80vh;
+          max-width: 70vw;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+      &::-webkit-scrollbar {
+        display: none;
       }
     }
 
     .arrow {
       cursor: pointer;
-      border: 1px solid red;
+      // border: 1px solid red;
       flex: 1;
       display: grid;
       place-content: center;
