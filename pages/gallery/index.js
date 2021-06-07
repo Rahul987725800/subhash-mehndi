@@ -5,6 +5,8 @@ import { range } from '../../utils';
 import CustomImage from '../../components/CustomImage';
 import { useState } from 'react';
 import DesktopImageView from '../../components/DesktopImageView';
+import { isMobile } from 'react-device-detect';
+import MobileImageView from '../../components/MobileImageView';
 const images = range(1, 14).map((v) => `/images/mehandi-latest/${v}.jpg`);
 function gallery() {
   const [showImageView, setShowImageView] = useState(false);
@@ -62,13 +64,20 @@ function gallery() {
           </div>
         </div>
       </div>
-      {showImageView && (
-        <DesktopImageView
-          images={images}
-          selectedImageIndex={selectedImageIndex}
-          closeImageView={() => setShowImageView(false)}
-        />
-      )}
+      {showImageView &&
+        (isMobile || true ? (
+          <MobileImageView
+            images={images}
+            selectedImageIndex={selectedImageIndex}
+            closeImageView={() => setShowImageView(false)}
+          />
+        ) : (
+          <DesktopImageView
+            images={images}
+            selectedImageIndex={selectedImageIndex}
+            closeImageView={() => setShowImageView(false)}
+          />
+        ))}
     </main>
   );
 }
