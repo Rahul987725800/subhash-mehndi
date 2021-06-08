@@ -37,13 +37,11 @@
 
       .image {
         // border: 1px solid pink;
-        min-width: 70vw;
-        text-align: center;
+
         img {
           height: 80vh;
-          max-width: 70vw;
-          object-fit: cover;
-          object-position: center;
+          width: 70vw;
+          object-fit: contain;
         }
       }
       &::-webkit-scrollbar {
