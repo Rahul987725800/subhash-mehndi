@@ -1,5 +1,7 @@
 .mehndiCard {
   // border: 1px solid red;
+  max-width: var(--measure-card-width);
+  margin: auto;
   cursor: pointer;
   flex: 1;
   text-align: center;

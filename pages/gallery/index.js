@@ -27,11 +27,6 @@ function gallery() {
       link: '/gallery/bangles-simple',
       linkText: 'Bangles Kade Stall',
     },
-    {
-      image: '/images/bangles-premium/2.jpg',
-      link: '/gallery/bangles-premium',
-      linkText: 'Gehne Jutti Prandi Stall',
-    },
   ];
 
   return (

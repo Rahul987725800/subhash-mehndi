@@ -1,5 +1,5 @@
 .container {
-  height: calc(90vh - 95px);
+  height: calc(90vh - var(--measure-navbar-height));
   background-color: rgb(7, 3, 32);
   // background-repeat: no-repeat;
   background-size: cover;

@@ -5,8 +5,7 @@ import { mod } from '../utils';
 import { GlobalStateContext } from '../state/GlobalStateProvider';
 import { CSSTransition } from 'react-transition-group';
 function MobileImageView({ images, selectedImageIndex, closeImageView }) {
-  const { swipeUsed, setSwipeUsed, setSwipeAllowedByParent } =
-    useContext(GlobalStateContext);
+  const { swipeUsed, setSwipeUsed } = useContext(GlobalStateContext);
   const [showSwipe] = useState(!swipeUsed);
   const [modFunction, setModFunction] = useState({
     mod: mod(0),
@@ -42,31 +41,14 @@ function MobileImageView({ images, selectedImageIndex, closeImageView }) {
   };
   const handlers = useSwipeable({
     onSwipedLeft: (e) => {
-      setSwipeAllowedByParent((prev) => {
-        return {
-          ...prev,
-          onSwipedLeft: false,
-        };
-      });
       // to prevent tab change
+
       nextBlock();
     },
     onSwipedRight: (e) => {
-      setSwipeAllowedByParent((prev) => {
-        return {
-          ...prev,
-          onSwipedRight: false,
-        };
-      });
       prevBlock();
     },
     onSwiped: (e) => {
-      setSwipeAllowedByParent((prev) => {
-        return {
-          ...prev,
-          onSwiped: false,
-        };
-      });
       setSwipeUsed(true);
     },
   });

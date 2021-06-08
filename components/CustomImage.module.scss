@@ -1,5 +1,7 @@
 .image {
   cursor: pointer;
+  border-radius: 3px;
+  overflow: hidden;
   img {
     transition: all 300ms ease;
   }

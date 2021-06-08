@@ -19,9 +19,7 @@ body {
 a {
   text-decoration: none;
 }
-img {
-  border-radius: 3px;
-}
+
 h1,
 h2,
 h3,
@@ -31,6 +29,27 @@ h6 {
   font-size: 1rem;
   font-weight: normal;
 }
+.container {
+  --measure-window-width: 90%;
+  --measure-padding-horizontal-block: 5%;
+  --measure-padding-vertical-block: 2rem;
+  --measure-navbar-height: 75px;
+  --measure-footer-head-font-size: 1.2rem;
+  --measure-card-width: 400px;
+  @media (min-width: 600px) {
+    --measure-footer-head-font-size: 1.5rem;
+  }
+  @media (min-width: 900px) {
+    --measure-window-width: 80%;
+    --measure-padding-horizontal-block: 10%;
+    --measure-navbar-height: 95px;
+    --measure-footer-head-font-size: 1.7rem;
+  }
+  @media (min-width: 1200px) {
+    --measure-footer-head-font-size: 2rem;
+  }
+}
+
 .swipe-story-left-enter {
   transform: translateX(100%);
 }

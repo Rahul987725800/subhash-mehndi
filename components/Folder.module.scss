@@ -1,20 +1,11 @@
 .folder {
+  border-radius: 3px;
+  // border: 1px solid red;
+  overflow: hidden;
   &:hover {
     cursor: pointer;
     .linkText {
       text-decoration: underline;
-    }
-  }
-  .image {
-    width: 200px;
-    height: 200px;
-    overflow: hidden;
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      transition: all 300ms ease;
     }
   }
 

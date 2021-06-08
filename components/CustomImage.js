@@ -25,6 +25,8 @@ function CustomImage({
         alt={alt}
         objectFit="cover"
         objectPosition="center"
+        loading="eager"
+        quality={100}
       />
     </div>
   );
