@@ -11,10 +11,11 @@ function MehndiCard({}) {
     >
       <span className={styles.image}>
         <CustomImage
-          src="/161.jpg"
+          imgCode="147_uroyvt"
           width={150}
           height={150}
           triggerHover={hovered}
+          finalImageQuality={20}
         />
       </span>
 

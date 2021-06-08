@@ -1,6 +1,7 @@
 import styles from './DesktopImageView.module.scss';
 import { useRef, useState, useEffect, useCallback } from 'react';
 import { useSwipeable } from 'react-swipeable';
+import CustomImage from './CustomImage';
 function DesktopImageView({ images, selectedImageIndex, closeImageView }) {
   const imagesRef = useRef();
   const [blockSmoothScroll, setBlockSmoothScroll] = useState(true);
@@ -32,7 +33,10 @@ function DesktopImageView({ images, selectedImageIndex, closeImageView }) {
     [scrollPosition]
   );
   const boxPositionFromMiddleLine = (boxIndex) => {
-    const imageArray = imagesRef.current.querySelectorAll('div');
+    const imageArray = imagesRef.current.querySelectorAll(
+      '.desktopViewCustomImageContainer'
+    );
+    // console.log(imageArray);
     const boxBounds = imageArray[boxIndex].getBoundingClientRect();
     // console.log(window.innerWidth);
     // console.log(boxBounds);
@@ -146,10 +150,18 @@ function DesktopImageView({ images, selectedImageIndex, closeImageView }) {
         </div>
 
         <div className={styles.images} ref={imagesRef}>
-          {images.map((src, i) => {
+          {images.map((imgCode, i) => {
             return (
-              <div className={styles.image} key={i}>
-                <img src={src} alt="mehandi image" draggable={false} />
+              <div className="desktopViewCustomImageContainer" key={i}>
+                {/* <img src={src} alt="mehandi image" draggable={false} /> */}
+                <CustomImage
+                  imgCode={imgCode}
+                  noHover
+                  heightPercent={80}
+                  widthPercent={70}
+                  imageFit="contain"
+                  cursor="inherit"
+                />
               </div>
             );
           })}

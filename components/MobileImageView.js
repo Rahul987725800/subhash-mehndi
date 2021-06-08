@@ -4,6 +4,7 @@ import { useContext, useState, useEffect } from 'react';
 import { mod } from '../utils';
 import { GlobalStateContext } from '../state/GlobalStateProvider';
 import { CSSTransition } from 'react-transition-group';
+import CustomImage from './CustomImage';
 function MobileImageView({ images, selectedImageIndex, closeImageView }) {
   const { swipeUsed, setSwipeUsed } = useContext(GlobalStateContext);
   const [showSwipe] = useState(!swipeUsed);
@@ -58,7 +59,7 @@ function MobileImageView({ images, selectedImageIndex, closeImageView }) {
         <i className="fa fa-arrow-left"></i>
       </div>
       <div className={styles.images} {...handlers}>
-        {images.map((src, i) => (
+        {images.map((imgCode, i) => (
           <CSSTransition
             classNames={`swipe-image-${swipeType}`}
             timeout={300}
@@ -72,7 +73,13 @@ function MobileImageView({ images, selectedImageIndex, closeImageView }) {
                 zIndex: modFunction.mod(i),
               }}
             >
-              <img src={src} alt="mehndi image" />
+              <CustomImage
+                imgCode={imgCode}
+                heightPercent={80}
+                widthPercent={95}
+                imageFit="contain"
+                noHover
+              />
             </div>
           </CSSTransition>
         ))}

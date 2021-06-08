@@ -7,23 +7,23 @@ import { useState } from 'react';
 import DesktopImageView from '../../components/DesktopImageView';
 import { isMobile } from 'react-device-detect';
 import MobileImageView from '../../components/MobileImageView';
-const images = range(1, 14).map((v) => `/images/mehandi-latest/${v}.jpg`);
+const images = range(1, 14).map((v) => '147_uroyvt');
 function gallery() {
   const [showImageView, setShowImageView] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState();
   let folders = [
     {
-      image: '/images/mehandi/2.jpg',
+      image: '147_uroyvt',
       link: '/gallery/mehandi',
       linkText: 'Mehandi Designs',
     },
     {
-      image: '/images/mehandi-latest/2.jpg',
+      image: '161_dz9rdy',
       link: '/gallery/mehandi-latest',
       linkText: 'Mehandi Latest Designs',
     },
     {
-      image: '/images/bangles-simple/2.jpg',
+      image: '150_kb5iec',
       link: '/gallery/bangles-simple',
       linkText: 'Bangles Kade Stall',
     },
@@ -42,7 +42,7 @@ function gallery() {
         <h1 className={styles.header}>Miscellaneous</h1>
         <div className={styles.container}>
           <div className={styles.images}>
-            {images.map((src, i) => {
+            {images.map((imgCode, i) => {
               return (
                 <div
                   className={styles.image}
@@ -52,7 +52,7 @@ function gallery() {
                   }}
                   key={i}
                 >
-                  <CustomImage src={src} />
+                  <CustomImage imgCode={imgCode} finalImageQuality={20} />
                 </div>
               );
             })}

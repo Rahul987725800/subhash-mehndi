@@ -34,16 +34,6 @@
       flex-basis: 70vw;
 
       // border: 1px solid blue;
-
-      .image {
-        // border: 1px solid pink;
-
-        img {
-          height: 80vh;
-          width: 70vw;
-          object-fit: contain;
-        }
-      }
       &::-webkit-scrollbar {
         display: none;
       }
