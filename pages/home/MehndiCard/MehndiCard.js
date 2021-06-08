@@ -1,5 +1,5 @@
 import styles from './MehndiCard.module.scss';
-import CustomImage from './CustomImage';
+import CustomImage from '../../../components/CustomImage';
 import { useState } from 'react';
 function MehndiCard({}) {
   const [hovered, setHovered] = useState(false);
@@ -12,8 +12,8 @@ function MehndiCard({}) {
       <span className={styles.image}>
         <CustomImage
           imgCode="147_uroyvt"
-          width={150}
-          height={150}
+          width="150px"
+          height="150px"
           triggerHover={hovered}
           finalImageQuality={20}
         />

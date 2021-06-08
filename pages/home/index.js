@@ -1,14 +1,13 @@
-import { isMobile } from 'react-device-detect';
-import FeedCard from '../components/FeedCard';
-import MehndiCard from '../components/MehndiCard';
+import FeedCard from './FeedCard/FeedCard';
+import MehndiCard from './MehndiCard/MehndiCard';
 import styles from './index.module.scss';
 import StoriesBlock from './StoriesBlock/StoriesBlock';
 export default function home() {
   return (
     <main className={styles.home}>
-      {!isMobile && <StoriesBlock />}
+      <StoriesBlock />
 
-      <div className={styles.textfeed}>
+      <div className={styles.textFeed}>
         <div className={styles.textSection}>
           <h1 className={styles.header}>Welcome to Subhash Mehndi Art</h1>
           <p className={styles.para}>

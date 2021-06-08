@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Folder.module.scss';
 import Link from 'next/link';
-import CustomImage from './CustomImage';
+import CustomImage from '../../../components/CustomImage';
 function Folder({ folder }) {
   const [hovered, setHovered] = useState(false);
   return (

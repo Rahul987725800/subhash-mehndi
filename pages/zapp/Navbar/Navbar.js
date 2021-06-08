@@ -20,8 +20,10 @@ function Navbar() {
         </div>
 
         <div className={styles.links}>
-          <Link href="/">
-            <a className={router.pathname == '/' ? styles.active : ''}>Home</a>
+          <Link href="/home">
+            <a className={router.pathname == '/home' ? styles.active : ''}>
+              Home
+            </a>
           </Link>
           <Link href="/gallery">
             <a className={router.pathname == '/gallery' ? styles.active : ''}>

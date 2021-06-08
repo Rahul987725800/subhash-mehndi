@@ -1,7 +1,8 @@
 import Head from 'next/head';
-import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
+import Footer from './zapp/Footer/Footer';
+import Navbar from './zapp/Navbar/Navbar';
 import { GlobalStateProvider } from '../state/GlobalStateProvider';
+
 import './zglobals.scss';
 
 function MyApp({ Component, pageProps }) {

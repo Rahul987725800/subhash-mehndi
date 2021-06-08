@@ -1,7 +1,7 @@
 import styles from './Footer.module.scss';
-import FacebookIcon from '../public/logos/facebook.svg';
-import InstagramIcon from '../public/logos/instagram.svg';
-import GoogleIcon from '../public/logos/google.svg';
+import FacebookIcon from '../../../public/logos/facebook.svg';
+import InstagramIcon from '../../../public/logos/instagram.svg';
+import GoogleIcon from '../../../public/logos/google.svg';
 function Footer() {
   return (
     <footer className={styles.footer}>

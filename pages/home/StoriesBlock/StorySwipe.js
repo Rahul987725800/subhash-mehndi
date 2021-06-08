@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useSwipeable } from 'react-swipeable';
 import { CSSTransition } from 'react-transition-group';
 import styles from './StorySwipe.module.scss';
-import { mod } from '../../utils';
+import { mod } from '../../../utils';
 function StorySwipe({ items }) {
   const [active, setActive] = useState(0);
   const [swipeType, setSwipeType] = useState('left');

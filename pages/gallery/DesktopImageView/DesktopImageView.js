@@ -1,7 +1,7 @@
 import styles from './DesktopImageView.module.scss';
 import { useRef, useState, useEffect, useCallback } from 'react';
 import { useSwipeable } from 'react-swipeable';
-import CustomImage from './CustomImage';
+import CustomImage from '../../../components/CustomImage';
 function DesktopImageView({ images, selectedImageIndex, closeImageView }) {
   const imagesRef = useRef();
   const [blockSmoothScroll, setBlockSmoothScroll] = useState(true);
@@ -157,8 +157,8 @@ function DesktopImageView({ images, selectedImageIndex, closeImageView }) {
                 <CustomImage
                   imgCode={imgCode}
                   noHover
-                  heightPercent={80}
-                  widthPercent={70}
+                  height="80vh"
+                  width="70vw"
                   imageFit="contain"
                   cursor="inherit"
                 />

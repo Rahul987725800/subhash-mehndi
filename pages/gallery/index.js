@@ -1,12 +1,12 @@
 import styles from './index.module.scss';
-import Folder from '../../components/Folder';
+import Folder from './Folder/Folder';
 
 import { range } from '../../utils';
 import CustomImage from '../../components/CustomImage';
 import { useState } from 'react';
-import DesktopImageView from '../../components/DesktopImageView';
+import DesktopImageView from './DesktopImageView/DesktopImageView';
 import { isMobile } from 'react-device-detect';
-import MobileImageView from '../../components/MobileImageView';
+import MobileImageView from './MobileImageView/MobileImageView';
 const images = range(1, 14).map((v) => '147_uroyvt');
 function gallery() {
   const [showImageView, setShowImageView] = useState(false);

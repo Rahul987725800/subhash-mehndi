@@ -7,6 +7,15 @@ module.exports = {
 
     return config;
   },
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/home',
+        permanent: true,
+      },
+    ];
+  },
   images: {
     domains: ['res.cloudinary.com'],
   },

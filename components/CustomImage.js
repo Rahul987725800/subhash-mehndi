@@ -1,12 +1,11 @@
-import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import styles from './CustomImage.module.scss';
 import { buildUrl } from 'cloudinary-build-url';
 
 function CustomImage({
   imgCode,
-  width = 200,
-  height = 200,
+  width = '200px',
+  height = '200px',
   alt = 'mehndi design',
   triggerHover = false,
   finalImageQuality = 100,
@@ -14,20 +13,7 @@ function CustomImage({
   imageFit = 'cover',
   noHover = false,
   cursor = 'pointer',
-  widthPercent = 0,
-  heightPercent = 0,
 }) {
-  function getWidthAndHeight() {
-    // console.log('ran');
-    return {
-      width: widthPercent ? (window.innerWidth * widthPercent) / 100 : width,
-      height: heightPercent
-        ? (window.innerHeight * heightPercent) / 100
-        : height,
-    };
-  }
-  const [computed, setComputed] = useState(() => getWidthAndHeight());
-
   const urlBlurred = buildUrl(imgCode, {
     cloud: {
       cloudName: 'dguirphl1',
@@ -55,8 +41,8 @@ function CustomImage({
         !noHover && (triggerHover || hovered) ? styles.imageHovered : '',
       ].join(' ')}
       style={{
-        height: `${computed.height}px`,
-        width: `${computed.width}px`,
+        height,
+        width,
         backgroundImage: `url(${urlBlurred})`,
         backgroundPosition: imagePosition,
         backgroundSize: imageFit,
@@ -64,16 +50,16 @@ function CustomImage({
         cursor,
       }}
     >
-      <Image
+      <img
         src={url}
         alt={alt}
-        objectFit={imageFit}
-        objectPosition={imagePosition}
-        height={computed.height}
-        width={computed.width}
-        unoptimized={true}
+        style={{
+          height,
+          width,
+          objectFit: imageFit,
+          objectPosition: imagePosition,
+        }}
         draggable={false}
-        // for desktop image view for swipe to work properly
       />
     </div>
   );
