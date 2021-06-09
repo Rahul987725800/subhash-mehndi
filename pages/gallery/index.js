@@ -66,25 +66,25 @@ function gallery() {
           display: showImageView ? 'block' : 'none',
         }}
       >
-        {/* {window.innerWidth < 900 ? ( */}
-        {/* <MobileImageView
-          images={images}
-          activeImageIndex={activeImageIndex}
-          setActiveImageIndex={setActiveImageIndex}
-          closeImageView={() => setShowImageView(false)}
-        /> */}
-        {/* ) : ( */}
-
-        <DesktopImageView
-          images={images}
-          activeImageIndex={activeImageIndex}
-          setActiveImageIndex={setActiveImageIndex}
-          closeImageView={() => setShowImageView(false)}
-          blockSmoothScroll={blockSmoothScroll}
-          setBlockSmoothScroll={setBlockSmoothScroll}
-        />
-
-        {/* )} */}
+        {isMobile ? (
+          <MobileImageView
+            images={images}
+            activeImageIndex={activeImageIndex}
+            setActiveImageIndex={setActiveImageIndex}
+            closeImageView={() => setShowImageView(false)}
+            blockSmoothScroll={blockSmoothScroll}
+            setBlockSmoothScroll={setBlockSmoothScroll}
+          />
+        ) : (
+          <DesktopImageView
+            images={images}
+            activeImageIndex={activeImageIndex}
+            setActiveImageIndex={setActiveImageIndex}
+            closeImageView={() => setShowImageView(false)}
+            blockSmoothScroll={blockSmoothScroll}
+            setBlockSmoothScroll={setBlockSmoothScroll}
+          />
+        )}
       </div>
     </main>
   );

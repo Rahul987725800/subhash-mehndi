@@ -64,26 +64,52 @@ h6 {
   transform: translateX(0);
   transition: all 300ms ease;
 }
+.opacity-0 {
+  opacity: 0;
+}
+.opacity-1 {
+  opacity: 1;
+}
 .swipe-image-left-enter {
   transform: translateX(100%);
+  opacity: 1;
 }
 .swipe-image-left-enter-active {
   transform: translateX(0);
   transition: all 300ms ease;
 }
-
+.swipe-image-left-enter-done {
+  opacity: 1;
+}
+.swipe-image-left-exit {
+  opacity: 1;
+}
 .swipe-image-left-exit-active {
   transform: translateX(-100%);
   transition: all 300ms ease;
 }
+.swipe-image-left-exit-done {
+  opacity: 0;
+}
 .swipe-image-right-enter {
   transform: translateX(-100%);
+  opacity: 1;
 }
+
 .swipe-image-right-enter-active {
   transform: translateX(0);
   transition: all 300ms ease;
 }
+.swipe-image-right-enter-done {
+  opacity: 1;
+}
+.swipe-image-right-exit {
+  opacity: 1;
+}
 .swipe-image-right-exit-active {
   transform: translateX(100%);
   transition: all 300ms ease;
+}
+.swipe-image-right-exit-done {
+  opacity: 0;
 }

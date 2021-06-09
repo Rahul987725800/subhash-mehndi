@@ -10,13 +10,19 @@ function MobileImageView({
   activeImageIndex,
   setActiveImageIndex,
   closeImageView,
+  blockSmoothScroll,
+  setBlockSmoothScroll,
 }) {
   const { swipeUsed, setSwipeUsed } = useContext(GlobalStateContext);
-  const [showSwipe] = useState(!swipeUsed);
+  const [showSwipe, setShowSwipe] = useState(!swipeUsed);
+
   const [modFunction, setModFunction] = useState({
     mod: mod(0),
   });
   const [swipeType, setSwipeType] = useState('left');
+  const [imageLoadingSpeeds, setImageLoadingSpeeds] = useState(
+    Array(images.length).fill('lazy')
+  );
 
   const prevBlock = () => {
     setSwipeType('right');
@@ -52,9 +58,37 @@ function MobileImageView({
       prevBlock();
     },
     onSwiped: (e) => {
-      setSwipeUsed(true);
+      if (!swipeUsed) {
+        setSwipeUsed(true);
+        setTimeout(() => {
+          setShowSwipe(false);
+          // we want to hide the swipe after animation is over
+          // 600ms delay, 600ms animaation (gone)
+        }, 1200);
+      }
     },
+    trackMouse: true,
   });
+  useEffect(() => {
+    setImageLoadingSpeeds((speeds) => {
+      const updatedSpeeds = speeds.map((v, i) => {
+        if (Math.abs(i - activeImageIndex) <= 2) {
+          return 'eager';
+        }
+        return v;
+      });
+      // console.log(updatedSpeeds);
+      return updatedSpeeds;
+    });
+  }, [activeImageIndex]);
+
+  useEffect(() => {
+    if (blockSmoothScroll) {
+      setSwipeType('');
+      setBlockSmoothScroll(false);
+    }
+  }, [blockSmoothScroll]);
+
   return (
     <div className={styles.mobileImageView}>
       <div className={styles.back} onClick={closeImageView}>
@@ -66,11 +100,15 @@ function MobileImageView({
             classNames={`swipe-image-${swipeType}`}
             timeout={300}
             in={i === activeImageIndex}
-            unmountOnExit
             key={i}
           >
             <div
-              className={styles.image}
+              className={[
+                styles.image,
+                swipeType === '' && i === activeImageIndex
+                  ? 'opacity-1'
+                  : 'opacity-0',
+              ].join(' ')}
               style={{
                 zIndex: modFunction.mod(i),
               }}
@@ -80,6 +118,8 @@ function MobileImageView({
                 height="80vh"
                 width="95vw"
                 imageFit="contain"
+                imageQuality={100}
+                loading={imageLoadingSpeeds[i]}
               />
             </div>
           </CSSTransition>
