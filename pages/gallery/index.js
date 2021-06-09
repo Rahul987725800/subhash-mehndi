@@ -3,27 +3,29 @@ import Folder from './Folder/Folder';
 
 import { range } from '../../utils';
 import CustomImage from '../../components/CustomImage';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import DesktopImageView from './DesktopImageView/DesktopImageView';
 import { isMobile } from 'react-device-detect';
 import MobileImageView from './MobileImageView/MobileImageView';
-const images = range(1, 14).map((v) => '147_uroyvt');
+const images = range(1, 14).map((v) => `/images/mehandi/${v}.jpg`);
 function gallery() {
   const [showImageView, setShowImageView] = useState(false);
-  const [selectedImageIndex, setSelectedImageIndex] = useState();
+  const [activeImageIndex, setActiveImageIndex] = useState();
+  const [blockSmoothScroll, setBlockSmoothScroll] = useState(true);
+
   let folders = [
     {
-      image: '147_uroyvt',
+      image: '/images/mehandi/1.jpg',
       link: '/gallery/mehandi',
       linkText: 'Mehandi Designs',
     },
     {
-      image: '161_dz9rdy',
+      image: '/images/mehandi/2.jpg',
       link: '/gallery/mehandi-latest',
       linkText: 'Mehandi Latest Designs',
     },
     {
-      image: '150_kb5iec',
+      image: '/images/mehandi/3.jpg',
       link: '/gallery/bangles-simple',
       linkText: 'Bangles Kade Stall',
     },
@@ -32,7 +34,6 @@ function gallery() {
   return (
     <main className={styles.gallery}>
       <h1 className={styles.header}>Gallery</h1>
-
       <div className={styles.folders}>
         {folders.map((folder, i) => {
           return <Folder key={i} folder={folder} />;
@@ -42,37 +43,47 @@ function gallery() {
         <h1 className={styles.header}>Miscellaneous</h1>
         <div className={styles.container}>
           <div className={styles.images}>
-            {images.map((imgCode, i) => {
+            {images.map((src, i) => {
               return (
                 <div
                   className={styles.image}
                   onClick={() => {
+                    setBlockSmoothScroll(true);
+                    setActiveImageIndex(i);
                     setShowImageView(true);
-                    setSelectedImageIndex(i);
                   }}
                   key={i}
                 >
-                  <CustomImage imgCode={imgCode} finalImageQuality={20} />
+                  <CustomImage src={src} addHoverEffect />
                 </div>
               );
             })}
           </div>
         </div>
       </div>
-      {showImageView &&
-        (isMobile ? (
-          <MobileImageView
-            images={images}
-            selectedImageIndex={selectedImageIndex}
-            closeImageView={() => setShowImageView(false)}
-          />
-        ) : (
-          <DesktopImageView
-            images={images}
-            selectedImageIndex={selectedImageIndex}
-            closeImageView={() => setShowImageView(false)}
-          />
-        ))}
+      <div
+        style={{
+          display: showImageView ? 'block' : 'none',
+        }}
+      >
+        {/* {window.innerWidth < 900 ? ( */}
+        {/* <MobileImageView
+          images={images}
+          activeImageIndex={activeImageIndex}
+          setActiveImageIndex={setActiveImageIndex}
+          closeImageView={() => setShowImageView(false)}
+        /> */}
+        {/* ) : ( */}
+        <DesktopImageView
+          images={images}
+          activeImageIndex={activeImageIndex}
+          setActiveImageIndex={setActiveImageIndex}
+          closeImageView={() => setShowImageView(false)}
+          blockSmoothScroll={blockSmoothScroll}
+          setBlockSmoothScroll={setBlockSmoothScroll}
+        />
+        {/* )} */}
+      </div>
     </main>
   );
 }

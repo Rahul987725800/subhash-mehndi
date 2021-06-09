@@ -11,11 +11,7 @@ function Folder({ folder }) {
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
-        <CustomImage
-          imgCode={folder.image}
-          triggerHover={hovered}
-          finalImageQuality={20}
-        />
+        <CustomImage src={folder.image} addHoverEffect triggerHover={hovered} />
         <div className={styles.linkText}>
           <a>{folder.linkText}</a>
         </div>

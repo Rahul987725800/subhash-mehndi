@@ -2,15 +2,18 @@ import styles from './DesktopImageView.module.scss';
 import { useRef, useState, useEffect, useCallback } from 'react';
 import { useSwipeable } from 'react-swipeable';
 import CustomImage from '../../../components/CustomImage';
-function DesktopImageView({ images, selectedImageIndex, closeImageView }) {
+function DesktopImageView({
+  images,
+  activeImageIndex,
+  setActiveImageIndex,
+  closeImageView,
+  blockSmoothScroll,
+  setBlockSmoothScroll,
+}) {
   const imagesRef = useRef();
-  const [blockSmoothScroll, setBlockSmoothScroll] = useState(true);
   const [scrollPosition, setScrollPosition] = useState();
   const [scrolling, setScrolling] = useState(false);
   const [scrollStartTime, setScrollStartTime] = useState();
-  const [activeImageIndex, setActiveImageIndex] = useState(
-    () => selectedImageIndex
-  );
 
   const prevImageIndex = () => {
     if (activeImageIndex === 0) {
@@ -107,9 +110,7 @@ function DesktopImageView({ images, selectedImageIndex, closeImageView }) {
   useEffect(() => {
     slideImage();
   }, [activeImageIndex]);
-  useEffect(() => {
-    setBlockSmoothScroll(false);
-  }, []);
+
   const slideImage = () => {
     if (!blockSmoothScroll) {
       imagesRef.current.style.scrollBehavior = 'smooth';
@@ -150,13 +151,12 @@ function DesktopImageView({ images, selectedImageIndex, closeImageView }) {
         </div>
 
         <div className={styles.images} ref={imagesRef}>
-          {images.map((imgCode, i) => {
+          {images.map((src, i) => {
             return (
               <div className="desktopViewCustomImageContainer" key={i}>
                 {/* <img src={src} alt="mehandi image" draggable={false} /> */}
                 <CustomImage
-                  imgCode={imgCode}
-                  noHover
+                  src={src}
                   height="80vh"
                   width="70vw"
                   imageFit="contain"

@@ -5,16 +5,18 @@ import { mod } from '../../../utils';
 import { GlobalStateContext } from '../../../state/GlobalStateProvider';
 import { CSSTransition } from 'react-transition-group';
 import CustomImage from '../../../components/CustomImage';
-function MobileImageView({ images, selectedImageIndex, closeImageView }) {
+function MobileImageView({
+  images,
+  activeImageIndex,
+  setActiveImageIndex,
+  closeImageView,
+}) {
   const { swipeUsed, setSwipeUsed } = useContext(GlobalStateContext);
   const [showSwipe] = useState(!swipeUsed);
   const [modFunction, setModFunction] = useState({
     mod: mod(0),
   });
   const [swipeType, setSwipeType] = useState('left');
-  const [activeImageIndex, setActiveImageIndex] = useState(
-    () => selectedImageIndex
-  );
 
   const prevBlock = () => {
     setSwipeType('right');
@@ -59,7 +61,7 @@ function MobileImageView({ images, selectedImageIndex, closeImageView }) {
         <i className="fa fa-arrow-left"></i>
       </div>
       <div className={styles.images} {...handlers}>
-        {images.map((imgCode, i) => (
+        {images.map((src, i) => (
           <CSSTransition
             classNames={`swipe-image-${swipeType}`}
             timeout={300}
@@ -74,11 +76,10 @@ function MobileImageView({ images, selectedImageIndex, closeImageView }) {
               }}
             >
               <CustomImage
-                imgCode={imgCode}
+                src={src}
                 height="80vh"
                 width="95vw"
                 imageFit="contain"
-                noHover
               />
             </div>
           </CSSTransition>

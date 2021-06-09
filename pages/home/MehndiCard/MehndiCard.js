@@ -11,11 +11,11 @@ function MehndiCard({}) {
     >
       <span className={styles.image}>
         <CustomImage
-          imgCode="147_uroyvt"
+          src="/images/mehandi/1.jpg"
           width="150px"
           height="150px"
+          addHoverEffect
           triggerHover={hovered}
-          finalImageQuality={20}
         />
       </span>
 
