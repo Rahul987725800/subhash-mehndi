@@ -12,6 +12,8 @@ function CustomImage({
   imageFit = 'cover',
   addHoverEffect = false,
   cursor = 'pointer',
+  imageQuality = 1,
+  loading = 'lazy',
 }) {
   const [hovered, setHovered] = useState(false);
   const mouseEvents = () => {
@@ -36,27 +38,18 @@ function CustomImage({
       }}
     >
       <Image
-        className={styles.blurred}
+        className={styles.main}
         src={src}
         alt={alt}
         layout="fill"
         objectFit={imageFit}
         objectPosition={imagePosition}
-        quality={1}
         draggable={false}
-        loading="eager"
+        loading={loading}
+        quality={imageQuality}
         // so it loads before img
       />
-      <img
-        className={styles.main}
-        src={src}
-        alt={alt}
-        style={{
-          objectFit: imageFit,
-          objectPosition: imagePosition,
-        }}
-        draggable={false}
-      />
+
       <div className={styles.loader}>
         <Loader />
       </div>

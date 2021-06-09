@@ -14,6 +14,9 @@ function DesktopImageView({
   const [scrollPosition, setScrollPosition] = useState();
   const [scrolling, setScrolling] = useState(false);
   const [scrollStartTime, setScrollStartTime] = useState();
+  const [imageLoadingSpeeds, setImageLoadingSpeeds] = useState(
+    Array(images.length).fill('lazy')
+  );
 
   const prevImageIndex = () => {
     if (activeImageIndex === 0) {
@@ -108,6 +111,16 @@ function DesktopImageView({
   });
 
   useEffect(() => {
+    setImageLoadingSpeeds((speeds) => {
+      const updatedSpeeds = speeds.map((v, i) => {
+        if (Math.abs(i - activeImageIndex) <= 2) {
+          return 'eager';
+        }
+        return v;
+      });
+      // console.log(updatedSpeeds);
+      return updatedSpeeds;
+    });
     slideImage();
   }, [activeImageIndex]);
 
@@ -161,6 +174,8 @@ function DesktopImageView({
                   width="70vw"
                   imageFit="contain"
                   cursor="inherit"
+                  imageQuality={100}
+                  loading={imageLoadingSpeeds[i]}
                 />
               </div>
             );

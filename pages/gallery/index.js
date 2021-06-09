@@ -54,7 +54,7 @@ function gallery() {
                   }}
                   key={i}
                 >
-                  <CustomImage src={src} addHoverEffect />
+                  <CustomImage src={src} addHoverEffect loading="lazy" />
                 </div>
               );
             })}
@@ -74,6 +74,7 @@ function gallery() {
           closeImageView={() => setShowImageView(false)}
         /> */}
         {/* ) : ( */}
+
         <DesktopImageView
           images={images}
           activeImageIndex={activeImageIndex}
@@ -82,6 +83,7 @@ function gallery() {
           blockSmoothScroll={blockSmoothScroll}
           setBlockSmoothScroll={setBlockSmoothScroll}
         />
+
         {/* )} */}
       </div>
     </main>
