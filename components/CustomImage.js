@@ -92,21 +92,26 @@ function CustomImage({
     if (addZoomEffect) {
       img.style.transform = `translate(${0}px, ${0}px) scale(${scale})`;
     } else {
-      img.style.transform = `translate(${0}px, ${0}px) scale(${1})`;
+      img.style.transform = ` scale(${1})`;
     }
   }, [addZoomEffect, scale]);
+  useEffect(() => {
+    const img = imageRef.current.querySelector('img');
+    img.style.transition = `transform 300ms ease`;
+    if (addHoverEffect && (triggerHover || hovered)) {
+      img.style.transform = ` scale(1.1)`;
+    } else {
+      img.style.transform = ` scale(1)`;
+    }
+  }, [addHoverEffect, triggerHover, hovered]);
   return (
     <div
       {...mouseEvents()}
-      className={[
-        styles.image,
-        addHoverEffect && (triggerHover || hovered) ? styles.imageHovered : '',
-      ].join(' ')}
+      className={styles.image}
       style={{
         height,
         width,
         cursor,
-        transform: `scale(${scale})`,
       }}
       ref={imageRef}
     >

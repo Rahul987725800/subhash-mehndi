@@ -15,9 +15,11 @@ function DesktopImageView({
   const [cursorType, setCursorType] = useState('grab');
   const [scrollStartTime, setScrollStartTime] = useState();
   const [imageScale, setImageScale] = useState(1);
-  const [imageLoadingSpeeds, setImageLoadingSpeeds] = useState(
-    Array(images.length).fill('lazy')
-  );
+  const [imageLoadingSpeeds, setImageLoadingSpeeds] = useState(() => {
+    const arr = Array(images.length).fill('lazy');
+    arr[0] = 'eager';
+    return arr;
+  });
 
   const prevImageIndex = () => {
     if (activeImageIndex === 0) {
@@ -116,12 +118,13 @@ function DesktopImageView({
 
   useEffect(() => {
     setImageLoadingSpeeds((speeds) => {
-      const updatedSpeeds = speeds.map((v, i) => {
-        if (Math.abs(i - activeImageIndex) <= 2) {
-          return 'eager';
-        }
-        return v;
-      });
+      const updatedSpeeds = [...speeds];
+      updatedSpeeds[activeImageIndex] = 'eager';
+      if (activeImageIndex + 1 < speeds.length)
+        updatedSpeeds[activeImageIndex + 1] = 'eager';
+      if (activeImageIndex - 1 >= 0)
+        updatedSpeeds[activeImageIndex - 1] = 'eager';
+
       // console.log(updatedSpeeds);
       return updatedSpeeds;
     });
