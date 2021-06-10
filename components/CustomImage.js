@@ -14,6 +14,7 @@ function CustomImage({
   cursor = 'pointer',
   imageQuality = 1,
   loading = 'lazy',
+  scale = 1,
 }) {
   const [hovered, setHovered] = useState(false);
   const mouseEvents = () => {
@@ -35,6 +36,7 @@ function CustomImage({
         height,
         width,
         cursor,
+        transform: `scale(${scale})`,
       }}
     >
       <Image
@@ -47,6 +49,7 @@ function CustomImage({
         draggable={false}
         loading={loading}
         quality={imageQuality}
+
         // so it loads before img
       />
 

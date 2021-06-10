@@ -143,12 +143,17 @@ function DesktopImageView({
       style={{
         cursor: cursorType,
       }}
-      {...handlers}
     >
-      <div onClick={closeImageView} className={styles.closeButton}>
+      <div
+        onClick={closeImageView}
+        className={[styles.button, styles.close].join(' ')}
+      >
         &#10006;
       </div>
-
+      <div className={[styles.button, styles.zoom].join(' ')}>
+        <div className={styles.in}>in</div>
+        <div className={styles.out}>out</div>
+      </div>
       <div className={styles.imageGrid}>
         <div
           className={styles.arrow}
@@ -172,7 +177,7 @@ function DesktopImageView({
                   height="80vh"
                   width="70vw"
                   imageFit="contain"
-                  cursor="initial"
+                  cursor="inherit"
                   imageQuality={100}
                   loading={imageLoadingSpeeds[i]}
                 />

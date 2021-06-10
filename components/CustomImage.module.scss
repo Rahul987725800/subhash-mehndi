@@ -6,6 +6,7 @@
   .main {
     transition: transform 300ms ease;
     z-index: 2;
+    transform: scale(2);
   }
 
   .loader {
