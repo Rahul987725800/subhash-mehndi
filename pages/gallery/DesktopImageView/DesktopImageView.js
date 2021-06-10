@@ -14,6 +14,7 @@ function DesktopImageView({
   const [scrollPosition, setScrollPosition] = useState();
   const [cursorType, setCursorType] = useState('grab');
   const [scrollStartTime, setScrollStartTime] = useState();
+  const [imageScale, setImageScale] = useState(1);
   const [imageLoadingSpeeds, setImageLoadingSpeeds] = useState(
     Array(images.length).fill('lazy')
   );
@@ -54,14 +55,19 @@ function DesktopImageView({
   };
   const handlers = useSwipeable({
     onSwipeStart: (e) => {
+      if (imageScale !== 1) return;
       // console.log('swipe started');
       setCursorType('grabbing');
       setScrollPosition(imagesRef.current.scrollLeft);
       setScrollStartTime(new Date());
     },
 
-    onSwiping: swiping,
+    onSwiping: (e) => {
+      if (imageScale !== 1) return;
+      swiping(e);
+    },
     onSwiped: (e) => {
+      if (imageScale !== 1) return;
       const timeElapsedSinceSwipeStart = new Date() - scrollStartTime;
       const mandatorySwipe = timeElapsedSinceSwipeStart < 100;
       // console.log(timeElapsedSinceSwipeStart);
@@ -119,6 +125,7 @@ function DesktopImageView({
       // console.log(updatedSpeeds);
       return updatedSpeeds;
     });
+    setImageScale(1);
     slideImage();
   }, [activeImageIndex]);
 
@@ -143,6 +150,7 @@ function DesktopImageView({
       style={{
         cursor: cursorType,
       }}
+      {...handlers}
     >
       <div
         onClick={closeImageView}
@@ -151,8 +159,24 @@ function DesktopImageView({
         &#10006;
       </div>
       <div className={[styles.button, styles.zoom].join(' ')}>
-        <div className={styles.in}>in</div>
-        <div className={styles.out}>out</div>
+        <div
+          className={styles.in}
+          onClick={() => {
+            setImageScale(imageScale + 0.2);
+          }}
+        >
+          in
+        </div>
+        <div
+          className={styles.out}
+          onClick={() => {
+            if (imageScale > 1) {
+              setImageScale(imageScale - 0.2);
+            }
+          }}
+        >
+          out
+        </div>
       </div>
       <div className={styles.imageGrid}>
         <div
@@ -180,6 +204,8 @@ function DesktopImageView({
                   cursor="inherit"
                   imageQuality={100}
                   loading={imageLoadingSpeeds[i]}
+                  addZoomEffect={i === activeImageIndex && imageScale !== 1}
+                  scale={imageScale}
                 />
               </div>
             );
