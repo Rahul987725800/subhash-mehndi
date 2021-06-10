@@ -12,7 +12,7 @@ function DesktopImageView({
 }) {
   const imagesRef = useRef();
   const [scrollPosition, setScrollPosition] = useState();
-  const [scrolling, setScrolling] = useState(false);
+  const [cursorType, setCursorType] = useState('grab');
   const [scrollStartTime, setScrollStartTime] = useState();
   const [imageLoadingSpeeds, setImageLoadingSpeeds] = useState(
     Array(images.length).fill('lazy')
@@ -55,9 +55,8 @@ function DesktopImageView({
   const handlers = useSwipeable({
     onSwipeStart: (e) => {
       // console.log('swipe started');
-
+      setCursorType('grabbing');
       setScrollPosition(imagesRef.current.scrollLeft);
-      setScrolling(true);
       setScrollStartTime(new Date());
     },
 
@@ -66,8 +65,7 @@ function DesktopImageView({
       const timeElapsedSinceSwipeStart = new Date() - scrollStartTime;
       const mandatorySwipe = timeElapsedSinceSwipeStart < 100;
       // console.log(timeElapsedSinceSwipeStart);
-
-      setScrolling(false);
+      setCursorType('grab');
       // console.log(e);
 
       // console.log(imagesRef.current.style.scrollBehavior);
@@ -134,6 +132,7 @@ function DesktopImageView({
 
     imagesRef.current.scrollLeft = scrollTo;
     setScrollPosition(scrollTo);
+
     imagesRef.current.style.scrollBehavior = '';
     // we can't do imagesRef.current.scrollLeft since the setter is not completed yet
   };
@@ -141,10 +140,10 @@ function DesktopImageView({
   return (
     <div
       className={styles.imageView}
-      {...handlers}
       style={{
-        cursor: scrolling ? 'grabbing' : 'grab',
+        cursor: cursorType,
       }}
+      {...handlers}
     >
       <div onClick={closeImageView} className={styles.closeButton}>
         &#10006;
@@ -173,7 +172,7 @@ function DesktopImageView({
                   height="80vh"
                   width="70vw"
                   imageFit="contain"
-                  cursor="inherit"
+                  cursor="initial"
                   imageQuality={100}
                   loading={imageLoadingSpeeds[i]}
                 />

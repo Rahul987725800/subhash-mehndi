@@ -1,10 +1,10 @@
 .imageView {
-  position: fixed;
-  z-index: 20;
+  position: absolute;
+  z-index: 40;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   user-select: none;
   background-color: rgba(0, 0, 0, 0.5);
 

@@ -57,7 +57,7 @@ function MobileImageView({
         }, 1200);
       }
     },
-    trackMouse: true,
+    // trackMouse: true,
   });
   useEffect(() => {
     setImageLoadingSpeeds((speeds) => {

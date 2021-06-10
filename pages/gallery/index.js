@@ -65,6 +65,7 @@ function gallery() {
         style={{
           display: showImageView ? 'block' : 'none',
         }}
+        className={styles.imageOpened}
       >
         {isMobile ? (
           <MobileImageView
