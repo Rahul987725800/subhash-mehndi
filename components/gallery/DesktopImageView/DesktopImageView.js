@@ -1,7 +1,9 @@
 import styles from './DesktopImageView.module.scss';
 import { useRef, useState, useEffect, useCallback } from 'react';
 import { useSwipeable } from 'react-swipeable';
-import CustomImage from '../../../components/CustomImage';
+import CustomImage from '@components/common/CustomImage/CustomImage';
+import MagnifyPlusIcon from '@public/icons/magnify-plus.svg';
+import MagnifyMinusIcon from '@public/icons/magnify-minus.svg';
 function DesktopImageView({
   images,
   activeImageIndex,
@@ -168,7 +170,7 @@ function DesktopImageView({
             setImageScale(imageScale + 0.2);
           }}
         >
-          in
+          <MagnifyPlusIcon />
         </div>
         <div
           className={styles.out}
@@ -178,7 +180,7 @@ function DesktopImageView({
             }
           }}
         >
-          out
+          <MagnifyMinusIcon />
         </div>
       </div>
       <div className={styles.imageGrid}>

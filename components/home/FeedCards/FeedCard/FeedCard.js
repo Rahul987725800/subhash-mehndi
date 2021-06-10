@@ -1,5 +1,5 @@
-import CustomImage from '../../../components/CustomImage';
-import { trimmedText } from '../../../utils';
+import CustomImage from '@components/common/CustomImage/CustomImage';
+import { trimmedText } from '@base/utils';
 import styles from './FeedCard.module.scss';
 function FeedCard({ src, name, location, feedback }) {
   return (

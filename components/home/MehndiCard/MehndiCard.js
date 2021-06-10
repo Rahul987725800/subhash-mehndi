@@ -1,5 +1,5 @@
 import styles from './MehndiCard.module.scss';
-import CustomImage from '../../../components/CustomImage';
+import CustomImage from '@components/common/CustomImage/CustomImage';
 import { useState } from 'react';
 function MehndiCard({}) {
   const [hovered, setHovered] = useState(false);

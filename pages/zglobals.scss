@@ -135,3 +135,81 @@ h6 {
 .feed-exit-done {
   display: none;
 }
+.visibility-hidden {
+  visibility: hidden;
+}
+.visibility-visible {
+  visibility: visible;
+}
+.home-welcome-enter {
+  visibility: visible;
+  opacity: 0;
+  transform: translate(-200px, -300px) rotateZ(-30deg) scale(1.2);
+}
+.home-welcome-enter-active {
+  transform: translate(0, 0);
+  opacity: 1;
+  transition: all 1000ms ease;
+}
+.home-welcome-enter-done {
+  visibility: visible;
+}
+.home-welcome-exit {
+  visibility: visible;
+}
+.home-welcome-exit-active {
+  opacity: 0;
+  transform: translate(-200px, -300px) rotateZ(-60deg) scale(1.5);
+  transition: all 1000ms ease-in;
+}
+.home-welcome-exit-done {
+  visibility: hidden;
+}
+.home-to-enter {
+  visibility: visible;
+  opacity: 0;
+  transform: translateY(-300px) rotateZ(-120deg);
+}
+.home-to-enter-active {
+  opacity: 1;
+  transform: translate(0, 0);
+  transition: all 1000ms ease 500ms;
+}
+.home-to-enter-done {
+  visibility: visible;
+}
+.home-to-exit {
+  visibility: visible;
+}
+.home-to-exit-active {
+  opacity: 0;
+  transform: translateY(-300px) rotateZ(-120deg);
+  transition: all 1000ms ease-in;
+}
+.home-to-exit-done {
+  visibility: hidden;
+}
+.home-subhash-enter {
+  visibility: visible;
+  opacity: 0;
+  transform: translate(200px, -300px) rotateZ(30deg) scale(1.2);
+}
+.home-subhash-enter-active {
+  opacity: 1;
+  transform: translate(0, 0);
+  transition: all 1000ms ease 1000ms;
+}
+.home-subhash-enter-done {
+  visibility: visible;
+}
+.home-subhash-exit {
+  visibility: visible;
+}
+.home-subhash-exit-active {
+  opacity: 0;
+  transform: translate(200px, -300px) rotateZ(30deg) scale(1.5);
+  transition: all 1000ms ease-in;
+}
+.home-subhash-exit-done {
+  visibility: hidden;
+}

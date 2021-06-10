@@ -1,7 +1,7 @@
 import Head from 'next/head';
-import Footer from './zapp/Footer/Footer';
-import Navbar from './zapp/Navbar/Navbar';
-import { GlobalStateProvider } from '../state/GlobalStateProvider';
+import Footer from '@components/_app/Footer/Footer';
+import Navbar from '@components/_app/Navbar/Navbar';
+import { GlobalStateProvider } from '@state/GlobalStateProvider';
 
 import './zglobals.scss';
 

@@ -1,9 +1,9 @@
 import styles from './MobileImageView.module.scss';
 import { useSwipeable } from 'react-swipeable';
 import { useContext, useState, useEffect } from 'react';
-import { GlobalStateContext } from '../../../state/GlobalStateProvider';
+import { GlobalStateContext } from '@state/GlobalStateProvider';
 import { CSSTransition } from 'react-transition-group';
-import CustomImage from '../../../components/CustomImage';
+import CustomImage from '@components/common/CustomImage/CustomImage';
 function MobileImageView({
   images,
   activeImageIndex,

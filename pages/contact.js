@@ -1,4 +1,4 @@
-import styles from './index.module.scss';
+import styles from './contact.module.scss';
 
 function contact() {
   return <div className={styles.contact}></div>;

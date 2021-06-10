@@ -1,10 +1,11 @@
-import FeedCard from './FeedCards/FeedCard';
-import MehndiCard from './MehndiCard/MehndiCard';
-import styles from './index.module.scss';
-import FeedCards from './FeedCards/FeedCards';
+import MehndiCard from '@components/home/MehndiCard/MehndiCard';
+import styles from './home.module.scss';
+import FeedCards from '@components/home/FeedCards/FeedCards';
+import Story from '@components/home/Story/Story';
 export default function home() {
   return (
     <main className={styles.home}>
+      <Story />
       <div className={styles.textFeed}>
         <div className={styles.textSection}>
           <h1 className={styles.header}>Welcome to Subhash Mehndi Art</h1>

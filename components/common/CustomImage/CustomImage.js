@@ -66,6 +66,7 @@ function CustomImage({
             newPosY = imageTransforms.y + e.movementY;
           }
           let newPosX;
+
           if (
             imageBox.left + e.movementX > imageContainerBox.left ||
             imageBox.right + e.movementX < imageContainerBox.right

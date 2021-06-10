@@ -1,12 +1,12 @@
 import styles from './index.module.scss';
-import Folder from './Folder/Folder';
+import Folder from '@components/gallery/Folder/Folder';
 
-import { range } from '../../utils';
-import CustomImage from '../../components/CustomImage';
-import { useState, useEffect } from 'react';
-import DesktopImageView from './DesktopImageView/DesktopImageView';
+import { range } from '@base/utils';
+import CustomImage from '@components/common/CustomImage/CustomImage';
+import { useState } from 'react';
+import DesktopImageView from '@components/gallery/DesktopImageView/DesktopImageView';
 import { isMobile } from 'react-device-detect';
-import MobileImageView from './MobileImageView/MobileImageView';
+import MobileImageView from '@components/gallery/MobileImageView/MobileImageView';
 const images = range(1, 14).map((v) => `/images/mehandi/${v}.jpg`);
 function gallery() {
   const [showImageView, setShowImageView] = useState(false);
