@@ -1,14 +1,23 @@
 .feedCard {
   padding: 1rem;
-  // border: 1px solid blue;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  // border: 1px solid purple;
   .client {
     display: flex;
     align-items: center;
     justify-content: center;
-    img {
+    .image {
+      height: 150px;
+      min-width: 150px;
       border-radius: 50%;
       border: 10px solid rgb(233, 233, 233);
+      overflow: hidden;
     }
+
     .details {
       margin-left: 1rem;
       .name {
@@ -22,26 +31,10 @@
   }
   .complement {
     margin: 1rem 0;
+    height: 128px;
+    // border: 1px solid blue;
     img {
       height: 15px;
-    }
-  }
-  .button {
-    &:hover {
-      cursor: pointer;
-    }
-    height: 50px;
-    display: flex;
-    align-items: center;
-    width: min-content;
-    margin-left: auto;
-    color: var(--color-maroon);
-    i {
-      font-size: large;
-      margin-left: 10px;
-      border: 1px solid var(--color-maroon);
-      padding: 5px 10px;
-      border-radius: 50%;
     }
   }
 }

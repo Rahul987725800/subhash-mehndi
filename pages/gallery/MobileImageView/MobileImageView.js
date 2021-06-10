@@ -1,7 +1,6 @@
 import styles from './MobileImageView.module.scss';
 import { useSwipeable } from 'react-swipeable';
 import { useContext, useState, useEffect } from 'react';
-import { mod } from '../../../utils';
 import { GlobalStateContext } from '../../../state/GlobalStateProvider';
 import { CSSTransition } from 'react-transition-group';
 import CustomImage from '../../../components/CustomImage';
@@ -16,9 +15,6 @@ function MobileImageView({
   const { swipeUsed, setSwipeUsed } = useContext(GlobalStateContext);
   const [showSwipe, setShowSwipe] = useState(!swipeUsed);
 
-  const [modFunction, setModFunction] = useState({
-    mod: mod(0),
-  });
   const [swipeType, setSwipeType] = useState('left');
   const [imageLoadingSpeeds, setImageLoadingSpeeds] = useState(
     Array(images.length).fill('lazy')
@@ -27,9 +23,6 @@ function MobileImageView({
   const prevBlock = () => {
     setSwipeType('right');
     setActiveImageIndex((prevActive) => {
-      setModFunction({
-        mod: mod(prevActive),
-      });
       if (prevActive === 0) {
         return images.length - 1;
       }
@@ -39,9 +32,6 @@ function MobileImageView({
   const nextBlock = () => {
     setSwipeType('left');
     setActiveImageIndex((prevActive) => {
-      setModFunction({
-        mod: mod(prevActive),
-      });
       if (prevActive === images.length - 1) {
         return 0;
       }
@@ -106,12 +96,9 @@ function MobileImageView({
               className={[
                 styles.image,
                 swipeType === '' && i === activeImageIndex
-                  ? 'opacity-1'
-                  : 'opacity-0',
+                  ? 'display-block'
+                  : 'display-none',
               ].join(' ')}
-              style={{
-                zIndex: modFunction.mod(i),
-              }}
             >
               <CustomImage
                 src={src}

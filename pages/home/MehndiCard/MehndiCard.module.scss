@@ -13,9 +13,10 @@
   }
   .image {
     display: inline-block;
+    box-sizing: content-box;
     border-radius: 50%;
     overflow: hidden;
-    // border: 1px solid red;
+    // border: 2px solid red;
     width: 150px;
     height: 150px;
   }

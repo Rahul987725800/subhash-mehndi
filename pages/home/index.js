@@ -1,12 +1,10 @@
-import FeedCard from './FeedCard/FeedCard';
+import FeedCard from './FeedCards/FeedCard';
 import MehndiCard from './MehndiCard/MehndiCard';
 import styles from './index.module.scss';
-import StoriesBlock from './StoriesBlock/StoriesBlock';
+import FeedCards from './FeedCards/FeedCards';
 export default function home() {
   return (
     <main className={styles.home}>
-      <StoriesBlock />
-
       <div className={styles.textFeed}>
         <div className={styles.textSection}>
           <h1 className={styles.header}>Welcome to Subhash Mehndi Art</h1>
@@ -30,7 +28,7 @@ export default function home() {
         </div>
         <div className={styles.feedSection}>
           <h3 className={styles.header}>Testimonials</h3>
-          <FeedCard />
+          <FeedCards />
         </div>
       </div>
       <div className={styles.services}>

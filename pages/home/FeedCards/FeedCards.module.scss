@@ -1,0 +1,35 @@
+.feedCards {
+  // border: 1px solid red;
+  width: 300px;
+  height: 400px;
+  position: relative;
+  .feedCard {
+    height: 100%;
+    // border: 1px solid pink;
+  }
+  .button {
+    position: absolute;
+    bottom: 0;
+
+    // border: 1px solid red;
+    &:hover {
+      cursor: pointer;
+    }
+    height: 50px;
+    display: flex;
+    align-items: center;
+    width: min-content;
+    margin-left: auto;
+    color: var(--color-maroon);
+    i {
+      font-size: large;
+      margin-left: 10px;
+      border: 1px solid var(--color-maroon);
+      padding: 5px 10px;
+      border-radius: 50%;
+    }
+    &.next {
+      right: 0;
+    }
+  }
+}

@@ -64,36 +64,36 @@ h6 {
   transform: translateX(0);
   transition: all 300ms ease;
 }
-.opacity-0 {
-  opacity: 0;
+.display-block {
+  display: block;
 }
-.opacity-1 {
-  opacity: 1;
+.display-none {
+  display: none;
 }
 .swipe-image-left-enter {
   transform: translateX(100%);
-  opacity: 1;
+  display: block;
 }
 .swipe-image-left-enter-active {
   transform: translateX(0);
   transition: all 300ms ease;
 }
 .swipe-image-left-enter-done {
-  opacity: 1;
+  display: block;
 }
 .swipe-image-left-exit {
-  opacity: 1;
+  display: block;
 }
 .swipe-image-left-exit-active {
   transform: translateX(-100%);
   transition: all 300ms ease;
 }
 .swipe-image-left-exit-done {
-  opacity: 0;
+  display: none;
 }
 .swipe-image-right-enter {
   transform: translateX(-100%);
-  opacity: 1;
+  display: block;
 }
 
 .swipe-image-right-enter-active {
@@ -101,15 +101,37 @@ h6 {
   transition: all 300ms ease;
 }
 .swipe-image-right-enter-done {
-  opacity: 1;
+  display: block;
 }
 .swipe-image-right-exit {
-  opacity: 1;
+  display: block;
 }
 .swipe-image-right-exit-active {
   transform: translateX(100%);
   transition: all 300ms ease;
 }
 .swipe-image-right-exit-done {
+  display: none;
+}
+.feed-enter {
+  display: block;
   opacity: 0;
+}
+.feed-enter-active {
+  opacity: 1;
+  transition: all 300ms ease;
+  transition-delay: 100ms;
+}
+.feed-enter-done {
+  display: block;
+}
+.feed-exit {
+  display: block;
+}
+.feed-exit-active {
+  opacity: 0;
+  transition: all 300ms ease;
+}
+.feed-exit-done {
+  display: none;
 }
