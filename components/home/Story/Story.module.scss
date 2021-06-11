@@ -1,9 +1,8 @@
 .story {
   height: 80vh;
-  background-color: black;
-  color: white;
   position: relative;
   .buttons {
+    color: white;
     z-index: 10;
     position: absolute;
     top: 50%;
@@ -27,42 +26,12 @@
     }
   }
 
-  @mixin story-child {
+  .storyChild {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     overflow: hidden;
-  }
-  .firstStory {
-    @include story-child;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    p {
-      font-size: 3rem;
-    }
-  }
-  .secondStory {
-    @include story-child;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    p {
-      font-size: 3rem;
-    }
-  }
-  .thirdStory {
-    @include story-child;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    p {
-      font-size: 3rem;
-    }
   }
 }

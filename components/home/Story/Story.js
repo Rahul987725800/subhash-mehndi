@@ -1,11 +1,15 @@
-import { CSSTransition } from 'react-transition-group';
 import styles from './Story.module.scss';
 import { useState, useEffect } from 'react';
+import FirstStory from './stories/FirstStory';
+import SecondStory from './stories/SecondStory';
+import ThirdStory from './stories/ThirdStory';
+import { CSSTransition } from 'react-transition-group';
 const numStories = 3;
 function Story() {
   const [visibleStory, setVisibleStory] = useState(
     Array(numStories).fill(false)
   );
+  const [navigationTimeout, setNavigationTimeout] = useState();
   useEffect(() => {
     setVisibleStory((prev) => {
       const updated = [...prev];
@@ -13,25 +17,28 @@ function Story() {
       return updated;
     });
   }, []);
+
   return (
     <div className={styles.story}>
       <div className={styles.buttons}>
         <div
           className={styles.button}
           onClick={() => {
+            clearTimeout(navigationTimeout);
             const activeIndex = visibleStory.findIndex((v) => v);
             setVisibleStory(Array(numStories).fill(false));
             let prevIndex = activeIndex - 1;
             if (prevIndex < 0) {
               prevIndex = numStories - 1;
             }
-            setTimeout(() => {
+            const t = setTimeout(() => {
               setVisibleStory((prev) => {
                 const updated = [...prev];
                 updated[prevIndex] = true;
                 return updated;
               });
             }, 1000);
+            setNavigationTimeout(t);
           }}
         >
           <i className="fa fa-angle-left"></i>
@@ -39,96 +46,39 @@ function Story() {
         <div
           className={styles.button}
           onClick={() => {
+            clearTimeout(navigationTimeout);
             const activeIndex = visibleStory.findIndex((v) => v);
             setVisibleStory(Array(numStories).fill(false));
             let nextIndex = activeIndex + 1;
             if (nextIndex >= numStories) {
               nextIndex = 0;
             }
-            setTimeout(() => {
+            const t = setTimeout(() => {
               setVisibleStory((prev) => {
                 const updated = [...prev];
                 updated[nextIndex] = true;
                 return updated;
               });
             }, 1000);
+            setNavigationTimeout(t);
           }}
         >
           <i className="fa fa-angle-right"></i>
         </div>
       </div>
-      <div className={styles.firstStory}>
-        <CSSTransition
-          classNames={`home-welcome`}
-          timeout={1000}
-          in={visibleStory[0]}
-        >
-          <p className="visibility-hidden">Welcome</p>
-        </CSSTransition>
-
-        <CSSTransition
-          classNames={`home-to`}
-          timeout={2000}
-          in={visibleStory[0]}
-        >
-          <p className="visibility-hidden">to</p>
-        </CSSTransition>
-        <CSSTransition
-          classNames={`home-subhash`}
-          timeout={3000}
-          in={visibleStory[0]}
-        >
-          <p className="visibility-hidden">Subhash Mehndi</p>
-        </CSSTransition>
-      </div>
-      <div className={styles.secondStory}>
-        <CSSTransition
-          classNames={`home-welcome`}
-          timeout={1000}
-          in={visibleStory[1]}
-        >
-          <p className="visibility-hidden">Chal be</p>
-        </CSSTransition>
-
-        <CSSTransition
-          classNames={`home-to`}
-          timeout={2000}
-          in={visibleStory[1]}
-        >
-          <p className="visibility-hidden">to</p>
-        </CSSTransition>
-        <CSSTransition
-          classNames={`home-subhash`}
-          timeout={3000}
-          in={visibleStory[1]}
-        >
-          <p className="visibility-hidden">Subhash Mehndi</p>
-        </CSSTransition>
-      </div>
-      <div className={styles.thirdStory}>
-        <CSSTransition
-          classNames={`home-welcome`}
-          timeout={1000}
-          in={visibleStory[2]}
-        >
-          <p className="visibility-hidden">Jai ram ji ki</p>
-        </CSSTransition>
-
-        <CSSTransition
-          classNames={`home-to`}
-          timeout={2000}
-          in={visibleStory[2]}
-        >
-          <p className="visibility-hidden">to</p>
-        </CSSTransition>
-        <CSSTransition
-          classNames={`home-subhash`}
-          timeout={3000}
-          in={visibleStory[2]}
-        >
-          <p className="visibility-hidden">Subhash Mehndi</p>
-        </CSSTransition>
-      </div>
+      {[FirstStory, SecondStory, ThirdStory].map((Story, i) => {
+        return (
+          <CSSTransition
+            classNames={`story`}
+            timeout={1000}
+            in={visibleStory[i]}
+          >
+            <div className={[styles.storyChild, 'visibility-hidden'].join(' ')}>
+              <Story show={visibleStory[i]} />
+            </div>
+          </CSSTransition>
+        );
+      })}
     </div>
   );
 }

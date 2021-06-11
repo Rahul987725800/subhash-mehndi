@@ -7,6 +7,7 @@
 html,
 body {
   font-family: 'Montserrat', sans-serif;
+  --color-silver-light: #f0f0f0;
   --color-silver: #c7c6bf;
   --color-silverdark: #a1a1a1;
   --color-maroon: rgb(71, 17, 14);
@@ -135,81 +136,158 @@ h6 {
 .feed-exit-done {
   display: none;
 }
+
 .visibility-hidden {
   visibility: hidden;
 }
 .visibility-visible {
   visibility: visible;
 }
-.home-welcome-enter {
+.story-enter {
+  visibility: visible;
+  opacity: 0;
+}
+.story-enter-active {
+  opacity: 1;
+  transition: all 300ms ease;
+}
+.story-enter-done {
+  visibility: visible;
+}
+.story-exit {
+  visibility: visible;
+}
+.story-exit-active {
+  opacity: 0;
+  transition: all 300ms ease-in;
+}
+.story-exit-done {
+  visibility: hidden;
+}
+.first-story-welcome-enter {
   visibility: visible;
   opacity: 0;
   transform: translate(-200px, -300px) rotateZ(-30deg) scale(1.2);
 }
-.home-welcome-enter-active {
+.first-story-welcome-enter-active {
   transform: translate(0, 0);
   opacity: 1;
   transition: all 1000ms ease;
 }
-.home-welcome-enter-done {
+.first-story-welcome-enter-done {
   visibility: visible;
 }
-.home-welcome-exit {
+.first-story-welcome-exit {
   visibility: visible;
 }
-.home-welcome-exit-active {
+.first-story-welcome-exit-active {
   opacity: 0;
   transform: translate(-200px, -300px) rotateZ(-60deg) scale(1.5);
   transition: all 1000ms ease-in;
 }
-.home-welcome-exit-done {
+.first-story-welcome-exit-done {
   visibility: hidden;
 }
-.home-to-enter {
+.first-story-to-enter {
   visibility: visible;
   opacity: 0;
   transform: translateY(-300px) rotateZ(-120deg);
 }
-.home-to-enter-active {
+.first-story-to-enter-active {
   opacity: 1;
   transform: translate(0, 0);
   transition: all 1000ms ease 500ms;
 }
-.home-to-enter-done {
+.first-story-to-enter-done {
   visibility: visible;
 }
-.home-to-exit {
+.first-story-to-exit {
   visibility: visible;
 }
-.home-to-exit-active {
+.first-story-to-exit-active {
   opacity: 0;
   transform: translateY(-300px) rotateZ(-120deg);
   transition: all 1000ms ease-in;
 }
-.home-to-exit-done {
+.first-story-to-exit-done {
   visibility: hidden;
 }
-.home-subhash-enter {
+.first-story-subhash-enter {
   visibility: visible;
   opacity: 0;
   transform: translate(200px, -300px) rotateZ(30deg) scale(1.2);
 }
-.home-subhash-enter-active {
+.first-story-subhash-enter-active {
   opacity: 1;
   transform: translate(0, 0);
   transition: all 1000ms ease 1000ms;
 }
-.home-subhash-enter-done {
+.first-story-subhash-enter-done {
   visibility: visible;
 }
-.home-subhash-exit {
+.first-story-subhash-exit {
   visibility: visible;
 }
-.home-subhash-exit-active {
+.first-story-subhash-exit-active {
   opacity: 0;
   transform: translate(200px, -300px) rotateZ(30deg) scale(1.5);
   transition: all 1000ms ease-in;
 }
-.home-subhash-exit-done {
+.first-story-subhash-exit-done {
   visibility: hidden;
+}
+.first-story-image-enter {
+  transform: translateY(3.2rem);
+  opacity: 0;
+}
+.first-story-image-enter-active {
+  transform: translateY(0);
+  opacity: 1;
+  transition: all 3000ms ease;
+}
+
+.second-story-bigText-enter {
+  visibility: visible;
+  transform: translateX(200px) translateY(-20px) rotateZ(10deg) rotateX(-80deg);
+  opacity: 0.5;
+}
+.second-story-bigText-enter-active {
+  transform: rotateZ(0deg);
+  opacity: 1;
+  transition: all 1000ms ease;
+}
+
+.second-story-bigText-enter-done {
+  visibility: visible;
+}
+.second-story-bigText-exit {
+  visibility: visible;
+}
+.second-story-bigText-exit-active {
+}
+.second-story-bigText-exit-done {
+  visibility: hidden;
+}
+.second-story-significance-enter {
+  visibility: visible;
+}
+.second-story-significance-enter-active {
+}
+.second-story-significance-enter-done {
+  visibility: visible;
+}
+.second-story-significance-exit {
+  visibility: visible;
+}
+.second-story-significance-exit-active {
+}
+.second-story-significance-exit-done {
+  visibility: hidden;
+}
+.second-story-image-enter {
+  opacity: 0;
+}
+.second-story-image-enter-active {
+  opacity: 1;
+  transition: all 1000ms ease;
 }

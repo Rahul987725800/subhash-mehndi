@@ -1,4 +1,86 @@
 .contact {
   margin-top: var(--measure-navbar-height);
   min-height: calc(100vh - var(--measure-navbar-height));
+  padding: var(--measure-padding-vertical-block)
+    var(--measure-padding-horizontal-block);
+  .header {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  .profile {
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    .image {
+      border-radius: 50%;
+      width: 200px;
+      height: 200px;
+      border: 10px solid var(--color-silver-light);
+      overflow: hidden;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+
+    .buttons {
+      display: flex;
+      gap: 10px;
+      .button {
+        font-weight: normal;
+        background-color: var(--color-maroon);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 3px;
+        border: 1px solid transparent;
+        &:hover {
+          cursor: pointer;
+          color: var(--color-maroon);
+          background-color: white;
+          border-color: var(--color-maroon);
+          a {
+            color: var(--color-maroon);
+          }
+        }
+        a {
+          color: white;
+        }
+      }
+    }
+  }
+  .descriptionMap {
+    padding: var(--measure-padding-vertical-block) 0;
+    display: flex;
+    gap: var(--measure-padding-vertical-block);
+    @media (max-width: 900px) {
+      flex-direction: column;
+    }
+    .description {
+      .text {
+        margin-top: 2rem;
+      }
+    }
+    .map {
+      width: min-content;
+      margin: auto;
+      border: 1px solid var(--color-silver);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      p {
+        padding: 0.5rem;
+        padding-top: 0;
+      }
+    }
+  }
+  .getInTouch {
+    .text {
+      margin: 2rem 0;
+    }
+  }
 }

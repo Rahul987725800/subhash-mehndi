@@ -1,0 +1,42 @@
+.secondStory {
+  width: 100%;
+  height: 100%;
+  padding: 0 var(--measure-padding-horizontal-block);
+  position: relative;
+  .lineBreaker {
+    min-width: 100%;
+    // border: 1px solid red;
+  }
+  .bigTextGroup {
+    padding-top: 10vh;
+    display: flex;
+    flex-wrap: wrap;
+    .big {
+      color: white;
+      font-size: 4rem;
+    }
+  }
+  .smallTextGroup {
+    display: flex;
+    flex-wrap: wrap;
+    .small {
+      margin-top: 2rem;
+      color: black;
+      font-size: 1.7rem;
+    }
+  }
+  .image {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+}

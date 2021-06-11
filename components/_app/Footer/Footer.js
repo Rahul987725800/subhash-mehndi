@@ -22,10 +22,11 @@ function Footer() {
           <h3 className={styles.head}>Contact Us</h3>
           <div className={styles.info}>
             <p>Subhash Gupta</p>
-            <p>House No. : 3504</p>
-            <p>Sector : 15 D</p>
+            <p>House No. 3504</p>
+            <p>Sector : 15 - D</p>
             <p>Chandigarh, 160015.</p>
             <p>Mobile: 7508621822</p>
+            <p> &emsp; &emsp; &emsp;&nbsp; 9417591297</p>
           </div>
         </div>
       </div>
