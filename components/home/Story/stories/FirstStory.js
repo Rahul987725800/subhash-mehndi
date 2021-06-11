@@ -1,9 +1,16 @@
 import styles from './FirstStory.module.scss';
 import { CSSTransition } from 'react-transition-group';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
+const distortionFactor = 30;
+// more means less distortion
 function FirstStory({ show }) {
   const storyRef = useRef();
-
+  const [animationFinished, setAnimationFinished] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      setAnimationFinished(true);
+    }, 3000);
+  }, []);
   return (
     <div
       className={['first-story', styles.firstStory].join(' ')}
@@ -15,18 +22,28 @@ function FirstStory({ show }) {
           // console.log(e.target);
           // console.log(storyRef.current);
           // console.log(storyRef.current.children);
+          if (!animationFinished) return;
           const storyBox = storyRef.current.getBoundingClientRect();
           const midX = storyBox.left + storyBox.width / 2;
           const midY = storyBox.top + storyBox.height / 2;
-          console.log(midX, midY);
-          console.log(e.clientX, e.clientY);
+          // console.log(midX, midY);
+          // console.log(e.clientX, e.clientY);
           const distortionX = e.clientX - midX;
           const distortionY = e.clientY - midY;
-          console.log(distortionX);
-          console.log(distortionY);
+          // console.log(distortionX);
+          // console.log(distortionY);
           const children = storyRef.current.children;
-          for (let child of children) {
-            child.style.transform = `translate(${distortionX}px, ${distortionY}px)`;
+          for (let i = 0; i < children.length; i++) {
+            const child = children[i];
+            if (i === children.length - 1) {
+              child.style.transform = `translate(${
+                -distortionX / distortionFactor
+              }px, ${-distortionY / distortionFactor}px)`;
+            } else {
+              child.style.transform = `translate(${
+                distortionX / distortionFactor
+              }px, ${distortionY / distortionFactor}px)`;
+            }
           }
         }}
       ></div>
