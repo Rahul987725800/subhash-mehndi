@@ -4,6 +4,7 @@ import FirstStory from './stories/FirstStory';
 import SecondStory from './stories/SecondStory';
 import ThirdStory from './stories/ThirdStory';
 import { CSSTransition } from 'react-transition-group';
+import LeftRightButtons from '@components/common/LeftRightButtons/LeftRightButtons';
 const numStories = 3;
 function Story() {
   const [visibleStory, setVisibleStory] = useState(
@@ -20,52 +21,45 @@ function Story() {
 
   return (
     <div className={styles.story}>
-      <div className={styles.buttons}>
-        <div
-          className={styles.button}
-          onClick={() => {
-            clearTimeout(navigationTimeout);
-            const activeIndex = visibleStory.findIndex((v) => v);
-            setVisibleStory(Array(numStories).fill(false));
-            let prevIndex = activeIndex - 1;
-            if (prevIndex < 0) {
-              prevIndex = numStories - 1;
-            }
-            const t = setTimeout(() => {
-              setVisibleStory((prev) => {
-                const updated = [...prev];
-                updated[prevIndex] = true;
-                return updated;
-              });
-            }, 1000);
-            setNavigationTimeout(t);
-          }}
-        >
-          <i className="fa fa-angle-left"></i>
-        </div>
-        <div
-          className={styles.button}
-          onClick={() => {
-            clearTimeout(navigationTimeout);
-            const activeIndex = visibleStory.findIndex((v) => v);
-            setVisibleStory(Array(numStories).fill(false));
-            let nextIndex = activeIndex + 1;
-            if (nextIndex >= numStories) {
-              nextIndex = 0;
-            }
-            const t = setTimeout(() => {
-              setVisibleStory((prev) => {
-                const updated = [...prev];
-                updated[nextIndex] = true;
-                return updated;
-              });
-            }, 1000);
-            setNavigationTimeout(t);
-          }}
-        >
-          <i className="fa fa-angle-right"></i>
-        </div>
-      </div>
+      <LeftRightButtons
+        leftClick={() => {
+          clearTimeout(navigationTimeout);
+          const activeIndex = visibleStory.findIndex((v) => v);
+          setVisibleStory(Array(numStories).fill(false));
+          let prevIndex = activeIndex - 1;
+          if (prevIndex < 0) {
+            prevIndex = numStories - 1;
+          }
+          const t = setTimeout(() => {
+            setVisibleStory((prev) => {
+              const updated = [...prev];
+              updated[prevIndex] = true;
+              return updated;
+            });
+          }, 1000);
+          setNavigationTimeout(t);
+        }}
+        rightClick={() => {
+          clearTimeout(navigationTimeout);
+          const activeIndex = visibleStory.findIndex((v) => v);
+          setVisibleStory(Array(numStories).fill(false));
+          let nextIndex = activeIndex + 1;
+          if (nextIndex >= numStories) {
+            nextIndex = 0;
+          }
+          const t = setTimeout(() => {
+            setVisibleStory((prev) => {
+              const updated = [...prev];
+              updated[nextIndex] = true;
+              return updated;
+            });
+          }, 1000);
+          setNavigationTimeout(t);
+        }}
+        textColor="white"
+        borderColor="white"
+      />
+
       {[FirstStory, SecondStory, ThirdStory].map((Story, i) => {
         return (
           <CSSTransition

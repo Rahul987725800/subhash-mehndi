@@ -2,6 +2,8 @@ import MehndiCard from '@components/home/MehndiCard/MehndiCard';
 import styles from './home.module.scss';
 import FeedCards from '@components/home/FeedCards/FeedCards';
 import Story from '@components/home/Story/Story';
+
+import HomeGallery from '@components/home/HomeGallery/HomeGallery';
 export default function home() {
   return (
     <main className={styles.home}>
@@ -42,6 +44,7 @@ export default function home() {
           <MehndiCard />
         </div>
       </div>
+      <HomeGallery />
     </main>
   );
 }

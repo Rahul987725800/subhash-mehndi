@@ -1,3 +1,5 @@
+import Button from '@components/common/Button/Button';
+import Form from '@components/contact/Form/Form';
 import styles from './contact.module.scss';
 
 function contact() {
@@ -11,12 +13,12 @@ function contact() {
         <p className={styles.phones}>Mob. 7508621822, 9417591297</p>
         <p>H.no. 3504, Sector 15 D Chandigarh</p>
         <div className={styles.buttons}>
-          <div className={styles.button}>
+          <Button>
             <a href="tel: 7508621822">
               Call &nbsp; <i className="fa fa-phone" aria-hidden="true"></i>
             </a>
-          </div>
-          <div className={styles.button}>
+          </Button>
+          <Button>
             <a
               target="_blank"
               href="https://api.whatsapp.com/send?phone=+917508621822"
@@ -24,7 +26,7 @@ function contact() {
               Whatsapp &nbsp;
               <i className="fa fa-whatsapp" aria-hidden="true"></i>
             </a>
-          </div>
+          </Button>
         </div>
       </div>
       <div className={styles.descriptionMap}>
@@ -61,6 +63,7 @@ function contact() {
         <p className={styles.text}>
           Enter your details below, we will get back to you shortly.
         </p>
+        <Form />
       </div>
     </div>
   );

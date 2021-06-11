@@ -13,9 +13,10 @@ const feeds = [
     src: '/images/mehandi/1.jpg',
     name: 'Rahul Sharma',
     location: 'Chandigarh',
-    feedback: 'He is really great, go for him.',
+    feedback: `He is really great, go for him. Lorem ipsum dolor sit amet consectetur adipisicing elit. SuntLorem ipsum dolor sit amet consectetur adipisicing elit. Sunt nem nem`,
   },
 ];
+
 function FeedCards() {
   const [activeFeedIndex, setActiveFeedIndex] = useState(0);
   const [loadedFirstTime, setLoadedFirstTime] = useState(true);

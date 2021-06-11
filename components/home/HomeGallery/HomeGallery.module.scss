@@ -1,0 +1,23 @@
+.gallery {
+  margin: var(--measure-padding-vertical-block) 0;
+  padding: var(--measure-padding-vertical-block) 0;
+  .images {
+    width: 95%;
+    margin: auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    border: 1px solid red;
+    .block {
+      border: 1px solid blue;
+      position: absolute;
+      display: flex;
+      .image {
+      }
+    }
+  }
+  .button {
+    text-align: center;
+    margin-top: var(--measure-padding-vertical-block);
+  }
+}

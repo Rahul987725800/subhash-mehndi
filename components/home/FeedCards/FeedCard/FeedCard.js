@@ -33,7 +33,7 @@ function FeedCard({ src, name, location, feedback }) {
           alt="left quote"
           style={{ marginRight: '1rem' }}
         />
-        {trimmedText(feedback, 200)}
+        {trimmedText(feedback, 150)}
         <img
           src="/icons/right-quotes.svg"
           alt="right quote"
