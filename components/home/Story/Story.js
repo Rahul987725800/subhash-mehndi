@@ -66,6 +66,7 @@ function Story() {
             classNames={`story`}
             timeout={1000}
             in={visibleStory[i]}
+            key={i}
           >
             <div className={[styles.storyChild, 'visibility-hidden'].join(' ')}>
               <Story show={visibleStory[i]} />

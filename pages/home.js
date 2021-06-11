@@ -44,6 +44,14 @@ export default function home() {
           <MehndiCard />
         </div>
       </div>
+      <h1
+        className={styles.header}
+        style={{
+          textAlign: 'center',
+        }}
+      >
+        Gallery
+      </h1>
       <HomeGallery />
     </main>
   );

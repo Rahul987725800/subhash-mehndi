@@ -14,7 +14,7 @@ body {
   --color-lightslategray: rgb(117, 125, 136);
   --color-slategray: hsl(0, 0%, 23%);
   --color-darkslategray: hsl(240, 7%, 18%);
-  --color-steelblue: rgb(60, 143, 208);
+  --color-steelblue: rgb(147, 208, 255);
   --color-bluegray: #66788c;
 }
 a {
@@ -143,6 +143,51 @@ h6 {
 .visibility-visible {
   visibility: visible;
 }
+.swipe-home-gallery {
+  .image-left-enter {
+    display: block;
+    transform: translateX(-300%);
+  }
+  .image-left-enter-active {
+    transform: translateX(0%);
+    transition: all 400ms ease;
+  }
+  .image-left-enter-done {
+    display: block;
+  }
+  .image-left-exit {
+    display: block;
+  }
+  .image-left-exit-active {
+    transform: translateX(400%);
+    transition: all 300ms ease;
+  }
+  .image-left-exit-done {
+    display: none;
+  }
+  .image-right-enter {
+    display: block;
+    transform: translateX(400%);
+  }
+  .image-right-enter-active {
+    transform: translateX(0%);
+    transition: all 400ms ease;
+  }
+  .image-right-enter-done {
+    display: block;
+  }
+  .image-right-exit {
+    display: block;
+  }
+  .image-right-exit-active {
+    transform: translateX(-400%);
+    transition: all 300ms ease;
+  }
+  .image-right-exit-done {
+    display: none;
+  }
+}
+
 .story-enter {
   visibility: visible;
   opacity: 0;
@@ -164,130 +209,134 @@ h6 {
 .story-exit-done {
   visibility: hidden;
 }
-.first-story-welcome-enter {
-  visibility: visible;
-  opacity: 0;
-  transform: translate(-200px, -300px) rotateZ(-30deg) scale(1.2);
+.first-story {
+  .welcome-enter {
+    visibility: visible;
+    opacity: 0;
+    transform: translate(-200px, -300px) rotateZ(-30deg) scale(1.2);
+  }
+  .welcome-enter-active {
+    transform: translate(0, 0);
+    opacity: 1;
+    transition: all 1000ms ease;
+  }
+  .welcome-enter-done {
+    visibility: visible;
+  }
+  .welcome-exit {
+    visibility: visible;
+  }
+  .welcome-exit-active {
+    opacity: 0;
+    transform: translate(-200px, -300px) rotateZ(-60deg) scale(1.5);
+    transition: all 1000ms ease-in;
+  }
+  .welcome-exit-done {
+    visibility: hidden;
+  }
+  .to-enter {
+    visibility: visible;
+    opacity: 0;
+    transform: translateY(-300px) rotateZ(-120deg);
+  }
+  .to-enter-active {
+    opacity: 1;
+    transform: translate(0, 0);
+    transition: all 1000ms ease 500ms;
+  }
+  .to-enter-done {
+    visibility: visible;
+  }
+  .to-exit {
+    visibility: visible;
+  }
+  .to-exit-active {
+    opacity: 0;
+    transform: translateY(-300px) rotateZ(-120deg);
+    transition: all 1000ms ease-in;
+  }
+  .to-exit-done {
+    visibility: hidden;
+  }
+  .subhash-enter {
+    visibility: visible;
+    opacity: 0;
+    transform: translate(200px, -300px) rotateZ(30deg) scale(1.2);
+  }
+  .subhash-enter-active {
+    opacity: 1;
+    transform: translate(0, 0);
+    transition: all 1000ms ease 1000ms;
+  }
+  .subhash-enter-done {
+    visibility: visible;
+  }
+  .subhash-exit {
+    visibility: visible;
+  }
+  .subhash-exit-active {
+    opacity: 0;
+    transform: translate(200px, -300px) rotateZ(30deg) scale(1.5);
+    transition: all 1000ms ease-in;
+  }
+  .subhash-exit-done {
+    visibility: hidden;
+  }
+  .image-enter {
+    transform: translateY(3.2rem);
+    opacity: 0;
+  }
+  .image-enter-active {
+    transform: translateY(0);
+    opacity: 1;
+    transition: all 3000ms ease;
+  }
 }
-.first-story-welcome-enter-active {
-  transform: translate(0, 0);
-  opacity: 1;
-  transition: all 1000ms ease;
-}
-.first-story-welcome-enter-done {
-  visibility: visible;
-}
-.first-story-welcome-exit {
-  visibility: visible;
-}
-.first-story-welcome-exit-active {
-  opacity: 0;
-  transform: translate(-200px, -300px) rotateZ(-60deg) scale(1.5);
-  transition: all 1000ms ease-in;
-}
-.first-story-welcome-exit-done {
-  visibility: hidden;
-}
-.first-story-to-enter {
-  visibility: visible;
-  opacity: 0;
-  transform: translateY(-300px) rotateZ(-120deg);
-}
-.first-story-to-enter-active {
-  opacity: 1;
-  transform: translate(0, 0);
-  transition: all 1000ms ease 500ms;
-}
-.first-story-to-enter-done {
-  visibility: visible;
-}
-.first-story-to-exit {
-  visibility: visible;
-}
-.first-story-to-exit-active {
-  opacity: 0;
-  transform: translateY(-300px) rotateZ(-120deg);
-  transition: all 1000ms ease-in;
-}
-.first-story-to-exit-done {
-  visibility: hidden;
-}
-.first-story-subhash-enter {
-  visibility: visible;
-  opacity: 0;
-  transform: translate(200px, -300px) rotateZ(30deg) scale(1.2);
-}
-.first-story-subhash-enter-active {
-  opacity: 1;
-  transform: translate(0, 0);
-  transition: all 1000ms ease 1000ms;
-}
-.first-story-subhash-enter-done {
-  visibility: visible;
-}
-.first-story-subhash-exit {
-  visibility: visible;
-}
-.first-story-subhash-exit-active {
-  opacity: 0;
-  transform: translate(200px, -300px) rotateZ(30deg) scale(1.5);
-  transition: all 1000ms ease-in;
-}
-.first-story-subhash-exit-done {
-  visibility: hidden;
-}
-.first-story-image-enter {
-  transform: translateY(3.2rem);
-  opacity: 0;
-}
-.first-story-image-enter-active {
-  transform: translateY(0);
-  opacity: 1;
-  transition: all 3000ms ease;
-}
+.second-story {
+  .bigText-enter {
+    visibility: visible;
+    transform: translateX(200px) translateY(-20px) rotateZ(10deg)
+      rotateX(-80deg);
+    opacity: 0.5;
+  }
+  .bigText-enter-active {
+    transform: rotateZ(0deg);
+    opacity: 1;
+    transition: all 1000ms ease;
+  }
 
-.second-story-bigText-enter {
-  visibility: visible;
-  transform: translateX(200px) translateY(-20px) rotateZ(10deg) rotateX(-80deg);
-  opacity: 0.5;
-}
-.second-story-bigText-enter-active {
-  transform: rotateZ(0deg);
-  opacity: 1;
-  transition: all 1000ms ease;
-}
-
-.second-story-bigText-enter-done {
-  visibility: visible;
-}
-.second-story-bigText-exit {
-  visibility: visible;
-}
-.second-story-bigText-exit-active {
-}
-.second-story-bigText-exit-done {
-  visibility: hidden;
-}
-.second-story-significance-enter {
-  visibility: visible;
-}
-.second-story-significance-enter-active {
-}
-.second-story-significance-enter-done {
-  visibility: visible;
-}
-.second-story-significance-exit {
-  visibility: visible;
-}
-.second-story-significance-exit-active {
-}
-.second-story-significance-exit-done {
-  visibility: hidden;
-}
-.second-story-image-enter {
-  opacity: 0;
-}
-.second-story-image-enter-active {
-  opacity: 1;
-  transition: all 1000ms ease;
+  .bigText-enter-done {
+    visibility: visible;
+  }
+  .bigText-exit {
+    visibility: visible;
+  }
+  .bigText-exit-active {
+  }
+  .bigText-exit-done {
+    visibility: hidden;
+  }
+  .significance-enter {
+    visibility: visible;
+  }
+  .significance-enter-active {
+  }
+  .significance-enter-done {
+    visibility: visible;
+  }
+  .significance-exit {
+    visibility: visible;
+  }
+  .significance-exit-active {
+  }
+  .significance-exit-done {
+    visibility: hidden;
+  }
+  .image-enter {
+    opacity: 0;
+  }
+  .image-enter-active {
+    opacity: 1;
+    transition: all 1000ms ease;
+  }
 }

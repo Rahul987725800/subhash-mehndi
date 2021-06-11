@@ -4,15 +4,38 @@ import CustomImage from '@components/common/CustomImage/CustomImage';
 import Button from '@components/common/Button/Button';
 import Link from 'next/link';
 import LeftRightButtons from '@components/common/LeftRightButtons/LeftRightButtons';
-import { useState, useEffect } from 'react';
-const images = ['/161.jpg', '/bridal-home.jpg'];
+import { useState, useEffect, useRef } from 'react';
+
+import { CSSTransition } from 'react-transition-group';
+import { Debounce } from '@base/utils';
+import { useRouter } from 'next/router';
+const images = [
+  '/161.jpg',
+  '/bridal-home.jpg',
+  '/face.png',
+  '/profile.jpg',
+  '/images/mehandi/1.jpg',
+  '/images/mehandi/2.jpg',
+];
+const categoryLinks = ['/gallery', '/contact', 'gallery'];
 const imageDimension = {
   width: 250,
   height: 250,
 };
+
 function Gallery() {
+  const router = useRouter();
   const [imageBlocks, setImageBlocks] = useState([]);
-  useEffect(() => {
+  const [swipeType, setSwipeType] = useState('');
+  const [activeBlockIndex, setActiveBlockIndex] = useState(0);
+  const windowResizeHandler = useRef(
+    new Debounce(() => {
+      // console.log('computation actually ran');
+      updateImageBlocks();
+    }, 500)
+  );
+  const updateImageBlocks = () => {
+    // console.log('imageBlocks updated');
     setImageBlocks(() => {
       const smallScreen = window.innerWidth < 900;
       if (smallScreen) {
@@ -21,32 +44,88 @@ function Gallery() {
         return generateNumImagesPerBlock(2);
       }
     });
+    setActiveBlockIndex(0);
+  };
+  useEffect(() => {
+    updateImageBlocks();
+    window.addEventListener('resize', () => {
+      // console.log('resize');
+      windowResizeHandler.current.call();
+    });
   }, []);
+  const nextBlock = () => {
+    setSwipeType('right');
+    setActiveBlockIndex((idx) => {
+      if (idx === imageBlocks.length - 1) return 0;
+      return idx + 1;
+    });
+  };
+  const prevBlock = () => {
+    // console.log('prev clicked');
+    setSwipeType('left');
+    setActiveBlockIndex((idx) => {
+      if (idx === 0) {
+        return imageBlocks.length - 1;
+      }
+      return idx - 1;
+    });
+  };
   return (
     <div className={styles.gallery}>
       <div
-        className={styles.images}
+        className={[styles.images, 'swipe-home-gallery'].join(' ')}
         style={{
           height: `${imageDimension.height}px`,
         }}
       >
-        <LeftRightButtons
-          leftClick={() => {}}
-          rightClick={() => {}}
-          textColor="black"
-          borderColor="blue"
-        />
+        <div className={styles.buttons}>
+          <LeftRightButtons
+            leftClick={prevBlock}
+            rightClick={nextBlock}
+            textColor="black"
+            borderColor="var(--color-bluegray)"
+          />
+        </div>
+
         {imageBlocks.map((block, i) => (
-          <div key={i} className={styles.block}>
+          <div className={styles.block}>
             {block.map((imageSrc, i) => (
-              <div key={i} className={styles.image}>
-                <CustomImage
-                  src={imageSrc}
-                  width={`${imageDimension.width}px`}
-                  height={`${imageDimension.height}px`}
-                  addHoverEffect
-                />
-              </div>
+              <CSSTransition
+                classNames={`image-${swipeType}`}
+                timeout={600}
+                in={imageBlocks[activeBlockIndex] === block}
+                key={i}
+              >
+                <div
+                  className={[
+                    styles.image,
+                    swipeType === '' && imageBlocks[activeBlockIndex] === block
+                      ? 'display-block'
+                      : 'display-none',
+                  ].join(' ')}
+                  style={{
+                    transitionDelay:
+                      block.length > 1 && swipeType === 'left'
+                        ? i === 0
+                          ? '100ms'
+                          : '0ms'
+                        : i === 1
+                        ? '100ms'
+                        : '0ms',
+                  }}
+                  onClick={() => {
+                    router.push(categoryLinks[activeBlockIndex]);
+                  }}
+                >
+                  <CustomImage
+                    src={imageSrc}
+                    width={`${imageDimension.width}px`}
+                    height={`${imageDimension.height}px`}
+                    addHoverEffect
+                    imageQuality={100}
+                  />
+                </div>
+              </CSSTransition>
             ))}
           </div>
         ))}
