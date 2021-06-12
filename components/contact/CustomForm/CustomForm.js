@@ -32,20 +32,18 @@ const MyTextArea = (props) => {
 };
 function CustomForm() {
   const onSubmit = (values) => {
-    // console.log(values);
-    fetch('/api/whatsapp').then((res) => {
-      console.log(res);
-    });
     fetch('/api/whatsapp', {
-      method: 'POST',
+      method: 'PUT',
       body: JSON.stringify({
-        message: values.message,
+        message: `
+          Name: ${values.name},\nPhone: ${values.phone},\nMessage: ${values.message}.
+        `,
       }),
       headers: {
         'content-type': 'application/json',
       },
     }).then((result) => {
-      console.log(result);
+      // console.log(result);
     });
   };
   return (
