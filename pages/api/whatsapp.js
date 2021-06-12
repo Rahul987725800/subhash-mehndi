@@ -34,6 +34,7 @@ export default async (req, res) => {
   } else if (req.method === 'PUT') {
     const messageSent = await sendMessage(req.body.message);
     res.json({
+      message: 'send whatsapp',
       messageSent,
     });
   }
