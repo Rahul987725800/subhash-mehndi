@@ -19,10 +19,16 @@ function CustomImage({
 }) {
   const imageRef = useRef();
   const [hovered, setHovered] = useState(false);
-  const [imageTransforms, setImageTransforms] = useState({
+  const [prevTransforms, setPrevTransforms] = useState({
     x: 0,
     y: 0,
   });
+  const [mousePositions, setMousePositions] = useState();
+  const [currentTransforms, setCurrentTranforms] = useState({
+    x: 0,
+    y: 0,
+  });
+  const [imageBox, setImageBox] = useState();
   const [moving, setMoving] = useState(false);
   const mouseEvents = () => {
     let events = {};
@@ -37,8 +43,16 @@ function CustomImage({
     if (addZoomEffect) {
       events = {
         ...events,
-        onMouseDown: () => {
+        onMouseDown: (e) => {
+          const img = imageRef.current.querySelector('img');
+          setImageBox(img.getBoundingClientRect());
+          setPrevTransforms(currentTransforms);
+          setMousePositions({
+            x: e.clientX,
+            y: e.clientY,
+          });
           setMoving(true);
+          // console.log(e);
         },
         onMouseUp: () => {
           setMoving(false);
@@ -51,51 +65,105 @@ function CustomImage({
           if (!moving) return;
 
           const img = imageRef.current.querySelector('img');
+
           // console.log(img.style.transform);
           const imageContainerBox = imageRef.current.getBoundingClientRect();
-          const imageBox = img.getBoundingClientRect();
+
           // console.log(imageContainerBox);
           // console.log(imageBox);
-          let newPosY;
+          const distortionX = e.clientX - mousePositions.x;
+          const distortionY = e.clientY - mousePositions.y;
           if (
-            imageBox.top + e.movementY > imageContainerBox.top ||
-            imageBox.bottom + e.movementY < imageContainerBox.bottom
+            imageBox.top + distortionY <= imageContainerBox.top &&
+            imageBox.bottom + distortionY >= imageContainerBox.bottom
           ) {
-            newPosY = imageTransforms.y;
+            setCurrentTranforms((prev) => {
+              return {
+                ...prev,
+                y: prevTransforms.y + distortionY,
+              };
+            });
           } else {
-            newPosY = imageTransforms.y + e.movementY;
+            if (distortionY > 0) {
+              // mouse going on bottom side
+              setCurrentTranforms((prev) => {
+                return {
+                  ...prev,
+                  y:
+                    imageContainerBox.top -
+                    img.getBoundingClientRect().top +
+                    prev.y,
+                };
+              });
+            } else {
+              setCurrentTranforms((prev) => {
+                return {
+                  ...prev,
+                  y:
+                    imageContainerBox.bottom -
+                    img.getBoundingClientRect().bottom +
+                    prev.y,
+                };
+              });
+            }
           }
-          let newPosX;
-
+          // console.log(imageBox.left + distortionX);
+          // console.log(imageContainerBox.left);
           if (
-            imageBox.left + e.movementX > imageContainerBox.left ||
-            imageBox.right + e.movementX < imageContainerBox.right
+            imageBox.left + distortionX <= imageContainerBox.left &&
+            imageBox.right + distortionX >= imageContainerBox.right
           ) {
-            newPosX = imageTransforms.x;
+            setCurrentTranforms((prev) => {
+              return {
+                ...prev,
+                x: prevTransforms.x + distortionX,
+              };
+            });
           } else {
-            newPosX = imageTransforms.x + e.movementX;
+            if (distortionX > 0) {
+              setCurrentTranforms((prev) => {
+                return {
+                  ...prev,
+                  x:
+                    imageContainerBox.left -
+                    img.getBoundingClientRect().left +
+                    prev.x,
+                };
+              });
+            } else {
+              setCurrentTranforms((prev) => {
+                return {
+                  ...prev,
+                  x:
+                    imageContainerBox.right -
+                    img.getBoundingClientRect().right +
+                    prev.x,
+                };
+              });
+            }
           }
-
-          setImageTransforms({
-            x: newPosX,
-            y: newPosY,
-          });
           img.style.transition = ``;
-          img.style.transform = `translate(${newPosX}px, ${newPosY}px) scale(${scale})`;
+          img.style.transform = `translate(${currentTransforms.x}px, ${currentTransforms.y}px) scale(${scale})`;
         },
       };
     }
     return events;
   };
+
   useEffect(() => {
     const img = imageRef.current.querySelector('img');
     img.style.transition = `transform 300ms ease`;
     if (addZoomEffect) {
+      setCurrentTranforms({
+        x: 0,
+        y: 0,
+      });
       img.style.transform = `translate(${0}px, ${0}px) scale(${scale})`;
     } else {
       img.style.transform = ` scale(${1})`;
     }
   }, [addZoomEffect, scale]);
+
   useEffect(() => {
     const img = imageRef.current.querySelector('img');
     img.style.transition = `transform 300ms ease`;
