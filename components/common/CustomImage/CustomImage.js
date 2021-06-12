@@ -29,7 +29,7 @@ function CustomImage({
     y: 0,
     scale,
   });
-  const [imageBox, setImageBox] = useState();
+  const [imgBox, setImgBox] = useState();
   const [moving, setMoving] = useState(false);
   const mouseEvents = () => {
     let events = {};
@@ -46,7 +46,7 @@ function CustomImage({
         ...events,
         onMouseDown: (e) => {
           const img = imageRef.current.querySelector('img');
-          setImageBox(img.getBoundingClientRect());
+          setImgBox(img.getBoundingClientRect());
           setPrevTransforms(currentTransforms);
           setMousePositions({
             x: e.clientX,
@@ -75,8 +75,8 @@ function CustomImage({
           const distortionX = e.clientX - mousePositions.x;
           const distortionY = e.clientY - mousePositions.y;
           if (
-            imageBox.top + distortionY <= imageContainerBox.top &&
-            imageBox.bottom + distortionY >= imageContainerBox.bottom
+            imgBox.top + distortionY <= imageContainerBox.top &&
+            imgBox.bottom + distortionY >= imageContainerBox.bottom
           ) {
             setCurrentTranforms((prev) => {
               return {
@@ -114,8 +114,8 @@ function CustomImage({
           // console.log(imageBox.left + distortionX);
           // console.log(imageContainerBox.left);
           if (
-            imageBox.left + distortionX <= imageContainerBox.left &&
-            imageBox.right + distortionX >= imageContainerBox.right
+            imgBox.left + distortionX <= imageContainerBox.left &&
+            imgBox.right + distortionX >= imageContainerBox.right
           ) {
             setCurrentTranforms((prev) => {
               return {
