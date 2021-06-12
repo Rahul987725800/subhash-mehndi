@@ -1,0 +1,33 @@
+.form {
+  // border: 1px solid red;
+  margin: var(--measure-padding-vertical-block) 0;
+  .formControl {
+    // border: 1px solid blue;
+    padding: 1rem 0;
+    label {
+      display: block;
+      margin-bottom: 5px;
+      .mandatory {
+        color: red;
+      }
+    }
+    input,
+    textarea {
+      font-family: inherit;
+      width: 300px;
+      padding: 0.5rem;
+      outline: none;
+      border: 1px solid black;
+      border-radius: 3px;
+      @media (max-width: 600px) {
+        width: 100%;
+      }
+      &:focus {
+        border-color: var(--color-bluegray);
+      }
+    }
+  }
+  .button {
+    margin-top: 2rem;
+  }
+}

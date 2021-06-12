@@ -1,5 +1,5 @@
 import Button from '@components/common/Button/Button';
-import Form from '@components/contact/Form/Form';
+import CustomForm from '@components/contact/CustomForm/CustomForm';
 import styles from './contact.module.scss';
 
 function contact() {
@@ -45,7 +45,7 @@ function contact() {
           </p>
         </div>
         <div className={styles.map}>
-          <iframe
+          {/* <iframe
             className={styles.mapFrame}
             title="location virender gupta mehandi art chandigarh"
             src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3429.2812005408427!2d76.77293089682006!3d30.738601796005398!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf90f5111622daeb3!2sVIRENDER%20GUPTA%20Mehandi%20ART!5e0!3m2!1sen!2sin!4v1610166586857!5m2!1sen!2sin"
@@ -54,7 +54,7 @@ function contact() {
             allowFullScreen=""
             aria-hidden="false"
             tabIndex="0"
-          ></iframe>
+          ></iframe> */}
           <p>H.no. 3504, Sector 15 D, Chandigarh</p>
         </div>
       </div>
@@ -63,7 +63,7 @@ function contact() {
         <p className={styles.text}>
           Enter your details below, we will get back to you shortly.
         </p>
-        <Form />
+        <CustomForm />
       </div>
     </div>
   );

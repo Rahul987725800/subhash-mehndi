@@ -1,6 +1,10 @@
 import styles from './Button.module.scss';
-function Button({ children }) {
-  return <span className={styles.button}>{children}</span>;
+function Button(props) {
+  return (
+    <button className={styles.button} {...props}>
+      {props.children}
+    </button>
+  );
 }
 
 export default Button;
