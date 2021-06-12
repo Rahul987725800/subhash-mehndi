@@ -27,6 +27,7 @@ function CustomImage({
   const [currentTransforms, setCurrentTranforms] = useState({
     x: 0,
     y: 0,
+    scale,
   });
   const [imageBox, setImageBox] = useState();
   const [moving, setMoving] = useState(false);
@@ -84,6 +85,9 @@ function CustomImage({
               };
             });
           } else {
+            // this ensures that image moves to its extreme ends
+            // when distortion is more than boundaries
+
             if (distortionY > 0) {
               // mouse going on bottom side
               setCurrentTranforms((prev) => {
@@ -151,19 +155,41 @@ function CustomImage({
   };
 
   useEffect(() => {
-    const img = imageRef.current.querySelector('img');
-    img.style.transition = `transform 300ms ease`;
-    if (addZoomEffect) {
-      setCurrentTranforms({
-        x: 0,
-        y: 0,
-      });
-      img.style.transform = `translate(${0}px, ${0}px) scale(${scale})`;
-    } else {
+    if (!addZoomEffect) {
+      // this ensures image zooms out when we move on to next image
+      const img = imageRef.current.querySelector('img');
+      img.style.transition = ``;
       img.style.transform = ` scale(${1})`;
     }
-  }, [addZoomEffect, scale]);
+  }, [addZoomEffect]);
+  useEffect(() => {
+    if (!addZoomEffect) return;
+    // console.log(currentTransforms.scale);
+    // console.log(scale);
 
+    const img = imageRef.current.querySelector('img');
+    img.style.transition = `transform 300ms ease`;
+    if (scale > currentTransforms.scale) {
+      // zooming in
+      img.style.transform = `translate(${currentTransforms.x}px, ${currentTransforms.y}px) scale(${scale})`;
+      setCurrentTranforms((prev) => {
+        return {
+          ...prev,
+          scale: scale,
+        };
+      });
+    } else {
+      // zooming out
+      img.style.transform = `translate(${0}px, ${0}px) scale(${scale})`;
+      setCurrentTranforms((prev) => {
+        return {
+          x: 0,
+          y: 0,
+          scale,
+        };
+      });
+    }
+  }, [scale]);
   useEffect(() => {
     const img = imageRef.current.querySelector('img');
     img.style.transition = `transform 300ms ease`;
