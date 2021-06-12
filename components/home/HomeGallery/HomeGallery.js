@@ -9,6 +9,7 @@ import { useState, useEffect, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { Debounce } from '@base/utils';
 import { useRouter } from 'next/router';
+import { useSwipeable } from 'react-swipeable';
 const images = [
   '/161.jpg',
   '/bridal-home.jpg',
@@ -70,8 +71,13 @@ function Gallery() {
       return idx - 1;
     });
   };
+  const handlers = useSwipeable({
+    onSwipedLeft: nextBlock,
+    onSwipedRight: prevBlock,
+    trackMouse: true,
+  });
   return (
-    <div className={styles.gallery}>
+    <div className={styles.gallery} {...handlers}>
       <div
         className={[styles.images, 'swipe-home-gallery'].join(' ')}
         style={{

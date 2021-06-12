@@ -2,6 +2,8 @@
   margin-bottom: var(--measure-padding-vertical-block);
   padding: var(--measure-padding-vertical-block) 0;
   background-image: url(/sitebg.svg);
+  user-select: none;
+  // for swipe feature
   .images {
     width: 95%;
     margin: auto;
