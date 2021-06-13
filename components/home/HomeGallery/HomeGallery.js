@@ -53,12 +53,19 @@ function HomeGallery() {
       // console.log('resize');
       windowResizeHandler.current.call();
     });
+    const i = setInterval(nextBlock, 5000);
+    return () => {
+      clearInterval(i);
+    };
   }, []);
   const nextBlock = () => {
     setSwipeType('right');
-    setActiveBlockIndex((idx) => {
-      if (idx === imageBlocks.length - 1) return 0;
-      return idx + 1;
+    setImageBlocks((currentImageBlocks) => {
+      setActiveBlockIndex((idx) => {
+        if (idx === currentImageBlocks.length - 1) return 0;
+        return idx + 1;
+      });
+      return currentImageBlocks;
     });
   };
   const prevBlock = () => {
