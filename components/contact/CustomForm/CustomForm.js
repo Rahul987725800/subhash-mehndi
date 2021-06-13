@@ -43,57 +43,58 @@ function CustomForm() {
     setIsSubmitting(true);
     setFormSent(false);
 
-    try {
-      const whatsappRes = await (
-        await fetch('/api/whatsapp', {
-          method: 'PUT',
-          body: JSON.stringify({
-            message: `
+    fetch('/api/whatsapp', {
+      method: 'PUT',
+      body: JSON.stringify({
+        message: `
             Name: ${values.name},\nPhone: ${values.phone},\nMessage: ${values.message}.
           `,
-          }),
-          headers: {
-            'content-type': 'application/json',
-          },
-        })
-      ).json();
-      // console.log(whatsappRes);
-      const emailRes = await (
-        await fetch('/api/email', {
-          method: 'POST',
-          body: JSON.stringify({ ...values, subject: 'Mehndi Booking' }),
-          headers: {
-            'content-type': 'application/json',
-          },
-        })
-      ).json();
-      // console.log(emailRes);
-      const smsRes = await (
-        await fetch('/api/sms', {
-          method: 'POST',
-          body: JSON.stringify({
-            message: `
-            Name: ${values.name},\nPhone: ${values.phone},\nMessage: ${values.message}.
-          `,
-          }),
-          headers: {
-            'content-type': 'application/json',
-          },
-        })
-      ).json();
-      // console.log(smsRes);
-      if (smsRes.response.return === false) {
-        throw new Error('fast2sms not working');
-      }
-      setIsSubmitting(false);
-      setFormSent(true);
+      }),
+      headers: {
+        'content-type': 'application/json',
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((e) => [console.log(e)]);
 
-      actions.resetForm();
-    } catch (e) {
-      console.error(e);
-      setError(e);
-      setIsSubmitting(false);
-    }
+    // console.log(whatsappRes);
+    fetch('/api/email', {
+      method: 'POST',
+      body: JSON.stringify({ ...values, subject: 'Mehndi Booking' }),
+      headers: {
+        'content-type': 'application/json',
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((e) => [console.log(e)]);
+    // console.log(emailRes);
+    fetch('/api/sms', {
+      method: 'POST',
+      body: JSON.stringify({
+        message: `
+            Name: ${values.name},\nPhone: ${values.phone},\nMessage: ${values.message}.
+          `,
+      }),
+      headers: {
+        'content-type': 'application/json',
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((e) => [console.log(e)]);
+
+    setIsSubmitting(false);
+    setFormSent(true);
+
+    actions.resetForm();
   };
   return (
     <div className={styles.form}>
