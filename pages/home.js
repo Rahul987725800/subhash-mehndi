@@ -1,9 +1,9 @@
-import MehndiCard from '@components/home/MehndiCard/MehndiCard';
 import styles from './home.module.scss';
 import FeedCards from '@components/home/FeedCards/FeedCards';
 import Story from '@components/home/Story/Story';
 
 import HomeGallery from '@components/home/HomeGallery/HomeGallery';
+import MehndiCards from '@components/home/MehndiCards/MehndiCards';
 export default function home() {
   return (
     <main className={styles.home}>
@@ -38,11 +38,7 @@ export default function home() {
         <h1 className={styles.header} style={{ textAlign: 'center' }}>
           Services
         </h1>
-        <div className={styles.cards}>
-          <MehndiCard />
-          <MehndiCard />
-          <MehndiCard />
-        </div>
+        <MehndiCards />
       </div>
       <h1
         className={styles.header}

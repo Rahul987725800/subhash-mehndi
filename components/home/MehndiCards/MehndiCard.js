@@ -1,7 +1,7 @@
 import styles from './MehndiCard.module.scss';
 import CustomImage from '@components/common/CustomImage/CustomImage';
 import { useState } from 'react';
-function MehndiCard({}) {
+function MehndiCard({ src, type, description }) {
   const [hovered, setHovered] = useState(false);
   return (
     <div
@@ -11,7 +11,7 @@ function MehndiCard({}) {
     >
       <span className={styles.image}>
         <CustomImage
-          src="/images/mehandi/1.jpg"
+          src={src}
           width="150px"
           height="150px"
           addHoverEffect
@@ -19,11 +19,8 @@ function MehndiCard({}) {
         />
       </span>
 
-      <h4 className={styles.type}>Bridal Mehndi</h4>
-      <p className={styles.description}>
-        Apart from the mehendi design and assurance of its rich colour, Kundan
-        Mehandi uses high quality henna paste that suits to all kinds of skins
-      </p>
+      <h4 className={styles.type}>{type}</h4>
+      <p className={styles.description}>{description}</p>
     </div>
   );
 }
