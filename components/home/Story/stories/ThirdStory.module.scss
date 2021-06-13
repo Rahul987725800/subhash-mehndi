@@ -7,11 +7,17 @@
     padding-top: 10vh;
     color: white;
     font-size: 4rem;
+    @media (max-width: 1200px) {
+      font-size: 3rem;
+    }
   }
   .small {
     margin-top: 10vh;
     font-size: 2rem;
     width: 60%;
+    @media (max-width: 1200px) {
+      font-size: 1.5rem;
+    }
   }
   .subhashImage {
     position: absolute;
@@ -22,6 +28,9 @@
       width: 300px;
       height: 300px;
       object-fit: cover;
+      @media (max-width: 1200px) {
+        width: 250px;
+      }
     }
   }
   .image {
