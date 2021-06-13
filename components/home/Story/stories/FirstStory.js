@@ -11,6 +11,14 @@ function FirstStory({ show }) {
       setAnimationFinished(true);
     }, 3000);
   }, []);
+  useEffect(() => {
+    if (show) {
+      setAnimationFinished(false);
+      setTimeout(() => {
+        setAnimationFinished(true);
+      }, 3000);
+    }
+  }, [show]);
   return (
     <div
       className={['first-story', styles.firstStory].join(' ')}

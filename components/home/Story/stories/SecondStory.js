@@ -20,22 +20,20 @@ function SecondStory({ show }) {
         {smallText('Mohali,')}
         {smallText('Zirakpur')}
       </div>
-      <CSSTransition classNames={`home-subhash`} timeout={3000} in={show}>
-        <p></p>
+      <CSSTransition classNames={`subhash-image`} timeout={2000} in={show}>
+        <div className={styles.subhashImage}>
+          <img src="/storyimg.jpg" />
+        </div>
       </CSSTransition>
       <CSSTransition classNames={`image`} timeout={3000} in={show}>
-        <div className={styles.image}>
-          <img src="/bg/slider_background_orange.jpg" />
-        </div>
+        <div className={styles.image}></div>
       </CSSTransition>
     </div>
   );
   function bigText(text) {
     return (
       <CSSTransition classNames={`bigText`} timeout={1000} in={show}>
-        <p
-          className={[styles.big, 'visibility-hidden', 'rotateY-80'].join(' ')}
-        >
+        <p className={[styles.big, 'visibility-hidden'].join(' ')}>
           {text}&nbsp;
         </p>
       </CSSTransition>
@@ -43,7 +41,7 @@ function SecondStory({ show }) {
   }
   function smallText(text) {
     return (
-      <CSSTransition classNames={`bigText`} timeout={2000} in={show}>
+      <CSSTransition classNames={`smallText`} timeout={2000} in={show}>
         <p className={[styles.small, 'visibility-hidden'].join(' ')}>
           {text}&nbsp;
         </p>

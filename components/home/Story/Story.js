@@ -34,7 +34,7 @@ function Story() {
         updated[nextIndex] = true;
         return updated;
       });
-    }, 1000);
+    }, 1300);
     setNavigationTimeout(t);
   };
   const prevStory = () => {
@@ -51,7 +51,7 @@ function Story() {
         updated[prevIndex] = true;
         return updated;
       });
-    }, 1000);
+    }, 1300);
     setNavigationTimeout(t);
   };
   const handlers = useSwipeable({
@@ -68,16 +68,16 @@ function Story() {
         borderColor="white"
       />
 
-      {[FirstStory, SecondStory, ThirdStory].map((Story, i) => {
+      {[FirstStory, SecondStory, ThirdStory].map((StoryChild, i) => {
         return (
           <CSSTransition
             classNames={`story`}
-            timeout={1000}
+            timeout={1300}
             in={visibleStory[i]}
             key={i}
           >
             <div className={[styles.storyChild, 'visibility-hidden'].join(' ')}>
-              <Story show={visibleStory[i]} />
+              <StoryChild show={visibleStory[i]} />
             </div>
           </CSSTransition>
         );
