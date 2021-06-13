@@ -6,18 +6,19 @@ const distortionFactor = 30;
 function FirstStory({ show }) {
   const storyRef = useRef();
   const [animationFinished, setAnimationFinished] = useState(false);
+
   useEffect(() => {
-    setTimeout(() => {
-      setAnimationFinished(true);
-    }, 3000);
-  }, []);
-  useEffect(() => {
+    let t;
     if (show) {
       setAnimationFinished(false);
-      setTimeout(() => {
+
+      t = setTimeout(() => {
         setAnimationFinished(true);
       }, 3000);
     }
+    return () => {
+      clearTimeout(t);
+    };
   }, [show]);
   return (
     <div

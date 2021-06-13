@@ -1,7 +1,6 @@
 import FeedCard from './FeedCard/FeedCard';
 import styles from './FeedCards.module.scss';
 import { CSSTransition } from 'react-transition-group';
-import { useEffect, useState } from 'react';
 import { useScrollControl } from '../useScrollControl';
 const feeds = [
   {

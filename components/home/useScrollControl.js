@@ -4,16 +4,21 @@ export function useScrollControl(len, delay) {
   const [loadedFirstTime, setLoadedFirstTime] = useState(true);
   const [scrollInterval, setScrollInterval] = useState();
   const [scrollTimeout, setScrollTimeout] = useState();
+  let componentMounted = true;
   const startAutomaticScroll = () => {
     const i = setInterval(() => {
       // console.log('auto next Item');
-      nextItem();
+      // console.log(componentMounted);
+      if (componentMounted) nextItem();
     }, delay);
     setScrollInterval(i);
   };
   useEffect(() => {
     // console.log('start auto scroll');
     startAutomaticScroll();
+    return () => {
+      componentMounted = false;
+    };
   }, []);
   const nextItem = () => {
     setActiveItemIndex((prevActiveItemIndex) => {

@@ -7,63 +7,101 @@ import { CSSTransition } from 'react-transition-group';
 import LeftRightButtons from '@components/common/LeftRightButtons/LeftRightButtons';
 import { useSwipeable } from 'react-swipeable';
 const numStories = 3;
+const autoScrollDelay = 5000;
 function Story() {
   const [visibleStory, setVisibleStory] = useState(
     Array(numStories).fill(false)
   );
   const [navigationTimeout, setNavigationTimeout] = useState();
+  const [autoScrollInterval, setAutoScrollInterval] = useState();
+  const [scrollResumeTimeout, setScrollResumeTimeout] = useState();
+  let componentMounted = true;
+  const startAutomaticScroll = () => {
+    const i = setInterval(() => {
+      if (componentMounted) nextStory();
+    }, autoScrollDelay);
+    setAutoScrollInterval(i);
+  };
   useEffect(() => {
     setVisibleStory((prev) => {
       const updated = [...prev];
       updated[0] = true;
       return updated;
     });
+    startAutomaticScroll();
+    return () => {
+      componentMounted = false;
+    };
   }, []);
 
   const nextStory = () => {
     clearTimeout(navigationTimeout);
-    const activeIndex = visibleStory.findIndex((v) => v);
-    setVisibleStory(Array(numStories).fill(false));
-    let nextIndex = activeIndex + 1;
-    if (nextIndex >= numStories) {
-      nextIndex = 0;
-    }
-    const t = setTimeout(() => {
-      setVisibleStory((prev) => {
-        const updated = [...prev];
-        updated[nextIndex] = true;
-        return updated;
-      });
-    }, 1300);
-    setNavigationTimeout(t);
+    setVisibleStory((prevVisibleStory) => {
+      const activeIndex = prevVisibleStory.findIndex((v) => v);
+      let nextIndex = activeIndex + 1;
+      if (nextIndex >= numStories) {
+        nextIndex = 0;
+      }
+      const t = setTimeout(() => {
+        setVisibleStory((prev) => {
+          const updated = [...prev];
+          updated[nextIndex] = true;
+          return updated;
+        });
+      }, 1300);
+      setNavigationTimeout(t);
+      return Array(numStories).fill(false);
+    });
   };
   const prevStory = () => {
     clearTimeout(navigationTimeout);
-    const activeIndex = visibleStory.findIndex((v) => v);
-    setVisibleStory(Array(numStories).fill(false));
-    let prevIndex = activeIndex - 1;
-    if (prevIndex < 0) {
-      prevIndex = numStories - 1;
-    }
-    const t = setTimeout(() => {
-      setVisibleStory((prev) => {
-        const updated = [...prev];
-        updated[prevIndex] = true;
-        return updated;
-      });
-    }, 1300);
-    setNavigationTimeout(t);
+    setVisibleStory((prevVisibleStory) => {
+      const activeIndex = prevVisibleStory.findIndex((v) => v);
+      let prevIndex = activeIndex - 1;
+      if (prevIndex < 0) {
+        prevIndex = numStories - 1;
+      }
+      const t = setTimeout(() => {
+        setVisibleStory((prev) => {
+          const updated = [...prev];
+          updated[prevIndex] = true;
+          return updated;
+        });
+      }, 1300);
+      setNavigationTimeout(t);
+      return Array(numStories).fill(false);
+    });
+  };
+
+  const manualControl = () => {
+    clearInterval(autoScrollInterval);
+    clearTimeout(scrollResumeTimeout);
+    const t = setTimeout(startAutomaticScroll, autoScrollDelay);
+    setScrollResumeTimeout(t);
   };
   const handlers = useSwipeable({
-    onSwipedLeft: nextStory,
-    onSwipedRight: prevStory,
+    onSwipedLeft: () => {
+      manualControl();
+      nextStory();
+    },
+    onSwipedRight: () => {
+      manualControl();
+      prevStory();
+    },
     trackMouse: true,
   });
+
   return (
     <div className={styles.story} {...handlers}>
       <LeftRightButtons
-        leftClick={prevStory}
-        rightClick={nextStory}
+        leftClick={() => {
+          manualControl();
+          prevStory();
+        }}
+        rightClick={() => {
+          manualControl();
+          nextStory();
+        }}
         textColor="white"
         borderColor="white"
       />

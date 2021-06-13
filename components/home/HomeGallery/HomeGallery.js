@@ -24,7 +24,7 @@ const imageDimension = {
   height: 250,
 };
 
-function Gallery() {
+function HomeGallery() {
   const router = useRouter();
   const [imageBlocks, setImageBlocks] = useState([]);
   const [swipeType, setSwipeType] = useState('');
@@ -94,7 +94,7 @@ function Gallery() {
         </div>
 
         {imageBlocks.map((block, i) => (
-          <div className={styles.block}>
+          <div className={styles.block} key={i}>
             {block.map((imageSrc, i) => (
               <CSSTransition
                 classNames={`image-${swipeType}`}
@@ -163,4 +163,4 @@ function Gallery() {
   }
 }
 
-export default Gallery;
+export default HomeGallery;
