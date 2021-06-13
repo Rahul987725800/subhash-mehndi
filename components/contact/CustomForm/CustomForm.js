@@ -35,54 +35,65 @@ const MyTextArea = (props) => {
 function CustomForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formSent, setFormSent] = useState(false);
+  const [error, setError] = useState();
   const onSubmit = async (values, actions) => {
     console.log('submmit clicked');
     if (isSubmitting) return;
     // console.log(values);
     setIsSubmitting(true);
     setFormSent(false);
-    // const whatsappRes = await (
-    //   await fetch('/api/whatsapp', {
-    //     method: 'PUT',
-    //     body: JSON.stringify({
-    //       message: `
-    //       Name: ${values.name},\nPhone: ${values.phone},\nMessage: ${values.message}.
-    //     `,
-    //     }),
-    //     headers: {
-    //       'content-type': 'application/json',
-    //     },
-    //   })
-    // ).json();
-    // console.log(whatsappRes);
-    const emailRes = await (
-      await fetch('/api/email', {
-        method: 'POST',
-        body: JSON.stringify({ ...values, subject: 'Mehndi Booking' }),
-        headers: {
-          'content-type': 'application/json',
-        },
-      })
-    ).json();
-    console.log(emailRes);
-    const smsRes = await (
-      await fetch('/api/sms', {
-        method: 'POST',
-        body: JSON.stringify({
-          message: `
-          Name: ${values.name},\nPhone: ${values.phone},\nMessage: ${values.message}.
-        `,
-        }),
-        headers: {
-          'content-type': 'application/json',
-        },
-      })
-    ).json();
-    console.log(smsRes);
-    setIsSubmitting(false);
-    setFormSent(true);
 
-    actions.resetForm();
+    try {
+      const whatsappRes = await (
+        await fetch('/api/whatsapp', {
+          method: 'PUT',
+          body: JSON.stringify({
+            message: `
+            Name: ${values.name},\nPhone: ${values.phone},\nMessage: ${values.message}.
+          `,
+          }),
+          headers: {
+            'content-type': 'application/json',
+          },
+        })
+      ).json();
+      // console.log(whatsappRes);
+      const emailRes = await (
+        await fetch('/api/email', {
+          method: 'POST',
+          body: JSON.stringify({ ...values, subject: 'Mehndi Booking' }),
+          headers: {
+            'content-type': 'application/json',
+          },
+        })
+      ).json();
+      // console.log(emailRes);
+      const smsRes = await (
+        await fetch('/api/sms', {
+          method: 'POST',
+          body: JSON.stringify({
+            message: `
+            Name: ${values.name},\nPhone: ${values.phone},\nMessage: ${values.message}.
+          `,
+          }),
+          headers: {
+            'content-type': 'application/json',
+          },
+        })
+      ).json();
+      // console.log(smsRes);
+      if (smsRes.response.return === false) {
+        throw new Error('fast2sms not working');
+      }
+      setIsSubmitting(false);
+      setFormSent(true);
+
+      actions.resetForm();
+    } catch (e) {
+      console.error(e);
+      setError(e);
+      setIsSubmitting(false);
+    }
   };
   return (
     <div className={styles.form}>
@@ -118,6 +129,12 @@ function CustomForm() {
       {formSent && (
         <div className={styles.response}>
           Your response is recorded, we will contact you soon.
+        </div>
+      )}
+      {error && (
+        <div className={styles.response}>
+          Some error occurred, your response could not be recorded, please try
+          again or contact manually.
         </div>
       )}
     </div>

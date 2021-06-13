@@ -10,8 +10,8 @@ const feeds = [
     feedback: 'Amazing designs go for him blindly',
   },
   {
-    src: '/images/mehandi/1.jpg',
-    name: 'Rahul Sharma',
+    src: '/images/misc/subhash-gupta-doing-mehndi-design5.jpg',
+    name: 'Ritika Sharma',
     location: 'Chandigarh',
     feedback: `He is really great, go for him. Lorem ipsum dolor sit amet consectetur adipisicing elit. SuntLorem ipsum dolor sit amet consectetur adipisicing elit. Sunt nem nem`,
   },

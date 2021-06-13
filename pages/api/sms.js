@@ -16,8 +16,10 @@ export default async (req, res) => {
   }
 };
 const send = async (message) => {
+  // console.log(process.env.FAST_2_SMS_API_KEY);
+  // console.log(process.env.SMS_RECEIVER);
   var options = {
-    authorization: process.env.SMS_API_KEY,
+    authorization: process.env.FAST_2_SMS_API_KEY,
     message,
     numbers: [process.env.SMS_RECEIVER],
   };

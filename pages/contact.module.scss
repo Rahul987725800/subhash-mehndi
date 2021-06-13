@@ -40,6 +40,7 @@
       flex-direction: column;
     }
     .description {
+      max-width: 800px;
       .text {
         margin-top: 2rem;
       }
@@ -56,6 +57,8 @@
         padding: 0.5rem;
         padding-top: 0;
       }
+      display: none;
+      // include the map when available
     }
   }
   .getInTouch {

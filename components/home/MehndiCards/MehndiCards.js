@@ -4,28 +4,23 @@ function MehndiCards() {
   return (
     <div className={styles.cards}>
       <MehndiCard
-        src="/161.jpg"
+        src="/images/bridal/bridal-wedding-mehndi-by-subhash-gupta-mehndi-artist8.jpg"
         type="Bridal Mehndi"
-        description="Gupta Mehandi feels proud in meeting tons of diverse desires by
-            bringing a great range of Mehandi designs for ladies. The classic
-            beauty of each of these mehandi and awesome color that sets well
-            truly makes the occasion pleasant and memorable for ladies"
+        description="Bridal mehndi meant primarily for bride. This involves application of florals, chequered dots, trails and other traditional patterns. It is a ritual for Indian weddings."
+        path="/gallery/bridal-mehndi"
       />
+
       <MehndiCard
-        src="/161.jpg"
+        src="/images/designer/designer-arabic-function-mehndi-by-subhash-gupta-mehndi-artist1.jpg"
         type="Designer Mehndi"
-        description="Gupta Mehandi feels proud in meeting tons of diverse desires by
-            bringing a great range of Mehandi designs for ladies. The classic
-            beauty of each of these mehandi and awesome color that sets well
-            truly makes the occasion pleasant and memorable for ladies"
+        description="Designer mehndi is suitable for guests in functions and weddings. Arabic, Indo-Arabic, Indo-Western mehndi come under this category."
+        path="/gallery/designer-mehndi"
       />
       <MehndiCard
-        src="/161.jpg"
+        src="/images/churi/churi-bangle-jutti-kade-prandi-stall3.jpg"
         type="Churi Stall"
-        description="Gupta Mehandi feels proud in meeting tons of diverse desires by
-            bringing a great range of Mehandi designs for ladies. The classic
-            beauty of each of these mehandi and awesome color that sets well
-            truly makes the occasion pleasant and memorable for ladies"
+        description="Bangles, churi, jutti prandi stall, offering wide range of bangles, kada, hathful at your function."
+        path="/gallery/bangles-kade-stall"
       />
     </div>
   );

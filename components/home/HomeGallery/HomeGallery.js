@@ -11,14 +11,18 @@ import { Debounce } from '@base/utils';
 import { useRouter } from 'next/router';
 import { useSwipeable } from 'react-swipeable';
 const images = [
-  '/161.jpg',
-  '/bridal-home.jpg',
-  '/face.png',
-  '/profile.jpg',
-  '/images/mehandi/1.jpg',
-  '/images/mehandi/2.jpg',
+  '/images/bridal/bridal-wedding-mehndi-by-subhash-gupta-mehndi-artist8.jpg',
+  '/images/bridal/bridal-wedding-mehndi-by-subhash-gupta-mehndi-artist9.jpg',
+  '/images/designer/designer-arabic-function-mehndi-by-subhash-gupta-mehndi-artist2.jpg',
+  '/images/designer/designer-arabic-function-mehndi-by-subhash-gupta-mehndi-artist10.jpg',
+  '/images/churi/churi-bangle-jutti-kade-prandi-stall2.jpg',
+  '/images/churi/churi-bangle-jutti-kade-prandi-stall1.jpg',
 ];
-const categoryLinks = ['/gallery', '/contact', 'gallery'];
+const categoryLinks = [
+  '/gallery/bridal-mehndi',
+  '/gallery/designer-mehndi',
+  '/gallery/bangles-kade-stall',
+];
 const imageDimension = {
   width: 250,
   height: 250,

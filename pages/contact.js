@@ -33,14 +33,14 @@ function contact() {
         <div className={styles.description}>
           <h2 className={styles.header}>About</h2>
           <p className={styles.text}>
-            Virender gupta has more than 20 years of experience in Mehandi Arts,
+            Subhash gupta has more than 20 years of experience in Mehandi Arts,
             he has been the star in field of mehandi arts, and is proficient in
             variety of Mehandi Designs. We have been greeted with highly
             positive feedback regarding mehandi design and mehandi color. We
             leave no stones unturned in satisfying our customers and to make
             their auspicisious occasions happy and memorable. <br /> <br />
             The strength of Gupta Mehandi Arts has been its team of highly
-            trained professional mehandi artists and Virender Gupta actively
+            trained professional mehandi artists and Subhash Gupta actively
             leads the same. Looking forward to serve you.
           </p>
         </div>
