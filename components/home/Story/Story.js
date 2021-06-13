@@ -13,38 +13,36 @@ function Story() {
     Array(numStories).fill(false)
   );
   const [navigationTimeout, setNavigationTimeout] = useState();
-  const [autoScrollInterval, setAutoScrollInterval] = useState();
-  const [scrollResumeTimeout, setScrollResumeTimeout] = useState();
   const componentMountedRef = useRef(true);
-  const [flipFlop, setFlipFlop] = useState(true);
+  const [intervalSetter, setInvervalSetter] = useState(true);
   // let componentMounted = true;
   useEffect(() => {
     const i = setInterval(() => {
-      console.log('componentMountedRef.current');
-      console.log(componentMountedRef.current);
+      // console.log('auto scroll ran')
+      // console.log('componentMountedRef.current');
+      // console.log(componentMountedRef.current);
       // console.log('componentMounted');
       // console.log(componentMounted);
       if (componentMountedRef.current) nextStory();
     }, autoScrollDelay);
-    setAutoScrollInterval(i);
     return () => {
       clearInterval(i);
     };
-  }, [flipFlop]);
-  const startAutomaticScroll = () => {
-    setFlipFlop(!flipFlop);
+  }, [intervalSetter]);
+  const invertIntervalSetter = () => {
+    setInvervalSetter(!intervalSetter);
   };
+
   useEffect(() => {
     setVisibleStory((prev) => {
       const updated = [...prev];
       updated[0] = true;
       return updated;
     });
-    startAutomaticScroll();
+    invertIntervalSetter();
     return () => {
       componentMountedRef.current = false;
       // componentMounted = false;
-      console.log(autoScrollInterval);
     };
   }, []);
 
@@ -57,7 +55,7 @@ function Story() {
         nextIndex = 0;
       }
       const t = setTimeout(() => {
-        console.log(componentMountedRef.current);
+        // console.log(componentMountedRef.current);
 
         if (componentMountedRef.current)
           setVisibleStory((prev) => {
@@ -79,7 +77,7 @@ function Story() {
         prevIndex = numStories - 1;
       }
       const t = setTimeout(() => {
-        console.log(componentMountedRef.current);
+        // console.log(componentMountedRef.current);
         if (componentMountedRef.current)
           setVisibleStory((prev) => {
             const updated = [...prev];
@@ -92,26 +90,13 @@ function Story() {
     });
   };
 
-  const manualControl = () => {
-    clearInterval(autoScrollInterval);
-    clearTimeout(scrollResumeTimeout);
-    const t = setTimeout(() => {
-      // console.log('componentMountedRef.current');
-      // console.log(componentMountedRef.current);
-      // console.log('componentMounted');
-      // console.log(componentMounted);
-      if (componentMountedRef.current) startAutomaticScroll();
-      // because of nesting we had to use this
-    }, autoScrollDelay);
-    setScrollResumeTimeout(t);
-  };
   const handlers = useSwipeable({
     onSwipedLeft: () => {
-      manualControl();
+      invertIntervalSetter();
       nextStory();
     },
     onSwipedRight: () => {
-      manualControl();
+      invertIntervalSetter();
       prevStory();
     },
     trackMouse: true,
@@ -121,11 +106,11 @@ function Story() {
     <div className={styles.story} {...handlers}>
       <LeftRightButtons
         leftClick={() => {
-          manualControl();
+          invertIntervalSetter();
           prevStory();
         }}
         rightClick={() => {
-          manualControl();
+          invertIntervalSetter();
           nextStory();
         }}
         textColor="white"
