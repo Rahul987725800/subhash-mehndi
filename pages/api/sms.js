@@ -1,6 +1,5 @@
 const fast2sms = require('fast-two-sms');
-const api_key =
-  'mGySI3X6uPEjFeC5s9aUWAog8p2MiKbtdDBYvTnzVcNQHrhwqOLXk6OyThp2CzGBrg0cqDHNKoZFs8ld';
+
 export default async (req, res) => {
   if (req.method === 'GET') {
     const response = await send('sample message');
@@ -18,9 +17,9 @@ export default async (req, res) => {
 };
 const send = async (message) => {
   var options = {
-    authorization: api_key,
+    authorization: process.env.SMS_API_KEY,
     message,
-    numbers: ['9877258740'],
+    numbers: [process.env.SMS_RECEIVER],
   };
   return fast2sms.sendMessage(options);
 };

@@ -1,16 +1,17 @@
-const accountSid = 'AC0e14a3c260f511f239b350202c2f01fa';
-
-const authToken = '8ed99a8a455938643c3b5508d6ea28d3';
-const client = require('twilio')(accountSid, authToken, {
-  lazyLoading: true,
-});
+const client = require('twilio')(
+  process.env.TWILIO_ACCOUNT_SID,
+  process.env.TWILIO_AUTH_TOKEN,
+  {
+    lazyLoading: true,
+  }
+);
 
 const sendMessage = async (message) => {
   try {
     const messageSent = await client.messages.create({
-      to: 'whatsapp:+919877258740',
+      to: process.env.WHATSAPP_TO,
       body: message,
-      from: 'whatsapp:+14155238886',
+      from: process.env.WHATSAPP_FROM,
     });
     // console.log(messageSent)
     return messageSent;

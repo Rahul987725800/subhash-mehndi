@@ -5,8 +5,8 @@ var transporter = nodemailer.createTransport(
     service: 'gmail',
     host: 'smtp.gmail.com',
     auth: {
-      user: 'guptarahul70322@gmail.com',
-      pass: 'mca@jnu100',
+      user: process.env.GMAIL_USER,
+      pass: process.env.GMAIL_PASS,
     },
   })
 );
@@ -28,7 +28,7 @@ export default async (req, res) => {
     // console.log(req.body);
 
     const mailOptions = {
-      to: 'virendergupta70322@gmail.com, guptarahul70322@gmail.com', // list of receivers
+      to: process.env.GMAIL_RECEIVER, // list of receivers
       subject: req.body.subject, // Subject line
       // text: 'Hello world?', // plain text body
       html: `

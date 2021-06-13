@@ -10,7 +10,7 @@ function gallery() {
   let folders = [
     {
       image:
-        '/images/bridal/bridal-wedding-mehndi-by-subhash-gupta-mehndi-artist30.jpg',
+        '/images/bridal/bridal-wedding-mehndi-by-subhash-gupta-mehndi-artist6.jpg',
       link: '/gallery/bridal-mehndi',
       linkText: 'Bridal Mehandi',
     },

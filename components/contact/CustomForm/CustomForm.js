@@ -41,20 +41,20 @@ function CustomForm() {
     // console.log(values);
     setIsSubmitting(true);
     setFormSent(false);
-    const whatsappRes = await (
-      await fetch('/api/whatsapp', {
-        method: 'PUT',
-        body: JSON.stringify({
-          message: `
-          Name: ${values.name},\nPhone: ${values.phone},\nMessage: ${values.message}.
-        `,
-        }),
-        headers: {
-          'content-type': 'application/json',
-        },
-      })
-    ).json();
-    console.log(whatsappRes);
+    // const whatsappRes = await (
+    //   await fetch('/api/whatsapp', {
+    //     method: 'PUT',
+    //     body: JSON.stringify({
+    //       message: `
+    //       Name: ${values.name},\nPhone: ${values.phone},\nMessage: ${values.message}.
+    //     `,
+    //     }),
+    //     headers: {
+    //       'content-type': 'application/json',
+    //     },
+    //   })
+    // ).json();
+    // console.log(whatsappRes);
     const emailRes = await (
       await fetch('/api/email', {
         method: 'POST',
