@@ -2,31 +2,27 @@ import styles from './index.module.scss';
 import Folder from '@components/gallery/Folder/Folder';
 
 import { range } from '@base/utils';
-import CustomImage from '@components/common/CustomImage/CustomImage';
-import { useState } from 'react';
-import DesktopImageView from '@components/gallery/DesktopImageView/DesktopImageView';
-import { isMobile } from 'react-device-detect';
-import MobileImageView from '@components/gallery/MobileImageView/MobileImageView';
-const images = range(1, 14).map((v) => `/images/mehandi/${v}.jpg`);
+import CommonView from '@components/gallery/CommonView/CommonView';
+const images = range(1, 5).map(
+  (v) => `/images/misc/subhash-gupta-doing-mehndi-design${v}.jpg`
+);
 function gallery() {
-  const [showImageView, setShowImageView] = useState(false);
-  const [activeImageIndex, setActiveImageIndex] = useState();
-  const [blockSmoothScroll, setBlockSmoothScroll] = useState(true);
-
   let folders = [
     {
-      image: '/images/mehandi/1.jpg',
-      link: '/gallery/mehandi',
-      linkText: 'Mehandi Designs',
+      image:
+        '/images/bridal/bridal-wedding-mehndi-by-subhash-gupta-mehndi-artist30.jpg',
+      link: '/gallery/bridal-mehndi',
+      linkText: 'Bridal Mehandi',
     },
     {
-      image: '/images/mehandi/2.jpg',
-      link: '/gallery/mehandi-latest',
-      linkText: 'Mehandi Latest Designs',
+      image:
+        '/images/designer/designer-arabic-function-mehndi-by-subhash-gupta-mehndi-artist2.jpg',
+      link: '/gallery/designer-mehndi',
+      linkText: 'Designer Mehandi',
     },
     {
-      image: '/images/mehandi/3.jpg',
-      link: '/gallery/bangles-simple',
+      image: '/images/churi/churi-bangle-jutti-kade-prandi-stall2.jpg',
+      link: '/gallery/bangles-kade-stall',
       linkText: 'Bangles Kade Stall',
     },
   ];
@@ -39,53 +35,8 @@ function gallery() {
           return <Folder key={i} folder={folder} />;
         })}
       </div>
-      <div className={styles.imageView}>
-        <h1 className={styles.header}>Miscellaneous</h1>
-        <div className={styles.container}>
-          <div className={styles.images}>
-            {images.map((src, i) => {
-              return (
-                <div
-                  className={styles.image}
-                  onClick={() => {
-                    setBlockSmoothScroll(true);
-                    setActiveImageIndex(i);
-                    setShowImageView(true);
-                  }}
-                  key={i}
-                >
-                  <CustomImage src={src} addHoverEffect loading="lazy" />
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-      <div
-        style={{
-          display: showImageView ? 'block' : 'none',
-        }}
-        className={styles.imageOpened}
-      >
-        {isMobile ? (
-          <MobileImageView
-            images={images}
-            activeImageIndex={activeImageIndex}
-            setActiveImageIndex={setActiveImageIndex}
-            closeImageView={() => setShowImageView(false)}
-            blockSmoothScroll={blockSmoothScroll}
-            setBlockSmoothScroll={setBlockSmoothScroll}
-          />
-        ) : (
-          <DesktopImageView
-            images={images}
-            activeImageIndex={activeImageIndex}
-            setActiveImageIndex={setActiveImageIndex}
-            closeImageView={() => setShowImageView(false)}
-            blockSmoothScroll={blockSmoothScroll}
-            setBlockSmoothScroll={setBlockSmoothScroll}
-          />
-        )}
+      <div className={styles.miscImages}>
+        <CommonView header="Miscellaneous" images={images} />
       </div>
     </main>
   );

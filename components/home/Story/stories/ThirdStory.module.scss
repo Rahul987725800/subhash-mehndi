@@ -2,7 +2,10 @@
   width: 100%;
   height: 100%;
   position: relative;
-  padding: 0 var(--measure-padding-horizontal-block);
+  padding: 0 10%;
+  @media (max-width: 600px) {
+    padding: 0 15%;
+  }
   .big {
     padding-top: 10vh;
     color: white;
@@ -18,12 +21,19 @@
     @media (max-width: 1200px) {
       font-size: 1.5rem;
     }
+    @media (max-width: 900px) {
+      font-size: 1.3rem;
+      width: 100%;
+    }
   }
   .subhashImage {
     position: absolute;
     top: 20%;
     right: 10%;
     border: 10px solid rgba(255, 255, 255, 0.5);
+    @media (max-width: 900px) {
+      display: none;
+    }
     img {
       width: 300px;
       height: 300px;

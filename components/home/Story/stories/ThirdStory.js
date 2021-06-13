@@ -10,14 +10,16 @@ function ThirdStory({ show }) {
       <CSSTransition classNames={`smallText`} timeout={2000} in={show}>
         <p className={[styles.small].join(' ')}>
           Wedding Mehndi, Bridal Mehndi, Arabic Mehndi, Designer Mehndi, Mugali
-          Mehndi <br /> Churi, Gehne, Prandi, Jutti, Kade stall
+          Mehndi <br /> <br /> <br /> Churi, Gehne, Prandi, Jutti, Kade stall
         </p>
       </CSSTransition>
+
       <CSSTransition classNames={'subhash-image'} timeout={3000} in={show}>
         <div className={styles.subhashImage}>
           <img src="/161.jpg" alt="" />
         </div>
       </CSSTransition>
+
       <CSSTransition classNames={`image`} timeout={3000} in={show}>
         <div className={styles.image}></div>
       </CSSTransition>

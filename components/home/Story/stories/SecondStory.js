@@ -1,5 +1,6 @@
 import styles from './SecondStory.module.scss';
 import { CSSTransition } from 'react-transition-group';
+import { isMobile } from 'react-device-detect';
 function SecondStory({ show }) {
   return (
     <div className={['second-story', styles.secondStory].join(' ')}>
@@ -20,11 +21,13 @@ function SecondStory({ show }) {
         {smallText('Mohali,')}
         {smallText('Zirakpur')}
       </div>
+
       <CSSTransition classNames={`subhash-image`} timeout={2000} in={show}>
         <div className={styles.subhashImage}>
           <img src="/storyimg.jpg" />
         </div>
       </CSSTransition>
+
       <CSSTransition classNames={`image`} timeout={3000} in={show}>
         <div className={styles.image}></div>
       </CSSTransition>

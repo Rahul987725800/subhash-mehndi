@@ -1,0 +1,38 @@
+.commonView {
+  margin-top: var(--measure-navbar-height);
+  min-height: calc(100vh - var(--measure-navbar-height));
+
+  .header {
+    font-size: 2.5rem;
+    color: var(--color-slategray);
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: var(--measure-padding-vertical-block);
+  }
+  .imageView {
+    padding: var(--measure-padding-vertical-block) 0;
+    .container {
+      background-image: url('/sitebg.svg');
+      .images {
+        padding: var(--measure-padding-vertical-block) 0;
+        width: var(--measure-window-width);
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        .image {
+        }
+      }
+    }
+  }
+  .imageOpened {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    // border: 1px solid red;
+    z-index: 30;
+  }
+}
