@@ -26,7 +26,11 @@ function SecondStory({ show }) {
 
       <CSSTransition classNames={`subhash-image`} timeout={2000} in={show}>
         <div className={styles.subhashImage}>
-          <img src="/story/story2.jpg" />
+          <img
+            src="/story/story2.jpg"
+            alt="bridal-wedding-mehndi-by-subhash-gupta-mehndi-artist"
+            aria-hidden="true"
+          />
         </div>
       </CSSTransition>
 

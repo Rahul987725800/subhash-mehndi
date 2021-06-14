@@ -15,6 +15,7 @@ function Navbar() {
           <img
             src="/ganesha/ganesha-colored.svg"
             alt="subhash mehndi ganesha logo"
+            aria-hidden="true"
           />
           <p className={styles.text}>Subhash Gupta Mehndi Artist</p>
         </div>

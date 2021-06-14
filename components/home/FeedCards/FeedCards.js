@@ -66,7 +66,7 @@ function FeedCards() {
           prevItem();
         }}
       >
-        Prev <i className="fa fa-angle-left"></i>
+        Prev <i className="fa fa-angle-left" aria-hidden="true"></i>
       </div>
       <div
         className={[styles.button, styles.next].join(' ')}
@@ -75,7 +75,7 @@ function FeedCards() {
           nextItem();
         }}
       >
-        Next <i className="fa fa-angle-right"></i>
+        Next <i className="fa fa-angle-right" aria-hidden="true"></i>
       </div>
     </div>
   );

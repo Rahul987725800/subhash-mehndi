@@ -60,6 +60,7 @@ function HomeGallery() {
     const i = setInterval(nextBlock, 5000);
     return () => {
       clearInterval(i);
+      window.removeEventListener('resize');
     };
   }, []);
   const nextBlock = () => {

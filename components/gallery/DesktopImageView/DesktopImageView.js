@@ -194,7 +194,7 @@ function DesktopImageView({
             setActiveImageIndex(prevImageIndex());
           }}
         >
-          <i className="fa fa-angle-left"></i>
+          <i className="fa fa-angle-left" aria-hidden="true"></i>
         </div>
 
         <div className={styles.images} ref={imagesRef}>
@@ -228,7 +228,7 @@ function DesktopImageView({
             setActiveImageIndex(nextImageIndex());
           }}
         >
-          <i className="fa fa-angle-right"></i>
+          <i className="fa fa-angle-right" aria-hidden="true"></i>
         </div>
       </div>
     </div>

@@ -12,25 +12,24 @@
   }
   .bigTextGroup {
     padding-top: 10vh;
-    @media (max-width: 900px) {
-      padding-top: 5vh;
-    }
+
     display: flex;
     flex-wrap: wrap;
     .big {
       color: white;
       font-size: 4rem;
       @media (max-width: 1200px) {
-        font-size: 3rem;
+        font-size: 2.5rem;
       }
     }
   }
   .smallTextGroup {
+    margin-top: 2rem;
+
     display: flex;
     flex-wrap: wrap;
     .small {
       color: pink;
-      margin-top: 2rem;
       font-size: 1.7rem;
       @media (max-width: 900px) {
         font-size: 1.3rem;

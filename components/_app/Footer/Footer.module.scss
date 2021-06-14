@@ -8,12 +8,14 @@
     .head {
       font-size: var(--measure-footer-head-font-size);
       text-transform: uppercase;
-      color: var(--color-bluegray);
+      color: var(--color-bluegray-light);
+
       margin-bottom: var(--measure-padding-vertical-block);
     }
     display: flex;
     gap: 15px;
     justify-content: space-between;
+
     .followUs {
       .text {
         width: 50vw;
@@ -37,11 +39,32 @@
             cursor: pointer;
           }
         }
+        a {
+          display: flex;
+        }
       }
     }
     .contactUs {
       .info {
         color: var(--color-silver);
+        a {
+          color: inherit;
+          &:hover {
+            color: var(--color-bluegray);
+          }
+        }
+      }
+      .buttons {
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+
+        a {
+          color: var(--color-silver);
+          &:hover {
+            color: var(--color-bluegray);
+          }
+        }
       }
     }
   }

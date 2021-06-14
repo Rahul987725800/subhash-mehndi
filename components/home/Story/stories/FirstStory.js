@@ -72,8 +72,18 @@ function FirstStory({ show }) {
       </CSSTransition>
       <CSSTransition classNames={`image`} timeout={3000} in={show}>
         <div className={styles.image}>
-          <img src="/story/stars-parallax.png" className={styles.parallex} />
-          <img src="/story/story1.jpg" className={styles.main} />
+          <img
+            src="/story/stars-parallax.png"
+            className={styles.parallex}
+            alt="design"
+            aria-hidden="true"
+          />
+          <img
+            src="/story/story1.jpg"
+            className={styles.main}
+            alt="bridal-wedding-mehndi-by-subhash-gupta-mehndi-artist"
+            aria-hidden="true"
+          />
         </div>
       </CSSTransition>
     </div>

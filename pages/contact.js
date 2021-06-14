@@ -7,18 +7,18 @@ function contact() {
     <div className={styles.contact}>
       <div className={styles.profile}>
         <div className={styles.image}>
-          <img src="/profile.jpg" alt="Subhash Gupta" />
+          <img src="/profile.jpg" alt="Subhash Gupta" aria-hidden="true" />
         </div>
         <h1 className={styles.header}>Subhash Gupta</h1>
         <p className={styles.phones}>Mob. 7508621822, 9417591297</p>
         <p>H.no. 3504, Sector 15 D Chandigarh</p>
         <div className={styles.buttons}>
-          <Button>
+          <Button revert>
             <a href="tel: 7508621822">
-              Call &nbsp; <i className="fa fa-phone" aria-hidden="true"></i>
+              Call Now &nbsp; <i className="fa fa-phone" aria-hidden="true"></i>
             </a>
           </Button>
-          <Button>
+          <Button revert>
             <a
               target="_blank"
               href="https://api.whatsapp.com/send?phone=+917508621822"

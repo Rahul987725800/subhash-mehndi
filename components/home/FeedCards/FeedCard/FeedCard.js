@@ -32,12 +32,14 @@ function FeedCard({ src, name, location, feedback }) {
           src="/icons/left-quotes.svg"
           alt="left quote"
           style={{ marginRight: '1rem' }}
+          aria-hidden="true"
         />
         {feedback}
         <img
           src="/icons/right-quotes.svg"
           alt="right quote"
           style={{ marginLeft: '1rem' }}
+          aria-hidden="true"
         />
       </p>
     </div>

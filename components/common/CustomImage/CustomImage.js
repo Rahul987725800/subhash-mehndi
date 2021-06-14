@@ -220,7 +220,7 @@ function CustomImage({
         draggable={false}
         loading={loading}
         quality={imageQuality}
-
+        aria-hidden="true"
         // so it loads before img
       />
 

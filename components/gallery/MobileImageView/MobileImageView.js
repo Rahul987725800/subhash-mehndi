@@ -86,7 +86,7 @@ function MobileImageView({
   return (
     <div className={styles.mobileImageView}>
       <div className={styles.back} onClick={closeImageView}>
-        <i className="fa fa-arrow-left"></i>
+        <i className="fa fa-arrow-left" aria-hidden="true"></i>
       </div>
       <div className={styles.images} {...handlers}>
         {images.map((src, i) => (
@@ -125,9 +125,9 @@ function MobileImageView({
             !swipeUsed ? styles.swipeAnimationShow : styles.swipeAnimationGone,
           ].join(' ')}
         >
-          <i className="fa fa-angle-right"></i>
-          <i className="fa fa-angle-right"></i>
-          <i className="fa fa-angle-right"></i> swipe
+          <i className="fa fa-angle-right" aria-hidden="true"></i>
+          <i className="fa fa-angle-right" aria-hidden="true"></i>
+          <i className="fa fa-angle-right" aria-hidden="true"></i> swipe
         </div>
       )}
     </div>

@@ -1,22 +1,31 @@
 .button {
   font-weight: normal;
-  background-color: var(--color-maroon);
-  color: white;
+
   padding: 0.5rem 1rem;
   border-radius: 3px;
   border: 1px solid transparent;
   font-family: inherit;
   font-size: 1rem;
-  &:hover {
-    cursor: pointer;
+  cursor: pointer;
+  a {
+    color: inherit;
+  }
+  &.normal {
+    color: white;
+    background-color: var(--color-maroon);
+    &:hover {
+      color: var(--color-maroon);
+      background-color: white;
+      border-color: var(--color-maroon);
+    }
+  }
+  &.revert {
     color: var(--color-maroon);
     background-color: white;
     border-color: var(--color-maroon);
-    a {
-      color: var(--color-maroon);
+    &:hover {
+      color: white;
+      background-color: var(--color-maroon);
     }
-  }
-  a {
-    color: white;
   }
 }
