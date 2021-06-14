@@ -35,7 +35,7 @@
           width: 30px;
           fill: var(--color-silver);
           &:hover {
-            fill: var(--color-bluegray);
+            fill: var(--color-bluegray-light);
             cursor: pointer;
           }
         }
@@ -50,7 +50,7 @@
         a {
           color: inherit;
           &:hover {
-            color: var(--color-bluegray);
+            color: var(--color-bluegray-light);
           }
         }
       }
@@ -62,7 +62,7 @@
         a {
           color: var(--color-silver);
           &:hover {
-            color: var(--color-bluegray);
+            color: var(--color-bluegray-light);
           }
         }
       }

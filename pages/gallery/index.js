@@ -25,18 +25,18 @@ function gallery() {
       image:
         '/images/bridal/bridal-wedding-mehndi-by-subhash-gupta-mehndi-artist6.jpg',
       link: '/gallery/bridal-mehndi',
-      linkText: 'Bridal Mehandi',
+      linkText: 'Bridal Mehndi Designs',
     },
     {
       image:
         '/images/designer/designer-arabic-function-mehndi-by-subhash-gupta-mehndi-artist2.jpg',
       link: '/gallery/designer-mehndi',
-      linkText: 'Designer Mehandi',
+      linkText: 'Designer Mehndi Designs',
     },
     {
       image: '/images/churi/churi-bangle-jutti-kade-prandi-stall2.jpg',
       link: '/gallery/bangles-kade-stall',
-      linkText: 'Bangles Kade Stall',
+      linkText: 'Bangles Kade Stall Gallery',
     },
   ];
 

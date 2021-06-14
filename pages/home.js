@@ -40,33 +40,37 @@ export default function home() {
       <div>
         <div className={styles.servicePara}>
           <h1 className={styles.header}>Services</h1>
-          <p className={styles.para}>
-            We provide Bridal Mehndi, Designer Mehndi and Churi Stalls, at
-            weddings and functions.
-            <br />
-            <b>Bridal Mehndi</b> involves application of mehndi across hands and
-            legs in general but is customisable based on specific needs of
-            customer. We also make various figures like Ganesha, Elephant,
-            Krishna and Radha, Dulha Dulhan, Shehnai etc. <br />
-            <b>Designer mehndi</b> includes other types like Arabic, Indo Arabic
-            mehndi, Western mehndi. It is less heavy and we create more spaced
-            designs.
-            <br />
-            Subhash Gupta is very talented and above that we also have a team
-            very talented artists, who are really{' '}
-            <b>flexible and customize designs </b>
-            according to your spe cific need.
-            <br />
-            Beside mehndi, we also provide{' '}
-            <b>
-              Churi, Bangles, Kade, Jutti, Hathful stall, which can be booked
-              separately.
-            </b>
-            <br />
-            We provide services in <b>Chandigarh</b> and its outskirts. We have
-            clients from <b>Amritsar, Zirakpur, Mohali, Ambala </b>. We also
-            provide outstation services.
-          </p>
+          <div className={styles.paras}>
+            <p>
+              We provide Bridal Mehndi, Designer Mehndi and Churi Stalls, at
+              weddings and functions.
+            </p>
+            <p>
+              <b>Bridal Mehndi</b> involves application of mehndi across hands
+              and legs in general but is customisable based on specific needs of
+              customer. We also make various figures like Ganesha, Elephant,
+              Krishna and Radha, Dulha Dulhan, Shehnai etc.
+            </p>
+            <p>
+              <b>Designer mehndi</b> includes other types like Arabic, Indo
+              Arabic mehndi, Western mehndi. It is less heavy and we create more
+              spaced designs.
+            </p>
+            <p>
+              Subhash Gupta is very talented and above that we also have a team
+              very talented artists, who are can flexibly customize designs
+              according to your specific need.
+            </p>
+            <p>
+              <b>Stall - </b>, Beside mehndi, we also provide Churi, Bangles,
+              Kade, Jutti, Hathful stall, which can be booked separately.
+            </p>
+            <p>
+              <b>Locations - </b> We provide services in Chandigarh and its
+              outskirts. We have clients from Amritsar, Zirakpur, Mohali, Ambala
+              . We also provide outstation services.
+            </p>
+          </div>
         </div>
 
         <div className={styles.services}>

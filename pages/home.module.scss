@@ -32,8 +32,11 @@
   .servicePara {
     padding: var(--measure-padding-vertical-block)
       var(--measure-padding-horizontal-block);
-    .para {
+    .paras {
       max-width: 800px;
+      p {
+        margin: 1rem 0;
+      }
     }
   }
   .services {
