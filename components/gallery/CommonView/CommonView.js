@@ -1,5 +1,5 @@
 import styles from './CommonView.module.scss';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CustomImage from '@components/common/CustomImage/CustomImage';
 import DesktopImageView from '@components/gallery/DesktopImageView/DesktopImageView';
 import { isMobile } from 'react-device-detect';
@@ -14,6 +14,10 @@ function CommonView({
   const [showImageView, setShowImageView] = useState(false);
   const [activeImageIndex, setActiveImageIndex] = useState();
   const [blockSmoothScroll, setBlockSmoothScroll] = useState(true);
+  const [localIsMobile, setLocalIsMobile] = useState(false);
+  useEffect(() => {
+    setLocalIsMobile(isMobile);
+  }, []);
   return (
     <div className={styles.commonView}>
       <div className={styles.imageView}>
@@ -50,7 +54,7 @@ function CommonView({
         }}
         className={styles.imageOpened}
       >
-        {isMobile ? (
+        {localIsMobile ? (
           <MobileImageView
             images={images}
             alt={alt}
