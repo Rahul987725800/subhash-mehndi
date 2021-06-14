@@ -49,7 +49,7 @@ export default function home() {
             customer. We also make various figures like Ganesha, Elephant,
             Krishna and Radha, Dulha Dulhan, Shehnai etc. <br />
             <b>Designer mehndi</b> includes other types like Arabic, Indo Arabic
-            mehndi, Western mehndi. it is less heavy and we create more spaced
+            mehndi, Western mehndi. It is less heavy and we create more spaced
             designs.
             <br />
             Subhash Gupta is very talented and above that we also have a team

@@ -25,7 +25,7 @@ function MehndiCard({ src, type, description, path }) {
         <h4 className={styles.type}>{type}</h4>
         <p className={styles.description}>{description}</p>
         <div className={styles.button}>
-          Read more <i className="fa fa-arrow-right"></i>
+          More <i className="fa fa-arrow-right"></i>
         </div>
       </div>
     </Link>

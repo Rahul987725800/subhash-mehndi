@@ -11,7 +11,7 @@ function CommonView({ header, description, images, alt = 'mehndi design' }) {
   return (
     <div className={styles.commonView}>
       <div className={styles.imageView}>
-        <h1 className={styles.header}>{header}</h1>
+        {header && <h1 className={styles.header}>{header}</h1>}
         {description && <p className={styles.description}>{description}</p>}
         <div className={styles.container}>
           <div className={styles.images}>

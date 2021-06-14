@@ -3,10 +3,20 @@ import Folder from '@components/gallery/Folder/Folder';
 
 import { range } from '@base/utils';
 import CommonView from '@components/gallery/CommonView/CommonView';
-const micsImages = range(1, 5).map(
+const miscImages = range(1, 5).map(
   (v) => `/images/misc/subhash-gupta-doing-mehndi-design${v}.jpg`
 );
-
+const bridalImages = range(1, 5).map(
+  (v) =>
+    `/images/bridal/bridal-wedding-mehndi-by-subhash-gupta-mehndi-artist${v}.jpg`
+);
+const designerImages = range(1, 5).map(
+  (v) =>
+    `/images/designer/designer-arabic-function-mehndi-by-subhash-gupta-mehndi-artist${v}.jpg`
+);
+const banglesImages = range(1, 5).map(
+  (v) => `/images/churi/churi-bangle-jutti-kade-prandi-stall${v}.jpg`
+);
 function gallery() {
   let folders = [
     {
@@ -39,8 +49,13 @@ function gallery() {
       <div className={styles.miscImages}>
         <CommonView
           header="Miscellaneous"
-          images={micsImages}
-          alt="subhash-gupta-doing-mehndi-design"
+          images={[
+            ...miscImages,
+            ...bridalImages,
+            ...designerImages,
+            ...banglesImages,
+          ]}
+          alt="mehndi design ceremony and churi, jutti, kade, prandi stall at indian wedding and functions"
         />
       </div>
     </main>

@@ -39,7 +39,7 @@ function contact() {
             positive feedback regarding mehandi design and mehandi color. We
             leave no stones unturned in satisfying our customers and to make
             their auspicisious occasions happy and memorable. <br /> <br />
-            The strength of Gupta Mehandi Arts has been its team of highly
+            The strength of Subhash Gupta Mehandi has been its team of highly
             trained professional mehandi artists and Subhash Gupta actively
             leads the same. Looking forward to serve you.
           </p>
