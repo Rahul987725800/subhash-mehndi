@@ -6,6 +6,7 @@
 
 html,
 body {
+  -webkit-tap-highlight-color: transparent;
   font-family: 'Montserrat', sans-serif;
   --color-silver-light: #f0f0f0;
   --color-silver: #c7c6bf;
@@ -52,6 +53,7 @@ h6 {
     --measure-footer-head-font-size: 2rem;
   }
 }
+
 .desktopViewCustomImageContainer {
 }
 .swipe-story-left-enter {

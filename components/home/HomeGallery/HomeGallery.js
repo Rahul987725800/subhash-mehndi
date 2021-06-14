@@ -149,11 +149,11 @@ function HomeGallery() {
         ))}
       </div>
       <div className={styles.button}>
-        <Link href="/gallery">
-          <Button>
+        <Button>
+          <Link href="/gallery">
             <a>View Gallery</a>
-          </Button>
-        </Link>
+          </Link>
+        </Button>
       </div>
     </div>
   );
