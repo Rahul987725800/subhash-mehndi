@@ -2,6 +2,7 @@ import FeedCard from './FeedCard/FeedCard';
 import styles from './FeedCards.module.scss';
 import { CSSTransition } from 'react-transition-group';
 import { useScrollControl } from '../useScrollControl';
+import { useSwipeable } from 'react-swipeable';
 const feeds = [
   {
     src: '/images/clients/client1.jpg',
@@ -32,9 +33,14 @@ function FeedCards() {
     prevItem,
     manualControl,
   } = useScrollControl(feeds.length, 5000);
+  const handlers = useSwipeable({
+    onSwipedLeft: nextItem,
+    onSwipedRight: prevItem,
+    trackMouse: true,
+  });
 
   return (
-    <div className={styles.feedCards}>
+    <div className={styles.feedCards} {...handlers}>
       {feeds.map((feed, i) => (
         <CSSTransition
           classNames={`feed`}
