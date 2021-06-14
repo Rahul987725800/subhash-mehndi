@@ -1,11 +1,14 @@
 .mehndiCard {
   // border: 1px solid red;
+
   max-width: var(--measure-card-width);
-  margin: auto;
+  margin: 0 auto;
   cursor: pointer;
   flex: 1;
   text-align: center;
-  padding: var(--measure-padding-vertical-block);
+  padding-top: var(--measure-padding-vertical-block);
+  padding-bottom: 4rem;
+  position: relative;
   &:hover {
     .type {
       text-decoration: underline;
@@ -28,5 +31,16 @@
   .description {
     font-size: 0.9rem;
     text-align: justify;
+  }
+  .button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: var(--color-maroon);
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
   }
 }

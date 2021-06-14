@@ -16,7 +16,7 @@ function Navbar() {
             src="/ganesha/ganesha-colored.svg"
             alt="subhash mehndi ganesha logo"
           />
-          <p className={styles.text}>Subhash Mehndi Artist</p>
+          <p className={styles.text}>Subhash Gupta Mehndi Artist</p>
         </div>
 
         <div className={styles.links}>

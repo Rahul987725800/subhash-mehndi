@@ -1,10 +1,11 @@
 .cards {
+  // border: 1px solid blue;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: stretch;
   flex-wrap: wrap;
-  gap: 20px;
-  @media (max-width: 600px) {
+  gap: 30px;
+  @media (max-width: 900px) {
     flex-direction: column;
   }
 }

@@ -29,6 +29,13 @@
       }
     }
   }
+  .servicePara {
+    padding: var(--measure-padding-vertical-block)
+      var(--measure-padding-horizontal-block);
+    .para {
+      max-width: 800px;
+    }
+  }
   .services {
     // border: 1px solid red;
 

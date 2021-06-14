@@ -9,6 +9,10 @@
     text-align: center;
     margin-bottom: var(--measure-padding-vertical-block);
   }
+  .description {
+    padding: var(--measure-padding-vertical-block)
+      var(--measure-padding-horizontal-block);
+  }
   .imageView {
     padding: var(--measure-padding-vertical-block) 0;
     .container {

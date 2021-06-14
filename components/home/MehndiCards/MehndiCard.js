@@ -2,6 +2,7 @@ import styles from './MehndiCard.module.scss';
 import CustomImage from '@components/common/CustomImage/CustomImage';
 import { useState } from 'react';
 import Link from 'next/link';
+import Button from '@components/common/Button/Button';
 function MehndiCard({ src, type, description, path }) {
   const [hovered, setHovered] = useState(false);
   return (
@@ -23,6 +24,9 @@ function MehndiCard({ src, type, description, path }) {
 
         <h4 className={styles.type}>{type}</h4>
         <p className={styles.description}>{description}</p>
+        <div className={styles.button}>
+          Read more <i className="fa fa-arrow-right"></i>
+        </div>
       </div>
     </Link>
   );

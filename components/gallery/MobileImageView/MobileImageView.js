@@ -6,6 +6,7 @@ import { CSSTransition } from 'react-transition-group';
 import CustomImage from '@components/common/CustomImage/CustomImage';
 function MobileImageView({
   images,
+  alt = 'mehndi design',
   activeImageIndex,
   setActiveImageIndex,
   closeImageView,
@@ -105,6 +106,7 @@ function MobileImageView({
             >
               <CustomImage
                 src={src}
+                alt={alt}
                 height="80vh"
                 width="95vw"
                 imageFit="contain"

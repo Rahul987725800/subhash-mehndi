@@ -6,6 +6,7 @@ import MagnifyPlusIcon from '@public/icons/magnify-plus.svg';
 import MagnifyMinusIcon from '@public/icons/magnify-minus.svg';
 function DesktopImageView({
   images,
+  alt = 'mehndi design',
   activeImageIndex,
   setActiveImageIndex,
   closeImageView,
@@ -203,6 +204,7 @@ function DesktopImageView({
                 {/* <img src={src} alt="mehandi image" draggable={false} /> */}
                 <CustomImage
                   src={src}
+                  alt={alt}
                   height="80vh"
                   width="70vw"
                   imageFit="contain"

@@ -16,7 +16,7 @@ function ThirdStory({ show }) {
 
       <CSSTransition classNames={'subhash-image'} timeout={3000} in={show}>
         <div className={styles.subhashImage}>
-          <img src="/161.jpg" alt="" />
+          <img src="/story/story3.jpg" alt="" />
         </div>
       </CSSTransition>
 

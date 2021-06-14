@@ -4,16 +4,23 @@ import { CSSTransition } from 'react-transition-group';
 import { useScrollControl } from '../useScrollControl';
 const feeds = [
   {
-    src: '/face.png',
+    src: '/images/clients/client1.jpg',
     name: 'Neha Chaudhary',
     location: 'New Delhi',
-    feedback: 'Amazing designs go for him blindly',
+    feedback: `I loved my mehandi infact everyone at my wedding loved it..
+    Their team work is amazing, each and every mehandi artist were best at their work.`,
   },
   {
-    src: '/images/misc/subhash-gupta-doing-mehndi-design5.jpg',
+    src: '/images/clients/client2.jpg',
     name: 'Ritika Sharma',
     location: 'Chandigarh',
-    feedback: `He is really great, go for him. Lorem ipsum dolor sit amet consectetur adipisicing elit. SuntLorem ipsum dolor sit amet consectetur adipisicing elit. Sunt nem nem`,
+    feedback: `Subhash Gupta is punctual and polite and provides really awesome service at reasonable price. very nice color and nice team efforts. I always recommends to my friends and colleague .`,
+  },
+  {
+    src: '/images/clients/client3.jpg',
+    name: 'Dimple Kaur',
+    location: 'Chandigarh',
+    feedback: `We booked Subhash Gupta mehandi artist for bridal  mehandi in  my sister marriage! His henna designs were beautiful and all of our guests enjoyed taking part in this feminine and lovely tradition. The cost was very reasonable and his artistry made for a really enjoyable day.`,
   },
 ];
 

@@ -3,9 +3,10 @@ import Folder from '@components/gallery/Folder/Folder';
 
 import { range } from '@base/utils';
 import CommonView from '@components/gallery/CommonView/CommonView';
-const images = range(1, 5).map(
+const micsImages = range(1, 5).map(
   (v) => `/images/misc/subhash-gupta-doing-mehndi-design${v}.jpg`
 );
+
 function gallery() {
   let folders = [
     {
@@ -36,7 +37,11 @@ function gallery() {
         })}
       </div>
       <div className={styles.miscImages}>
-        <CommonView header="Miscellaneous" images={images} />
+        <CommonView
+          header="Miscellaneous"
+          images={micsImages}
+          alt="subhash-gupta-doing-mehndi-design"
+        />
       </div>
     </main>
   );

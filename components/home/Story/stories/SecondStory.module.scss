@@ -41,12 +41,13 @@
     position: absolute;
     top: 20%;
     right: 10%;
-    border: 10px solid rgba(255, 255, 255, 0.5);
+
     @media (max-width: 900px) {
       display: none;
     }
     img {
       width: 400px;
+      border: 10px solid rgba(255, 255, 255, 0.5);
       @media (max-width: 1200px) {
         width: 250px;
       }

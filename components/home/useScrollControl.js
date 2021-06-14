@@ -45,7 +45,7 @@ export function useScrollControl(len, delay) {
     const t = setTimeout(() => {
       // console.log('resumed auto scroll');
       startAutomaticScroll();
-    }, delay);
+    }, delay * 2);
     setScrollTimeout(t);
   };
   return {

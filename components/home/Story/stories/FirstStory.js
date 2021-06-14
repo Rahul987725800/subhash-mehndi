@@ -67,13 +67,13 @@ function FirstStory({ show }) {
       </CSSTransition>
       <CSSTransition classNames={`subhash`} timeout={3000} in={show}>
         <p className={['visibility-hidden', styles.name].join(' ')}>
-          Subhash Mehndi
+          Subhash Gupta Mehndi
         </p>
       </CSSTransition>
       <CSSTransition classNames={`image`} timeout={3000} in={show}>
         <div className={styles.image}>
-          <img src="/stars-parallax.png" className={styles.parallex} />
-          <img src="/bridal-home.jpg" className={styles.main} />
+          <img src="/story/stars-parallax.png" className={styles.parallex} />
+          <img src="/story/story1.jpg" className={styles.main} />
         </div>
       </CSSTransition>
     </div>

@@ -4,7 +4,7 @@ import CustomImage from '@components/common/CustomImage/CustomImage';
 import DesktopImageView from '@components/gallery/DesktopImageView/DesktopImageView';
 import { isMobile } from 'react-device-detect';
 import MobileImageView from '@components/gallery/MobileImageView/MobileImageView';
-function CommonView({ header, description, images }) {
+function CommonView({ header, description, images, alt = 'mehndi design' }) {
   const [showImageView, setShowImageView] = useState(false);
   const [activeImageIndex, setActiveImageIndex] = useState();
   const [blockSmoothScroll, setBlockSmoothScroll] = useState(true);
@@ -12,6 +12,7 @@ function CommonView({ header, description, images }) {
     <div className={styles.commonView}>
       <div className={styles.imageView}>
         <h1 className={styles.header}>{header}</h1>
+        {description && <p className={styles.description}>{description}</p>}
         <div className={styles.container}>
           <div className={styles.images}>
             {images.map((src, i) => {
@@ -25,7 +26,12 @@ function CommonView({ header, description, images }) {
                   }}
                   key={i}
                 >
-                  <CustomImage src={src} addHoverEffect loading="lazy" />
+                  <CustomImage
+                    src={src}
+                    addHoverEffect
+                    loading="lazy"
+                    alt={alt}
+                  />
                 </div>
               );
             })}
@@ -41,6 +47,7 @@ function CommonView({ header, description, images }) {
         {isMobile ? (
           <MobileImageView
             images={images}
+            alt={alt}
             activeImageIndex={activeImageIndex}
             setActiveImageIndex={setActiveImageIndex}
             closeImageView={() => setShowImageView(false)}
@@ -50,6 +57,7 @@ function CommonView({ header, description, images }) {
         ) : (
           <DesktopImageView
             images={images}
+            alt={alt}
             activeImageIndex={activeImageIndex}
             setActiveImageIndex={setActiveImageIndex}
             closeImageView={() => setShowImageView(false)}
