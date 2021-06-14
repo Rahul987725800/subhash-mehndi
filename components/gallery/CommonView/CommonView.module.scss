@@ -11,8 +11,8 @@
     padding: 0 var(--measure-padding-horizontal-block);
   }
   .description {
-    padding: var(--measure-padding-vertical-block)
-      var(--measure-padding-horizontal-block);
+    padding: 0 var(--measure-padding-horizontal-block);
+    padding-bottom: var(--measure-padding-vertical-block);
   }
   .imageView {
     padding: var(--measure-padding-vertical-block) 0;
