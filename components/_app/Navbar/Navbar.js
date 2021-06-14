@@ -11,14 +11,16 @@ function Navbar() {
       }}
     >
       <div className={styles.content}>
-        <div className={styles.logo}>
-          <img
-            src="/ganesha/ganesha-colored.svg"
-            alt="subhash mehndi ganesha logo"
-            aria-hidden="true"
-          />
-          <p className={styles.text}>Subhash Gupta Mehndi Artist</p>
-        </div>
+        <Link href="/home">
+          <div className={styles.logo}>
+            <img
+              src="/ganesha/ganesha-colored.svg"
+              alt="subhash mehndi ganesha logo"
+              aria-hidden="true"
+            />
+            <p className={styles.text}>Subhash Gupta Mehndi Artist</p>
+          </div>
+        </Link>
 
         <div className={styles.links}>
           <Link href="/home">
