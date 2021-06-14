@@ -7,7 +7,7 @@ const feeds = [
   {
     src: '/images/clients/client1.jpg',
     name: 'Neha Chaudhary',
-    location: 'New Delhi',
+    location: 'Mohali',
     feedback: `I loved my mehandi infact everyone at my wedding loved it..
     Their team work is amazing, each and every mehandi artist were best at their work.`,
   },
