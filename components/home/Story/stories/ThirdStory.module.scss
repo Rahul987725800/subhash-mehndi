@@ -15,14 +15,14 @@
     }
   }
   .small {
-    color: rgb(184, 255, 188);
+    color: var(--color-lightgreen);
     margin-top: 10vh;
     font-size: 2rem;
     width: 60%;
     @media (max-width: 1200px) {
       font-size: 1.5rem;
     }
-    @media (max-width: 900px) {
+    @media (max-width: 800px) {
       font-size: 1.3rem;
       width: 100%;
     }

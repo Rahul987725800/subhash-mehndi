@@ -32,7 +32,7 @@
     }
   }
   .name {
-    color: rgb(95, 255, 202);
+    color: var(--color-lightgreen);
     background-color: rgba(0, 0, 0, 0.425);
     font-size: 3.5rem;
     @media (max-width: 1200px) {

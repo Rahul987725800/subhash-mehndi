@@ -4,7 +4,13 @@ import CustomImage from '@components/common/CustomImage/CustomImage';
 import DesktopImageView from '@components/gallery/DesktopImageView/DesktopImageView';
 import { isMobile } from 'react-device-detect';
 import MobileImageView from '@components/gallery/MobileImageView/MobileImageView';
-function CommonView({ header, description, images, alt = 'mehndi design' }) {
+function CommonView({
+  header,
+  description,
+  images,
+  alt = 'mehndi design',
+  parentRoute,
+}) {
   const [showImageView, setShowImageView] = useState(false);
   const [activeImageIndex, setActiveImageIndex] = useState();
   const [blockSmoothScroll, setBlockSmoothScroll] = useState(true);
@@ -53,6 +59,8 @@ function CommonView({ header, description, images, alt = 'mehndi design' }) {
             closeImageView={() => setShowImageView(false)}
             blockSmoothScroll={blockSmoothScroll}
             setBlockSmoothScroll={setBlockSmoothScroll}
+            parentRoute={parentRoute}
+            show={showImageView}
           />
         ) : (
           <DesktopImageView
@@ -63,6 +71,8 @@ function CommonView({ header, description, images, alt = 'mehndi design' }) {
             closeImageView={() => setShowImageView(false)}
             blockSmoothScroll={blockSmoothScroll}
             setBlockSmoothScroll={setBlockSmoothScroll}
+            parentRoute={parentRoute}
+            show={showImageView}
           />
         )}
       </div>

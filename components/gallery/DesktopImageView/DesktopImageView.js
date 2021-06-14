@@ -4,6 +4,7 @@ import { useSwipeable } from 'react-swipeable';
 import CustomImage from '@components/common/CustomImage/CustomImage';
 import MagnifyPlusIcon from '@public/icons/magnify-plus.svg';
 import MagnifyMinusIcon from '@public/icons/magnify-minus.svg';
+import { useRouter } from 'next/router';
 function DesktopImageView({
   images,
   alt = 'mehndi design',
@@ -12,6 +13,8 @@ function DesktopImageView({
   closeImageView,
   blockSmoothScroll,
   setBlockSmoothScroll,
+  parentRoute,
+  show,
 }) {
   const imagesRef = useRef();
   const [scrollPosition, setScrollPosition] = useState();
@@ -23,7 +26,14 @@ function DesktopImageView({
     arr[0] = 'eager';
     return arr;
   });
-
+  const router = useRouter();
+  useEffect(() => {
+    let goToParent = () => {
+      router.push(parentRoute);
+      window.removeEventListener('popstate', goToParent);
+    };
+    if (show) window.addEventListener('popstate', goToParent);
+  }, [show]);
   const prevImageIndex = () => {
     if (activeImageIndex === 0) {
       return images.length - 1;

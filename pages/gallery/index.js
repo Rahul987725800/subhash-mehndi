@@ -3,6 +3,7 @@ import Folder from '@components/gallery/Folder/Folder';
 
 import { range } from '@base/utils';
 import CommonView from '@components/gallery/CommonView/CommonView';
+import { useRouter } from 'next/router';
 const miscImages = range(1, 5).map(
   (v) => `/images/misc/subhash-gupta-doing-mehndi-design${v}.jpg`
 );
@@ -18,6 +19,7 @@ const banglesImages = range(1, 5).map(
   (v) => `/images/churi/churi-bangle-jutti-kade-prandi-stall${v}.jpg`
 );
 function gallery() {
+  const router = useRouter();
   let folders = [
     {
       image:
@@ -56,6 +58,7 @@ function gallery() {
             ...banglesImages,
           ]}
           alt="mehndi design ceremony and churi, jutti, kade, prandi stall at indian wedding and functions"
+          parentRoute={router.pathname}
         />
       </div>
     </main>

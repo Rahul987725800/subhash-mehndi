@@ -4,6 +4,8 @@ import { useContext, useState, useEffect } from 'react';
 import { GlobalStateContext } from '@state/GlobalStateProvider';
 import { CSSTransition } from 'react-transition-group';
 import CustomImage from '@components/common/CustomImage/CustomImage';
+import { useRouter } from 'next/router';
+
 function MobileImageView({
   images,
   alt = 'mehndi design',
@@ -12,6 +14,8 @@ function MobileImageView({
   closeImageView,
   blockSmoothScroll,
   setBlockSmoothScroll,
+  parentRoute,
+  show,
 }) {
   const { swipeUsed, setSwipeUsed } = useContext(GlobalStateContext);
   const [showSwipe, setShowSwipe] = useState(!swipeUsed);
@@ -22,7 +26,14 @@ function MobileImageView({
     arr[0] = 'eager';
     return arr;
   });
-
+  const router = useRouter();
+  useEffect(() => {
+    let goToParent = () => {
+      router.push(parentRoute);
+      window.removeEventListener('popstate', goToParent);
+    };
+    if (show) window.addEventListener('popstate', goToParent);
+  }, [show]);
   const prevBlock = () => {
     setSwipeType('right');
     setActiveImageIndex((prevActive) => {

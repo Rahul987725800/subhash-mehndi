@@ -53,14 +53,14 @@ function HomeGallery() {
   };
   useEffect(() => {
     updateImageBlocks();
-    window.addEventListener('resize', () => {
-      // console.log('resize');
+    const cb = () => {
       windowResizeHandler.current.call();
-    });
+    };
+    window.addEventListener('resize', cb);
     const i = setInterval(nextBlock, 5000);
     return () => {
       clearInterval(i);
-      window.removeEventListener('resize');
+      window.removeEventListener('resize', cb);
     };
   }, []);
   const nextBlock = () => {

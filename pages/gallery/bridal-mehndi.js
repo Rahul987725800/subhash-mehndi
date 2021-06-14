@@ -5,7 +5,9 @@ const images = range(1, 31).map(
   (v) =>
     `/images/bridal/bridal-wedding-mehndi-by-subhash-gupta-mehndi-artist${v}.jpg`
 );
+import { useRouter } from 'next/router';
 function bridalMehndi() {
+  const router = useRouter();
   return (
     <CommonView
       header="Bridal Mehndi"
@@ -17,6 +19,7 @@ function bridalMehndi() {
           Dulha Dulhan, Shehnai etc.
        "
       alt="bridal-wedding-mehndi-by-subhash-gupta-mehndi-artist"
+      parentRoute={router.pathname}
     />
   );
 }
