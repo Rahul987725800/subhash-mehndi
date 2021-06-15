@@ -2,10 +2,29 @@ import Head from 'next/head';
 import Footer from '@components/_app/Footer/Footer';
 import Navbar from '@components/_app/Navbar/Navbar';
 import { GlobalStateProvider } from '@state/GlobalStateProvider';
-
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+import * as ga from '@lib/ga';
 import './zglobals.scss';
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      ga.pageview(url);
+    };
+    //When the component is mounted, subscribe to router changes
+    //and log those page views
+    router.events.on('routeChangeComplete', handleRouteChange);
+
+    // If the component is unmounted, unsubscribe
+    // from the event with the `off` method
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router.events]);
+
   return (
     <GlobalStateProvider>
       <Head>

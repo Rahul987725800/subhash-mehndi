@@ -4,6 +4,8 @@ import Error from './Error';
 import Button from '@components/common/Button/Button';
 import Loader from '@components/common/CustomImage/Loader';
 import { useState } from 'react';
+
+import * as ga from '@lib/ga';
 const initialValues = {
   name: '',
   phone: '',
@@ -36,19 +38,28 @@ function CustomForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formSent, setFormSent] = useState(false);
   const [error, setError] = useState();
+  const search = (message) => {
+    ga.event({
+      action: 'query form submitted',
+      params: {
+        search_term: message,
+      },
+    });
+  };
   const onSubmit = async (values, actions) => {
     console.log('submmit clicked');
     if (isSubmitting) return;
     // console.log(values);
     setIsSubmitting(true);
     setFormSent(false);
-
+    const message = `
+    Name: ${values.name},\nPhone: ${values.phone},\nMessage: ${values.message}.
+  `;
+    search(message);
     fetch('/api/whatsapp', {
       method: 'PUT',
       body: JSON.stringify({
-        message: `
-            Name: ${values.name},\nPhone: ${values.phone},\nMessage: ${values.message}.
-          `,
+        message,
       }),
       headers: {
         'content-type': 'application/json',
@@ -77,9 +88,7 @@ function CustomForm() {
     fetch('/api/sms', {
       method: 'POST',
       body: JSON.stringify({
-        message: `
-            Name: ${values.name},\nPhone: ${values.phone},\nMessage: ${values.message}.
-          `,
+        message,
       }),
       headers: {
         'content-type': 'application/json',
