@@ -10,7 +10,7 @@ function designerMehndi() {
   const router = useRouter();
   return (
     <CommonView
-      header="Designer Mehndi"
+      header="Designer Mehndi Designs"
       images={images}
       description="Designer mehndi includes other types like Arabic, Indo Arabic
   mehndi, Western mehndi. It is less heavy and we create more spaced

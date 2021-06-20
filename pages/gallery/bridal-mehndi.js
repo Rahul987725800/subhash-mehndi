@@ -10,7 +10,7 @@ function bridalMehndi() {
   const router = useRouter();
   return (
     <CommonView
-      header="Bridal Mehndi"
+      header="Bridal Mehndi Designs"
       images={images}
       description="
           Bridal Mehndi involves application of mehndi across hands and legs in
