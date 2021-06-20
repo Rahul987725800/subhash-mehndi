@@ -44,6 +44,10 @@ function MyApp({ Component, pageProps }) {
         />
         <title>Subhash Mehndi Artist</title>
         <link rel="icon" href="/ganesha/ganesha-colored.svg" />
+        <meta
+          name="description"
+          content="Subhash Gupta best mehandi artist in Chandigarh, Mohali, Zirakpur. Book for bridal, wedding, arabic, designer, western mehndi."
+        ></meta>
       </Head>
       <div className="container">
         <Navbar />
