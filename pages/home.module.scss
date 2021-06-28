@@ -7,7 +7,15 @@
     font-weight: bold;
     padding: var(--measure-padding-vertical-block) 0;
   }
-
+  .phones {
+    margin-top: 2rem;
+    a {
+      color: black;
+      &:hover {
+        color: var(--color-steelblue);
+      }
+    }
+  }
   .textFeed {
     width: var(--measure-window-width);
     margin: auto;

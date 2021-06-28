@@ -13,7 +13,7 @@ export default function home() {
           <h1 className={styles.header}>
             Welcome to <br /> Subhash Gupta Mehndi Art
           </h1>
-          <p className={styles.para}>
+          <p>
             Mehandi has been a classic adornment for ladies. Mehandi in Indian
             tradition is typically applied during Hindu weddings, Namboodiri
             weddings and Hindu festivals like Karva Chauth, Vat Purnima, Diwali,
@@ -31,6 +31,15 @@ export default function home() {
             unique, latest and special designs that meet the desire of every
             woman.
           </p>
+          <div className={styles.phones}>
+            <p>
+              Mobile: <a href="tel: 7508621822">7508621822</a>
+            </p>
+            <p>
+              &emsp; &emsp; &emsp;&nbsp;&nbsp;
+              <a href="tel: 9417591297">9417591297</a>
+            </p>
+          </div>
         </div>
         <div className={styles.feedSection}>
           <h3 className={styles.header}>Testimonials</h3>
