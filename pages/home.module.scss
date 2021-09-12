@@ -6,16 +6,20 @@
     color: var(--color-slategray);
     font-weight: bold;
     padding: var(--measure-padding-vertical-block) 0;
-  }
-  .phones {
-    margin-top: 2rem;
-    a {
-      color: black;
-      &:hover {
-        color: var(--color-steelblue);
+    .mobiles {
+      font-size: 1.5rem;
+      .spaces {
+        display: none;
+        @media (max-width: 600px) {
+          display: inline;
+        }
+      }
+      a {
+        color: inherit;
       }
     }
   }
+
   .textFeed {
     width: var(--measure-window-width);
     margin: auto;
@@ -53,6 +57,6 @@
     padding: var(--measure-padding-vertical-block)
       var(--measure-padding-horizontal-block);
     margin-bottom: calc(var(--measure-padding-vertical-block) * 2);
-    background-image: url('/sitebg.svg');
+    background-image: url("/sitebg.svg");
   }
 }

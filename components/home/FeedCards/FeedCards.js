@@ -34,8 +34,14 @@ function FeedCards() {
     manualControl,
   } = useScrollControl(feeds.length, 5000);
   const handlers = useSwipeable({
-    onSwipedLeft: nextItem,
-    onSwipedRight: prevItem,
+    onSwipedLeft: () => {
+      manualControl();
+      nextItem();
+    },
+    onSwipedRight: () => {
+      manualControl();
+      prevItem();
+    },
     trackMouse: true,
   });
 

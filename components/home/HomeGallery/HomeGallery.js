@@ -27,18 +27,39 @@ const imageDimension = {
   width: 250,
   height: 250,
 };
-
+const delay = 5000;
 function HomeGallery() {
   const router = useRouter();
   const [imageBlocks, setImageBlocks] = useState([]);
   const [swipeType, setSwipeType] = useState('');
   const [activeBlockIndex, setActiveBlockIndex] = useState(0);
+  const [scrollInterval, setScrollInterval] = useState();
+  const [scrollTimeout, setScrollTimeout] = useState();
+  const intervalRef = useRef();
+  let componentMounted = true;
   const windowResizeHandler = useRef(
     new Debounce(() => {
       // console.log('computation actually ran');
       updateImageBlocks();
     }, 500)
   );
+  const startAutomaticScroll = () => {
+    const i = setInterval(() => {
+      console.log('auto next Item');
+      nextBlock();
+    }, delay);
+    intervalRef.current = i;
+    setScrollInterval(i);
+  };
+  const manualControl = () => {
+    clearInterval(scrollInterval);
+    clearTimeout(scrollTimeout);
+    const t = setTimeout(() => {
+      // console.log('resumed auto scroll');
+      startAutomaticScroll();
+    }, delay * 2);
+    setScrollTimeout(t);
+  };
   const updateImageBlocks = () => {
     // console.log('imageBlocks updated');
     setImageBlocks(() => {
@@ -57,13 +78,22 @@ function HomeGallery() {
       windowResizeHandler.current.call();
     };
     window.addEventListener('resize', cb);
-    const i = setInterval(nextBlock, 5000);
+    startAutomaticScroll();
     return () => {
-      clearInterval(i);
+      // console.log(scrollInterval);
+      // console.log(scrollTimeout);
+      componentMounted = false;
       window.removeEventListener('resize', cb);
     };
   }, []);
   const nextBlock = () => {
+    if (!componentMounted) {
+      console.log('clearing interval');
+      console.log(scrollInterval);
+      console.log(intervalRef.current);
+      clearInterval(intervalRef.current);
+      return;
+    }
     setSwipeType('right');
     setImageBlocks((currentImageBlocks) => {
       setActiveBlockIndex((idx) => {
@@ -84,8 +114,14 @@ function HomeGallery() {
     });
   };
   const handlers = useSwipeable({
-    onSwipedLeft: nextBlock,
-    onSwipedRight: prevBlock,
+    onSwipedLeft: () => {
+      manualControl();
+      nextBlock();
+    },
+    onSwipedRight: () => {
+      manualControl();
+      prevBlock();
+    },
     trackMouse: true,
   });
   return (
@@ -98,8 +134,14 @@ function HomeGallery() {
       >
         <div className={styles.buttons}>
           <LeftRightButtons
-            leftClick={prevBlock}
-            rightClick={nextBlock}
+            leftClick={() => {
+              manualControl();
+              prevBlock();
+            }}
+            rightClick={() => {
+              manualControl();
+              nextBlock();
+            }}
             textColor="black"
             borderColor="var(--color-bluegray)"
           />

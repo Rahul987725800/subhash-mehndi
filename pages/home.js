@@ -1,9 +1,9 @@
-import styles from './home.module.scss';
-import FeedCards from '@components/home/FeedCards/FeedCards';
-import Story from '@components/home/Story/Story';
+import styles from "./home.module.scss";
+import FeedCards from "@components/home/FeedCards/FeedCards";
+import Story from "@components/home/Story/Story";
 
-import HomeGallery from '@components/home/HomeGallery/HomeGallery';
-import MehndiCards from '@components/home/MehndiCards/MehndiCards';
+import HomeGallery from "@components/home/HomeGallery/HomeGallery";
+import MehndiCards from "@components/home/MehndiCards/MehndiCards";
 export default function home() {
   return (
     <main className={styles.home}>
@@ -12,7 +12,13 @@ export default function home() {
         <div className={styles.textSection}>
           <h1 className={styles.header}>
             Welcome to <br /> Subhash Gupta Mehndi Art
+            <br />
+            <span className={styles.mobiles}>
+              Mobile - <a href="tel: 7508621822">7508621822</a>,&nbsp;
+              <a href="tel: 9417591297">9417591297</a>
+            </span>
           </h1>
+
           <p>
             Mehandi has been a classic adornment for ladies. Mehandi in Indian
             tradition is typically applied during Hindu weddings, Namboodiri
@@ -31,15 +37,6 @@ export default function home() {
             unique, latest and special designs that meet the desire of every
             woman.
           </p>
-          <div className={styles.phones}>
-            <p>
-              Mobile: <a href="tel: 7508621822">7508621822</a>
-            </p>
-            <p>
-              &emsp; &emsp; &emsp;&nbsp;&nbsp;
-              <a href="tel: 9417591297">9417591297</a>
-            </p>
-          </div>
         </div>
         <div className={styles.feedSection}>
           <h3 className={styles.header}>Testimonials</h3>
@@ -90,7 +87,7 @@ export default function home() {
         <h1
           className={styles.header}
           style={{
-            textAlign: 'center',
+            textAlign: "center",
           }}
         >
           Gallery

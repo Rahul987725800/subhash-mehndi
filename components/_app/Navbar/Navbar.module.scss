@@ -10,7 +10,7 @@
   width: 100%;
   z-index: 10;
   .content {
-    width: var(--measure-window-width);
+    width: 95%;
     margin: auto;
 
     display: flex;
@@ -33,7 +33,7 @@
         margin-left: 0.5rem;
         font-size: 3rem;
         color: var(--color-maroon);
-        font-family: 'Tangerine';
+        font-family: "Tangerine";
         font-weight: bold;
       }
     }
@@ -61,6 +61,14 @@
       a.active {
         color: var(--color-maroon);
         border-color: var(--color-maroon);
+      }
+    }
+    .mobiles {
+      color: var(--color-maroon);
+      font-size: 1.1rem;
+      font-weight: 500;
+      @media (max-width: 600px) {
+        display: none;
       }
     }
   }

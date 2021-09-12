@@ -85,20 +85,20 @@ function CustomForm() {
       })
       .catch((e) => [console.log(e)]);
     // console.log(emailRes);
-    fetch('/api/sms', {
-      method: 'POST',
-      body: JSON.stringify({
-        message,
-      }),
-      headers: {
-        'content-type': 'application/json',
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((e) => [console.log(e)]);
+    // fetch('/api/sms', {
+    //   method: 'POST',
+    //   body: JSON.stringify({
+    //     message,
+    //   }),
+    //   headers: {
+    //     'content-type': 'application/json',
+    //   },
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     console.log(data);
+    //   })
+    //   .catch((e) => [console.log(e)]);
 
     setIsSubmitting(false);
     setFormSent(true);
