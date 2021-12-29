@@ -1,6 +1,6 @@
-import Button from '@components/common/Button/Button';
-import CustomForm from '@components/contact/CustomForm/CustomForm';
-import styles from './contact.module.scss';
+import Button from "@components/common/Button/Button";
+import CustomForm from "@components/contact/CustomForm/CustomForm";
+import styles from "./contact.module.scss";
 
 function contact() {
   return (

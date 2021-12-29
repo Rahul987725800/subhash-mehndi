@@ -1,8 +1,8 @@
-import styles from './Footer.module.scss';
-import FacebookIcon from '@public/logos/facebook.svg';
-import InstagramIcon from '@public/logos/instagram.svg';
-import GoogleIcon from '@public/logos/google.svg';
-import Button from '@components/common/Button/Button';
+import styles from "./Footer.module.scss";
+import FacebookIcon from "@public/logos/facebook.svg";
+import InstagramIcon from "@public/logos/instagram.svg";
+import GoogleIcon from "@public/logos/google.svg";
+import Button from "@components/common/Button/Button";
 function Footer() {
   return (
     <footer className={styles.footer}>
@@ -27,8 +27,9 @@ function Footer() {
             >
               <InstagramIcon />
             </a>
-
-            <GoogleIcon />
+            <a href="https://maps.app.goo.gl/J6Pyce3HWss9HzyB9" target="_blank">
+              <GoogleIcon />
+            </a>
           </div>
         </div>
         <div className={styles.contactUs}>
@@ -36,7 +37,7 @@ function Footer() {
           <div className={styles.info}>
             <div className={styles.buttons}>
               <a href="tel: 7508621822">
-                Call Now &nbsp;{' '}
+                Call Now &nbsp;{" "}
                 <i className="fa fa-phone" aria-hidden="true"></i>
               </a>
 
